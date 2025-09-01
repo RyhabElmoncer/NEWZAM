@@ -45,7 +45,8 @@
           <div class="options mt-3 d-flex justify-content-center flex-wrap">
             <button *ngFor="let option of boxQuestions[0][boxCurrentQuestion]?.options || []"
                     class="btn btn-outline-primary m-2"
-                    [class.active]="boxQuestions[0][boxCurrentQuestion]?.selected === option.value"
+                    [class.active]="boxQuestions[0][boxCurrentQuestion].selected === option.value"
+
                     (click)="selectBoxOption(boxQuestions[0][boxCurrentQuestion], option.value)">
               {{option.label}}
             </button>
@@ -60,7 +61,7 @@
           <div class="options mt-3 d-flex justify-content-center flex-wrap">
             <button *ngFor="let option of boxQuestions[1][boxCurrentQuestion]?.options || []"
                     class="btn btn-outline-primary m-2"
-                    [class.active]="boxQuestions[1][boxCurrentQuestion]?.selected === option.value"
+                    [class.active]="boxQuestions[1][boxCurrentQuestion].selected === option.value"
                     (click)="selectBoxOption(boxQuestions[1][boxCurrentQuestion], option.value)">
               {{option.label}}
             </button>
@@ -206,9 +207,9 @@
         <div *ngIf="mobileQuestions && mobileQuestions[0] && mobileQuestions[0][mobileCurrentQuestion]" class="question text-center">
           <h5 class="font-weight-bold" style="font-size: 1.7rem;">{{mobileQuestions[0][mobileCurrentQuestion].text}}</h5>
           <div class="options mt-3 d-flex justify-content-center flex-wrap">
-            <button *ngFor="let option of mobileQuestions[0][mobileCurrentQuestion]?.options || []"
+            <button *ngFor="let option of mobileQuestions[0][mobileCurrentQuestion].options || []"
                     class="btn btn-outline-primary m-2"
-                    [class.active]="mobileQuestions[0][mobileCurrentQuestion]?.selected === option.value"
+                    [class.active]="mobileQuestions[0][mobileCurrentQuestion].selected === option.value"
                     (click)="selectMobileOption(mobileQuestions[0][mobileCurrentQuestion], option.value)">
               {{option.label}}
             </button>
@@ -223,7 +224,7 @@
           <div class="options mt-3 d-flex justify-content-center flex-wrap">
             <button *ngFor="let option of mobileQuestions[1][mobileCurrentQuestion]?.options || []"
                     class="btn btn-outline-primary m-2"
-                    [class.active]="mobileQuestions[1][mobileCurrentQuestion]?.selected === option.value"
+                    [class.active]="mobileQuestions[1][mobileCurrentQuestion].selected === option.value"
                     (click)="selectMobileOption(mobileQuestions[1][mobileCurrentQuestion], option.value)">
               {{option.label}}
             </button>

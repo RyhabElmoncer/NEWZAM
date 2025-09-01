@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import {ApiService} from '../../../../core/services/ApiService';
 import {AddressSearchComponent} from '../../search-address/search-address.component';
-import {NgIf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 
 interface Option {
   label: string;
@@ -39,7 +39,8 @@ interface UserInfo {
   imports: [
     FormsModule,
     AddressSearchComponent,
-    NgIf
+    NgIf,
+    NgForOf
   ],
   styleUrls: ['./stepper-linear-component.component.scss']
 })
