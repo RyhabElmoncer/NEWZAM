@@ -1,0 +1,351 @@
+ [title]="'Simulateur pour trouver la meilleure offre'" subtitle="">
+<nav aria-label="breadcrumb" class="breadcrumb-nav mb-4">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Accueil</a>
+      </li>
+      <li class="breadcrumb-item active">Simulateur d'offres</li>
+    </ol>
+  </div>
+</nav>
+
+<div class="p-4 bg-light rounded-lg shadow-lg">
+
+  <div class="step-switcher mb-5 text-center">
+    <div class="btn-group btn-group-toggle" data-toggle="buttons">
+      <label class="btn btn-outline-primary" [class.active]="selectedTab === 'box'" (click)="selectTab('box')">
+        <input type="radio" name="options" [checked]="selectedTab === 'box'"> Box Internet
+      </label>
+      <label class="btn btn-outline-primary" [class.active]="selectedTab === 'mobile'" (click)="selectTab('mobile')">
+        <input type="radio" name="options" [checked]="selectedTab === 'mobile'"> Forfait Mobile
+      </label>
+    </div>
+
+
+  <!-- Stepper pour Box Internet -->
+  <div *ngIf="selectedTab === 'box'">
+    <div class="stepper-wrapper">
+      <div class="stepper-container">
+        <div *ngFor="let step of boxSteps; let i = index"
+             class="step"
+             [class.active]="boxCurrentStep === i+1"
+             [class.completed]="boxCurrentStep > i+1">
+          <div class="step-counter">{{i+1}}</div>
+          <div class="step-name">{{step}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-content mt-4 p-4 bg-white rounded shadow-sm">
+      <!-- Étape 1 - Questions choix Box -->
+      <div *ngIf="boxCurrentStep === 1">
+        <div *ngIf="boxQuestions && boxQuestions[0] && boxQuestions[0][boxCurrentQuestion]" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">{{boxQuestions[0][boxCurrentQuestion].text}}</h5>
+          <div class="options mt-3 d-flex justify-content-center flex-wrap">
+            <button *ngFor="let option of boxQuestions[0][boxCurrentQuestion]?.options || []"
+                    class="btn btn-outline-primary m-2"
+                    [class.active]="boxQuestions[0][boxCurrentQuestion]?.selected === option.value"
+                    (click)="selectBoxOption(boxQuestions[0][boxCurrentQuestion], option.value)">
+              {{option.label}}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 2 - Questions préférences -->
+      <div *ngIf="boxCurrentStep === 2">
+        <div *ngIf="boxQuestions && boxQuestions[1] && boxQuestions[1][boxCurrentQuestion]" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">{{boxQuestions[1][boxCurrentQuestion].text}}</h5>
+          <div class="options mt-3 d-flex justify-content-center flex-wrap">
+            <button *ngFor="let option of boxQuestions[1][boxCurrentQuestion]?.options || []"
+                    class="btn btn-outline-primary m-2"
+                    [class.active]="boxQuestions[1][boxCurrentQuestion]?.selected === option.value"
+                    (click)="selectBoxOption(boxQuestions[1][boxCurrentQuestion], option.value)">
+              {{option.label}}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 3 - Informations personnelles -->
+      <div *ngIf="boxCurrentStep === 3">
+        <div *ngIf="boxCurrentQuestion === 0" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quelle est votre adresse ?</h5>
+          <div class="mt-3">
+            <app-search-address name="address" class="mt-3"
+                                (addressFound)="handleAddressFound($event)"></app-search-address>
+          </div>
+        </div>
+
+        <div *ngIf="boxCurrentQuestion === 1" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quel est votre nom et prénom ?</h5>
+          <div class="mt-3">
+            <input type="text" class="form-control"
+                   [(ngModel)]="userInfo.fullName"
+                   placeholder="Ex: Jean Dupont">
+          </div>
+        </div>
+
+        <div *ngIf="boxCurrentQuestion === 2" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quel est votre email ?</h5>
+          <div class="mt-3">
+            <input type="email" class="form-control"
+                   [(ngModel)]="userInfo.email"
+                   placeholder="Ex: jean.dupont@example.com"
+                   (input)="validateEmail()">
+            <small *ngIf="userInfo.email && !isValidEmail(userInfo.email)" class="text-danger">
+              Veuillez entrer une adresse email valide
+            </small>
+          </div>
+        </div>
+
+        <div *ngIf="boxCurrentQuestion === 3" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quel est votre numéro de mobile ?</h5>
+          <div class="mt-3">
+            <input type="tel" class="form-control"
+                   [(ngModel)]="userInfo.phoneNumber"
+                   placeholder="Ex: 0612345678"
+                   (input)="validatePhoneNumber()">
+            <small *ngIf="userInfo.phoneNumber && userInfo.phoneNumber.length !== 10" class="text-danger">
+              Le numéro doit contenir 10 chiffres
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 4 - Récapitulatif -->
+      <div *ngIf="boxCurrentStep === 4">
+        <div class="summary">
+          <h5 class="mb-3 text-center font-weight-bold" style="font-size: 1.7rem;">Confirmation de vos informations :</h5>
+
+          <div class="mb-4">
+            <ul class="list-group">
+              <li *ngFor="let step of boxQuestions || []" class="list-group-item">
+                <div *ngFor="let question of step || []">
+                  <strong>{{question?.text}} :</strong> {{ getQuestionLabel(question) }}
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-4">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Adresse :</strong> {{userInfo.address?.label || 'Non renseignée'}}</li>
+              <li class="list-group-item"><strong>Nom complet :</strong> {{userInfo.fullName || 'Non renseigné'}}</li>
+              <li class="list-group-item"><strong>Email :</strong> {{userInfo.email || 'Non renseigné'}}</li>
+              <li class="list-group-item"><strong>Téléphone :</strong> {{userInfo.phoneNumber || 'Non renseigné'}}</li>
+            </ul>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="professionalUse" [(ngModel)]="professionalUse">
+            <label class="form-check-label" for="professionalUse">
+              Je confirme utiliser ces informations à des fins professionnelles
+            </label>
+          </div>
+
+          <div class="stepper-nav mt-4 pt-3 border-top d-flex justify-content-center">
+            <button class="btn btn-outline-primary"
+                    (click)="boxCurrentStep = 3; boxCurrentQuestion = 3">
+              <i class="fas fa-arrow-left"></i> Précédent
+            </button>
+            <button class="btn btn-success ml-2"
+                    (click)="completeBox()"
+                    [disabled]="isLoading || !professionalUse">
+              <span *ngIf="!isLoading">
+                Confirmer <i class="fas fa-check"></i>
+              </span>
+              <span *ngIf="isLoading">
+                <i class="fas fa-spinner fa-spin"></i> Envoi en cours...
+              </span>
+            </button>
+            <button class="btn btn-info ml-2"
+                    (click)="resetSteps()"
+                    *ngIf="boxCurrentStep === boxSteps.length">
+              <i class="fas fa-redo"></i> Recommencer
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation - Boutons en bas -->
+      <div class="stepper-nav mt-4 pt-3 border-top d-flex justify-content-center">
+        <button class="btn btn-outline-primary"
+                *ngIf="(boxCurrentStep > 1 || (boxCurrentStep === 1 && boxCurrentQuestion > 0)) && boxCurrentStep !== 4"
+                (click)="previousBoxQuestion()">
+          <i class="fas fa-arrow-left"></i> Précédent
+        </button>
+        <button class="btn btn-primary ml-2"
+                *ngIf="boxCurrentStep < boxSteps.length"
+                (click)="nextBoxQuestion()"
+                [disabled]="!canGoToNextBoxQuestion()">
+          Suivant <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stepper pour Forfait Mobile -->
+  <div *ngIf="selectedTab === 'mobile'">
+    <div class="stepper-wrapper">
+      <div class="stepper-container">
+        <div *ngFor="let step of mobileSteps; let i = index"
+             class="step"
+             [class.active]="mobileCurrentStep === i+1"
+             [class.completed]="mobileCurrentStep > i+1">
+          <div class="step-counter">{{i+1}}</div>
+          <div class="step-name">{{step}}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="step-content mt-4 p-4 bg-white rounded shadow-sm">
+      <!-- Étape 1 - Questions besoins mobiles -->
+      <div *ngIf="mobileCurrentStep === 1">
+        <div *ngIf="mobileQuestions && mobileQuestions[0] && mobileQuestions[0][mobileCurrentQuestion]" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">{{mobileQuestions[0][mobileCurrentQuestion].text}}</h5>
+          <div class="options mt-3 d-flex justify-content-center flex-wrap">
+            <button *ngFor="let option of mobileQuestions[0][mobileCurrentQuestion]?.options || []"
+                    class="btn btn-outline-primary m-2"
+                    [class.active]="mobileQuestions[0][mobileCurrentQuestion]?.selected === option.value"
+                    (click)="selectMobileOption(mobileQuestions[0][mobileCurrentQuestion], option.value)">
+              {{option.label}}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 2 - Questions options -->
+      <div *ngIf="mobileCurrentStep === 2">
+        <div *ngIf="mobileQuestions && mobileQuestions[1] && mobileQuestions[1][mobileCurrentQuestion]" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">{{mobileQuestions[1][mobileCurrentQuestion].text}}</h5>
+          <div class="options mt-3 d-flex justify-content-center flex-wrap">
+            <button *ngFor="let option of mobileQuestions[1][mobileCurrentQuestion]?.options || []"
+                    class="btn btn-outline-primary m-2"
+                    [class.active]="mobileQuestions[1][mobileCurrentQuestion]?.selected === option.value"
+                    (click)="selectMobileOption(mobileQuestions[1][mobileCurrentQuestion], option.value)">
+              {{option.label}}
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 3 - Informations personnelles -->
+      <div *ngIf="mobileCurrentStep === 3">
+        <div *ngIf="mobileCurrentQuestion === 0" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quelle est votre adresse ?</h5>
+          <div class="mt-3">
+            <app-search-address name="address" class="mt-3"
+                                (addressFound)="handleAddressFound($event)"></app-search-address>
+          </div>
+        </div>
+
+        <div *ngIf="mobileCurrentQuestion === 1" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quel est votre nom et prénom ?</h5>
+          <div class="mt-3">
+            <input type="text" class="form-control"
+                   [(ngModel)]="userInfo.fullName"
+                   placeholder="Ex: Jean Dupont">
+          </div>
+        </div>
+
+        <div *ngIf="mobileCurrentQuestion === 2" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quel est votre email ?</h5>
+          <div class="mt-3">
+            <input type="email" class="form-control"
+                   [(ngModel)]="userInfo.email"
+                   placeholder="Ex: jean.dupont@example.com"
+                   (input)="validateEmail()">
+            <small *ngIf="userInfo.email && !isValidEmail(userInfo.email)" class="text-danger">
+              Veuillez entrer une adresse email valide
+            </small>
+          </div>
+        </div>
+
+        <div *ngIf="mobileCurrentQuestion === 3" class="question text-center">
+          <h5 class="font-weight-bold" style="font-size: 1.7rem;">Quel est votre numéro de mobile ?</h5>
+          <div class="mt-3">
+            <input type="tel" class="form-control"
+                   [(ngModel)]="userInfo.phoneNumber"
+                   placeholder="Ex: 0612345678"
+                   (input)="validatePhoneNumber()">
+            <small *ngIf="userInfo.phoneNumber && userInfo.phoneNumber.length !== 10" class="text-danger">
+              Le numéro doit contenir 10 chiffres
+            </small>
+          </div>
+        </div>
+      </div>
+
+      <!-- Étape 4 - Récapitulatif -->
+      <div *ngIf="mobileCurrentStep === 4">
+        <div class="summary">
+          <h5 class="mb-3 text-center font-weight-bold" style="font-size: 1.7rem;">Confirmation de vos informations :</h5>
+
+          <div class="mb-4">
+            <ul class="list-group">
+              <li *ngFor="let step of mobileQuestions || []" class="list-group-item">
+                <div *ngFor="let question of step || []">
+                  <strong>{{question?.text}} :</strong> {{ getQuestionLabel(question) }}
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="mb-4">
+            <ul class="list-group">
+              <li class="list-group-item"><strong>Adresse :</strong> {{userInfo.address?.label || 'Non renseignée'}}</li>
+              <li class="list-group-item"><strong>Nom complet :</strong> {{userInfo.fullName || 'Non renseigné'}}</li>
+              <li class="list-group-item"><strong>Email :</strong> {{userInfo.email || 'Non renseigné'}}</li>
+              <li class="list-group-item"><strong>Téléphone :</strong> {{userInfo.phoneNumber || 'Non renseigné'}}</li>
+            </ul>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="checkbox" id="professionalUseMobile" [(ngModel)]="professionalUse">
+            <label class="form-check-label" for="professionalUseMobile">
+              Je confirme utiliser ces informations à des fins professionnelles
+            </label>
+          </div>
+
+          <div class="stepper-nav mt-4 pt-3 border-top d-flex justify-content-center">
+            <button class="btn btn-outline-primary"
+                    (click)="mobileCurrentStep = 3; mobileCurrentQuestion = 3">
+              <i class="fas fa-arrow-left"></i> Précédent
+            </button>
+            <button class="btn btn-success ml-2"
+                    (click)="completeMobile()"
+                    [disabled]="isLoading || !professionalUse">
+              <span *ngIf="!isLoading">
+                Confirmer <i class="fas fa-check"></i>
+              </span>
+              <span *ngIf="isLoading">
+                <i class="fas fa-spinner fa-spin"></i> Envoi en cours...
+              </span>
+            </button>
+            <button class="btn btn-info ml-2"
+                    (click)="resetSteps()"
+                    *ngIf="mobileCurrentStep === mobileSteps.length">
+              <i class="fas fa-redo"></i> Recommencer
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stepper-nav mt-4 pt-3 border-top d-flex justify-content-center">
+        <button class="btn btn-outline-primary"
+                *ngIf="(mobileCurrentStep > 1 || (mobileCurrentStep === 1 && mobileCurrentQuestion > 0)) && mobileCurrentStep !== 4"
+                (click)="previousMobileQuestion()">
+          <i class="fas fa-arrow-left"></i> Précédent
+        </button>
+        <button class="btn btn-primary ml-2"
+                *ngIf="mobileCurrentStep < mobileSteps.length"
+                (click)="nextMobileQuestion()"
+                [disabled]="!canGoToNextMobileQuestion()">
+          Suivant <i class="fas fa-arrow-right"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>

@@ -8,23 +8,19 @@ export interface AddressAPIResult {
   properties: AddressAPIProperties;
   type: string;
 }
-
 export interface AddressAPIProperties {
-  city: string;
-  citycode: string;
-  context: string;
-  housenumber: string;
-  id: string;
-  importance: number;
-  label: string;
-  name: string;
-  postcode: string;
-  score: number;
-  street: string;
-  type: 'housenumber' | 'street' | 'locality' | 'municipality';
-  x: string;
-  y: string;
+  label?: string;
+  label_adress?: string;   // ajouté
+  nom?: string;            // ajouté
+  housenumber?: string;
+  postcode?: string;       // déjà existant
+  post_code?: string;      // ajouté pour compatibilité API
+  city?: string;
+  insee_com?: string;      // ajouté
+  citycode?: string;
+  id?: string;
 }
+
 
 export interface AddressAPIGeometry {
   type: 'Position' | 'Point' | 'MultiPoint' | 'LineString' | 'MultiLineString' | 'Polygon' | 'MultiPolygon' | 'GeometryCollection';
@@ -72,7 +68,6 @@ export class AddressService {
   protected get(loadOptions: {
     q?: string;
     limit?: number;
-    type?: AddressAPIProperties['type'];
     autocomplete?: 0 | 1;
   }): Observable<AddressAPIResult[]> {
     const options = {
@@ -101,11 +96,9 @@ export class AddressService {
    */
   search(
     text: string,
-    limit = 8,
-    type: AddressAPIProperties['type'] = 'housenumber',
     autocomplete: 0 | 1 = 0
   ): Observable<AddressAPIResult[]> {
-    return this.get({ q: text, limit, type, autocomplete });
+    return this.get({ q: text, autocomplete });
   }
 
   /**

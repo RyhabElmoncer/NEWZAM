@@ -1,1 +1,183 @@
 <app-speedtest></app-speedtest>
+<div class="mb-5"></div>
+<div class="container bg-light">
+  <div class="p-3">
+    <h1 class="title mt-2">Testez votre éligibilité à la fibre</h1>
+    <p>Faites le point sur votre situation en réalisant également un test éligibilité fibre. Ce test gratuit permet
+      de savoir si votre logement est éligible à la fibre optique. Vous accéderez aussi à la liste complète des
+      offres box fibre disponibles chez vous.</p>
+  </div>
+
+  <div class="cta cta-separator cta-border-image cta-half mb-0 bg-light"
+  >
+    <div class="cta-border-wrapper bg-light">
+      <div class="row ">
+
+
+        <div class="col-lg-4 bg-light" contentAnim aniName="blurIn">
+          <div class="cta-wrapper text-center">
+            <img src="assets/images/couverture-internet-3mb.png" alt="About" style="width: 90%; margin-right: auto; margin-left: auto" class="text-center"/>
+            <p class="text-center">Taux de logements éligibles à la fibre</p>
+
+
+          </div>
+        </div>
+
+
+        <div class="col-lg-6 bg-light p-4" contentAnim aniName="blurIn">
+          <form class="mt-4" [formGroup]="editForm">
+            <h2 class="title mt-2 text-center">Êtes-vous éligible à la fibre ?</h2>
+
+            <div class="form-group mt-3">
+              <!-- Remplacement de app-search-address -->
+              <input #elSearchAddress [placeholder]="'Entrez votre adresse domicile'"
+                     class="form-control" formControlName="address"
+                     name="address" style="width: 100%;">
+
+              <div *ngIf="listAddresses" class="mt-1 address-results-container">
+                <ul class="address-results-list">
+                  <li class="address-result-item"
+                      *ngFor="let addressList of listAddresses | async; let isOdd = odd;"
+                      (click)="selectAddress(addressList)">
+                    <p class="ml-4 hero-desc address-result-text">
+                      <i class="icon-map-marker"></i>
+                      {{addressList.properties.label}}
+                      <span *ngIf="addressList.properties.city" class="address-city">
+            ({{addressList.properties.city}})
+          </span>
+                    </p>
+                  </li>
+                </ul>
+              </div>
+
+            </div>
+            <!--   <div class="form-group mt-3">
+                 <app-search-address name="address" class="mt-3"
+                                     (addressFound)="debugAddressFound($event)"></app-search-address>
+               </div>
+-->
+            <div class="form-group">
+              <input name="phone" formControlName="phone" [(ngModel)]="phone" class="form-control" type="phone"
+                     (keyup)="validateToPhone()"    [ngClass]="{'is-invalid': !isValidate}"  placeholder="N° pour vous joindre*" value="">
+              <div
+                *ngIf="editForm.get('phone')!.invalid && (editForm.get('phone')!.dirty || editForm.get('phone')!.touched)">
+                <small class="form-text text-danger"
+                       *ngIf="editForm.get('phone')?.errors?.['required']"
+                       translate="entity.validation.required">
+
+                </small>
+              </div>
+            </div>
+          </form>
+
+          <a [class.disabled]="!isValidate" href="javascript:;" (click)="lancerTest()"
+             class="btn btn-g btn-minwidth float-right btn-outline-primary-2">
+            Lancer le test
+          </a>
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="mb-5 mt-3"></div>
+
+<div class="mb-2"></div>
+
+
+<div class="page-content pb-0" contentAnim aniName="fadeInLeftShorter">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-lg-12 mb-3 mb-lg-0">
+        <h2 class="title mt-2">Internet à la maison, quel débit Internet choisir ?</h2>
+        <p>Afin de vous aider à mieux comprendre les différentes vitesses de débit Internet, voici un schéma
+          illustrant les différents débits Internet et leurs usages associés . Entre 50 MB/s (Megabit seconde) et 10
+          GB/s (Gigabit seconde) quel débit choisir ? Tout dépend bien évidemment de votre manière de consommer
+          Internet et du nombre de personne connectée dans votre foyer.</p>
+        <br>
+        <p style="font-weight: bold">Internet - TV connectées - Streaming - Jeux vidéos - Plusieurs personnes
+          connectées simultanément</p>
+        <br>
+        <p>Avant de choisir votre débit Internet, il faut donc connaître votre consommation d’Internet de tous les
+          jours. Etes vous plusieurs personnes connectées en même temps dans votre foyer? Combien de téléviseurs
+          seront connectés à Internet en même temps ? Vos besoins en terme de télétravail, tel que les téléchargements
+          de dossiers, les visio-conférences, sont aussi un élément à prendre en compte.
+          Pour un usage intensif tel que pour des familles ou des personnes qui télétravaillent à la maison, nous vous
+          recommandons d’opter pour la fibre sans hésiter.</p>
+        <br>
+        <p>Avant de souscrire à un nouvel abonnement Internet, il est important de s’assurer que la Box qui vous sera
+          livrée satisfasse vos besoins. Un design sympathique, un débit montant et descendant important (fibre ou
+          VDSL), le coût d’installation et bien sûr le prix de votre abonnement internet.
+          Aujourd’hui, la concurrence entre les opérateurs d’Internet en françe est grande, et en changeant
+          d’opérateur vous pourriez réaliser de sérieuses économies en comparaison au prix de votre abonnement actuel.
+          Nous avons mis à votre disposition un comparateur d’abonnement Internet pour la françe afin de vous aider
+          dans votre choix.</p>
+        <br>
+
+        <h2 class="title mt-2">Mon domicile n'est pas raccordé à la fibre, nos solutions !
+        </h2>
+
+        <p>
+          Vous avez fait plusieurs tests d’éligibilité à la fibre sur les différents sites des opérateurs Internet et
+          votre logement n’est pas raccordé à la fibre. Tout d’abord, nous vous conseillons de vous renseigner auprès
+          de vos voisins et savoir si ils rencontrent le même problème.
+          Vous pouvez également vous renseigner auprès de votre mairie pour connaitre les rues connectées à la fibre.
+          Après ces différentes démarches, vous constatez l’âme en peine que votre logement ne pourra pas bénéficier
+          de la fibre , rassurez vous, il existe d’autres solutions. Tout d’abord, vous pouvez toujours opter pour une
+          connexion VDSL. Certes, votre connexion sera légèrement moins rapide que la fibre mais des opérateurs
+          proposent des abonnements VDSL à plus de 600Mo et ce niveau de débit est déjà très acceptable.
+        </p>
+        <p>
+          Une autre solution est le Hotspot. Avec l’arrivée de la 5G vous pouvez recevoir Internet dans votre domicile
+          à très haut débit. Pour cela il suffit au préalable que votre logement soit couvert par une antenne 5G. Sur
+          le site Zoneadslmobile vous pourrez vérifier si votre logement capte la 5G ou la 4G.
+        </p>
+
+        <br>
+        <h2 class="title mt-2">Comment trouver un abonnement Internet France pas cher ?</h2>
+        <p>
+          Pour bénéficier des meilleures offres Internet, il est important de comparer les différentes offres Internet
+          via un comparateur. En effet, les opérateurs Internet en françe proposent régulièrement des promotions très
+          intéressantes qui vous permets de faire réduire la facture de votre abonnement Internet. Certaines offres
+          proposent des réductions à vie et d’autres des promotions sur quelques mois pouvant aller jusqu’à 24 mois.
+          Avant de souscrire à un abonnement Internet, vérifiez bien les frais d’activation de votre ligne Internet
+          ainsi que la durée d’engagement de votre contrat, si vous souhaitez quitter votre opérateur Internet avant
+          la fin du contrat vous devrez vous acquitter des mensualités jusqu’à la fin de votre engagement qui est en
+          général entre 12 ou 24 mois.
+        </p>
+        <h2>Test de débit mobile : évaluez la vitesse réelle de votre connexion</h2>
+        <p>    Vous avez l’impression que votre connexion mobile ralentit ? Les vidéos prennent du temps à charger, vos appels en visio figent ou les téléchargements deviennent interminables ? Avant de changer de forfait ou de téléphone, il est essentiel de tester votre débit mobile pour savoir ce qu’il en est vraiment.
+          Le test de débit mobile permet de mesurer trois éléments fondamentaux : la vitesse de téléchargement (débit descendant), la vitesse d’envoi (débit montant), et la réactivité de la connexion (latence ou ping). Ces données sont les meilleurs indicateurs pour savoir si votre réseau est performant, ou s’il est limité par des facteurs extérieurs comme la qualité du signal, la charge du réseau ou encore la compatibilité de votre appareil.
+        </p>
+        <h3>Pourquoi faire un test de débit mobile ?</h3>
+        <p> Le test vous aide à comprendre ce que vous pouvez vraiment attendre de votre réseau à l’instant T. Une connexion fluide nécessite un bon débit descendant, idéal pour regarder des vidéos, naviguer ou écouter de la musique en streaming. Un débit montant rapide est essentiel pour envoyer des fichiers, utiliser le cloud ou faire des appels vidéo sans coupure. Quant à la latence, plus elle est basse, plus vos actions sont instantanées : c’est capital pour le jeu en ligne ou les visios.
+          Tester son débit mobile, c’est donc avoir une vision claire de la performance réelle de son forfait, sans se fier uniquement aux promesses commerciales. Cela permet aussi d’identifier les moments ou les endroits où la qualité du réseau chute, et d’agir en conséquence.
+        </p>
+        <h3>Comment faire un test fiable ?</h3>
+        <p> Pour obtenir un résultat représentatif, il faut désactiver le Wi-Fi et se connecter uniquement via le réseau mobile. Lancez le test dans un endroit fixe, sans bouger, et si possible loin des murs épais ou des sources d’interférences. Faites également le test à différents moments de la journée pour observer les variations, car la vitesse peut chuter en période de forte affluence.
+          Il est important de comprendre que chaque test reflète une situation précise, influencée par la couverture réseau, la distance aux antennes, le type de réseau (4G ou 5G), ou encore la capacité de votre smartphone. Il est donc normal de constater des écarts entre deux mesures, même à quelques minutes d’intervalle.
+        </p>
+        <h3>Ce qui peut ralentir votre connexion</h3>
+        <p> De nombreux éléments influencent la vitesse de votre réseau mobile. La localisation est l’un des premiers facteurs : certaines zones, notamment rurales ou en intérieur, captent moins bien. Le type de réseau utilisé joue également un rôle majeur : la 5G offre de meilleures performances que la 4G, elle-même bien plus rapide que la 3G. L’état du réseau à un moment donné, la qualité de votre téléphone ou même le nombre d’utilisateurs connectés autour de vous peuvent ralentir votre connexion.
+        </p>
+        <h3>Améliorer son débit mobile, c’est possible</h3>
+        <p>  Si vous constatez des lenteurs fréquentes, plusieurs solutions existent. Vous pouvez tout d’abord tester différentes pièces de votre logement pour trouver la zone avec la meilleure réception. Évitez d’utiliser trop d’applications en simultané, car elles peuvent consommer de la bande passante sans que vous vous en rendiez compte. Redémarrer régulièrement votre téléphone permet aussi de réinitialiser le signal. Et si le problème persiste, il peut être judicieux de comparer les opérateurs : dans certaines zones, passer à un autre réseau mobile permet de gagner considérablement en vitesse.
+          Le test de débit mobile, votre outil pour mieux choisir
+
+          Connaître la vitesse réelle de votre connexion mobile, c’est la première étape pour mieux utiliser Internet au quotidien. C’est aussi un excellent indicateur pour savoir si votre opérateur répond à vos attentes. En quelques secondes, vous savez si votre connexion est à la hauteur de vos usages, ou s’il est temps d’optimiser votre réseau… voire de changer de forfait.
+        </p>   </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="mb-7"></div>

@@ -66,7 +66,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   goToStepper() {
-    this.router.navigate(['/box-internet/compa']);
+    this.router.navigate(['/Stepper']);
   }
 
   /**

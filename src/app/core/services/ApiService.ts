@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {BehaviorSubject, Observable} from 'rxjs';
+import {BehaviorSubject, catchError, Observable, of} from 'rxjs';
 
 import { environment } from '../../../environments/environment';
 import {AddressAPIResult} from './AddressService';
@@ -119,5 +119,41 @@ export class ApiService {
         responseType: 'text' // Important pour éviter les erreurs de parsing
       }
     );
+  }
+  searchOptimalAddress(query: string): Observable<any> {
+    const encodedQuery = encodeURIComponent(query.trim());
+    if (!encodedQuery) return of([]);
+
+    return this.http.get<any[]>(`https://monreseaumobile.arcep.fr/api/search_optimal/?filter=${encodedQuery}&category=territoire`).pipe(
+      map((response: any[]) => {
+        // Filtrer les résultats invalides
+        return response
+          .filter((item: any) =>
+            item.properties &&
+            item.properties.post_code &&
+            item.properties.city
+          )
+          .map((item: any) => ({
+            ...item,
+            properties: {
+              ...item.properties,
+              label: this.formatAddressLabel(item.properties)
+            }
+          }));
+      }),
+      catchError(error => {
+        console.error('Erreur API ARCEP:', error);
+        return of([]);
+      })
+    );
+  }
+  private formatAddressLabel(properties: any): string {
+    const parts = [
+      properties.housenumber,
+      properties.nom,
+      properties.post_code,
+      properties.city
+    ].filter(part => part);
+    return parts.join(' ');
   }
 }

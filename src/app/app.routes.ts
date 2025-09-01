@@ -12,6 +12,9 @@ import {
   ProtectionFinanciereComponent
 } from './features/GRYV CORP/protection-financiere/protection-financiere.component';
 import {TestdebitComponent} from './features/testdebit/testdebit.component';
+import {
+  StepperLinearComponentComponent
+} from './shared/components/Similateur/stepper-linear-component/stepper-linear-component.component';
 
 export const routes: Routes = [
   { path: '', component: AcceuilComponent, pathMatch: 'full' },
@@ -34,6 +37,8 @@ export const routes: Routes = [
  { path: 'grvv-corp/independant', component: OffresIndependantsComponent, pathMatch: 'full' },
   //testdebit
  { path: 'test-debit', component: TestdebitComponent, pathMatch: 'full' },
+  //similateur
+ { path: 'Stepper', component: StepperLinearComponentComponent, pathMatch: 'full' },
 
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

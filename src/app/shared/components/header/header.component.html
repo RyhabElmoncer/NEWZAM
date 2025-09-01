@@ -78,13 +78,17 @@
               <li><a routerLink="/mobile/forfait-bloque">Forfait bloqué</a></li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="javascript:;">
-              Test Débit <i class="icon-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/test-debit">Test de débit</a></li>
-              <li><a routerLink="/test-eligibilite">Test d'éligibilité</a></li>
+          <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
+            <a routerLink="/test-debit" (click)="closeMobileMenu()">Test Débit <i class="icon-angle-down"></i></a>
+            <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
+              <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test éligibilité fibre</a></li>
+              <li><a routerLink="/test-debit-internet" (click)="closeMobileMenu()">Test de débit internet</a></li>
+              <li><a routerLink="/test-debit-fibre" (click)="closeMobileMenu()">Test de débit internet fibre</a></li>
+              <li><a routerLink="/test-debit-4g" (click)="closeMobileMenu()">Test de débit internet 4G</a></li>
+              <li><a routerLink="/test-debit-5g" (click)="closeMobileMenu()">Test de débit internet 5G</a></li>
+              <li><a routerLink="/reseau" (click)="closeMobileMenu()">Réseau</a></li>
+              <li><a routerLink="/reseau-mobile" (click)="closeMobileMenu()">Réseau mobile</a></li>
+              <li><a routerLink="/reseau-fixe" (click)="closeMobileMenu()">Réseau fixe</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -204,10 +208,9 @@
           </ul>
         </li>
         <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
-          <a routerLink="/test-debit" (click)="closeMobileMenu()">Test Débit</a>
+          <a routerLink="/test-debit" (click)="closeMobileMenu()">Test Débit <i class="icon-angle-down"></i></a>
           <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
             <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test éligibilité fibre</a></li>
-            <li><a routerLink="/test-debit" (click)="closeMobileMenu()">Test de débit</a></li>
             <li><a routerLink="/test-debit-internet" (click)="closeMobileMenu()">Test de débit internet</a></li>
             <li><a routerLink="/test-debit-fibre" (click)="closeMobileMenu()">Test de débit internet fibre</a></li>
             <li><a routerLink="/test-debit-4g" (click)="closeMobileMenu()">Test de débit internet 4G</a></li>
@@ -217,6 +220,7 @@
             <li><a routerLink="/reseau-fixe" (click)="closeMobileMenu()">Réseau fixe</a></li>
           </ul>
         </li>
+
 
 
         <li class="nav-item">
