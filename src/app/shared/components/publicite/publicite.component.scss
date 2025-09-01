@@ -38,18 +38,22 @@ $transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 $transition-normal: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 $transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
+// Breakpoints
+$mobile: 480px;
+$tablet: 768px;
+$desktop: 992px;
+$large: 1200px;
+
 // Container principal
 .hero-carousel-container {
   width: 100%;
   min-height: 100vh;
-  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
   overflow-x: hidden;
 }
 
 // Section Hero
 .hero-section {
   position: relative;
-  padding: 2rem 1rem;
   min-height: 80vh;
   display: flex;
   flex-direction: column;
@@ -58,7 +62,6 @@ $transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 
   .section-header {
     text-align: center;
-    margin-bottom: 3rem;
     z-index: 10;
 
     .main-title {
@@ -147,20 +150,27 @@ $transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 .carousel-wrapper {
   width: 100%;
   max-width: 1400px;
-  margin: 0 auto;
-  position: relative;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  gap: 100px;
+  @media (max-width: $mobile) {
+  flex-wrap: wrap;
+    gap:20px;
+  }
 }
 
-// Container du carousel
 .carousel-container {
-  position: relative;
-  width: 100%;
-  height: clamp(400px, 50vh, 700px);
-  border-radius: $radius-2xl;
+
+  width: 70%;
+  height: clamp(200px, 50vh, 500px);
+  border-radius: 20px;
   overflow: hidden;
   background: $dark-color;
   box-shadow: $shadow-2xl;
+  z-index: 10;  /* Make sure it's above other content */
 
+  /* Optional: Apply gradient overlay */
   &::before {
     content: '';
     position: absolute;
@@ -172,7 +182,11 @@ $transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     z-index: 1;
     pointer-events: none;
   }
+  @media (max-width: $mobile) {
+  width: 100%;
+  }
 }
+
 
 // Track des slides
 .slides-track {
@@ -1163,3 +1177,63 @@ $transition-slow: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
     flex-direction: column;
   }
 }
+
+
+
+/* form */
+.eligibility{
+  display:flex; gap:12px; flex-wrap:wrap; align-items:center;
+  margin-top:12px;
+}
+.input{
+  flex:1 1 280px; min-width:260px;
+  background:#fff; border-radius:14px; border:2px solid transparent;
+  padding:14px 16px; font-size:15px; outline:none;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+}
+.input:focus{border-color:#b6e4ff}
+
+.trust{
+  display:flex; align-items:center; gap:10px; margin-top:14px;
+  background:rgba(255,255,255,.14); color:#fff; width:max-content; padding:8px 10px;
+  border-radius:12px; font-size:14px; backdrop-filter: blur(6px);
+}
+.trust .badge{
+  display:inline-flex; align-items:center; gap:6px; background:#12b886; color:#fff;
+  padding:6px 8px; border-radius:9px; font-weight:800; font-size:12px;
+}
+.trust small{opacity:.9}
+
+/* Feature tiles */
+.tiles{
+  display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:24px;
+}
+@media (min-width:840px){ .tiles{grid-template-columns:repeat(4, 1fr)} }
+.tile{
+  background: rgba(0, 0, 0, 0.07);
+  border-radius:18px; padding:18px 16px; text-align:center;
+  box-shadow:var(--shadow);
+  cursor: pointer;
+}
+.tile h4{margin:10px 0 0; font-size:18px}
+
+.icon{
+  width:46px; height:46px; margin:0 auto;
+}
+
+.btn-action {
+  background: $primary-color;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background: $dark-color;
+    transform: translateY(-1px);
+  }}

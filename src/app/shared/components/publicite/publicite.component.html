@@ -25,7 +25,59 @@
          (touchstart)="onTouchStart($event)"
          (touchend)="onTouchEnd($event)">
 
+      <div class="hero-left">
+        <h2 class="section-title">Fibre, ADSL, Mobile&nbsp;: trouvez mieux en 30&nbsp;secondes</h2>
+        <p class="section-subtitle">Entrez votre adresse et comparez les meilleures offres près de chez vous.</p>
+
+        <form class="eligibility" action="#" method="get">
+          <label class="sr-only" for="address">Votre adresse complète</label>
+          <input class="input" id="address" name="address" placeholder="Votre adresse complète" />
+          <button type="submit" class="btn-action">Tester mon éligibilité</button>
+        </form>
+
+        <div class="trust" aria-label="Avis clients">
+        <span class="badge">
+          ★ <span>Trustpilot</span>
+        </span>
+          <strong>4,7</strong>
+          <small>• 1 50 avis</small>
+        </div>
+
+        <div class="tiles" aria-label="Catégories">
+          <article class="tile">
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M9 12c-1.2 1.7-2.4 3-4 3-1.7 0-3-1.3-3-3s1.3-3 3-3c1.6 0 2.8 1.3 4 3Zm0 0c1.2-1.7 2.4-3 4-3 1.7 0 3 1.3 3 3s-1.3 3-3 3c-1.6 0-2.8-1.3-4-3Z" stroke="#1f7ae0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <h4>ADSL</h4>
+          </article>
+
+          <article class="tile">
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M7 2v6M17 2v6M5 10h14M12 14v8" stroke="#13b75f" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <h4>Fibre</h4>
+          </article>
+
+          <article class="tile">
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <path d="M3 11.5 12 4l9 7.5v7a1.5 1.5 0 0 1-1.5 1.5H4.5A1.5 1.5 0 0 1 3 18.5v-7Z" stroke="#ff8a00" stroke-width="2"/>
+              <path d="M7.5 19.5v-6h9v6" stroke="#ff8a00" stroke-width="2"/>
+            </svg>
+            <h4>Box 4G</h4>
+          </article>
+
+          <article class="tile">
+            <svg class="icon" viewBox="0 0 24 24" fill="none">
+              <rect x="7" y="2" width="10" height="20" rx="2" stroke="#4a46ff" stroke-width="2"/>
+              <circle cx="12" cy="18" r="1.2" fill="#4a46ff"/>
+            </svg>
+            <h4>Mobile</h4>
+          </article>
+        </div>
+      </div>
+
       <div class="carousel-container">
+
         <div class="slides-track"
              [style.transform]="'translateX(-' + (activeSlideIndex * 100) + '%)'">
 
@@ -47,7 +99,7 @@
           </div>
         </div>
 
-        <!-- Navigation Controls -->
+        <!-- Navigation Controls
         <div class="carousel-controls" *ngIf="slides.length > 1">
           <button class="nav-button prev"
                   (click)="prevSlide()"
@@ -66,7 +118,7 @@
               <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
             </svg>
           </button>
-        </div>
+        </div>-->
 
         <!-- Pagination Dots -->
         <div class="pagination-dots" *ngIf="slides.length > 1">

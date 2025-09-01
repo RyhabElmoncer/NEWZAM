@@ -749,10 +749,11 @@ $large: 1200px;
 
       @media (max-width: $mobile) {
         font-size: 16px;
-        background: $orange-gradient;
+        background: $green-gradient;
       }
     }
   }
+
 
   // ============ MOBILE NAVIGATION - MODIFIÉE ============
   .mobile-nav {
