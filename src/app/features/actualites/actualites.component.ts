@@ -27,7 +27,6 @@ export class ActualitesComponent implements OnInit {
 
   posts: Post[] = [];
   totalCount = 0;
-  blogCategories = [];
   loaded = false;
   toggle = false;
   firstLoad = false;
@@ -35,8 +34,6 @@ export class ActualitesComponent implements OnInit {
   itemsPerPage = 10;
   page: number = 1; // <-- initialisé pour TS2564
 
-  SERVER_URL = environment.SERVER_URL_2;
-  paddingTop = '100%';
 
   predicate = "date";
   ascending = "desc";
@@ -48,7 +45,6 @@ export class ActualitesComponent implements OnInit {
     protected router: Router,
     private apiService: ApiService,
     public utilsService: UtilsService,
-    private modalService: ModalService
   ) {
     this.activeRoute.queryParams.subscribe(param => this.loadData(param));
   }
@@ -71,27 +67,12 @@ export class ActualitesComponent implements OnInit {
     this.toggle = window.innerWidth < 992;
   }
 
-  toggleSidebar() {
-    document.body.classList.toggle('sidebar-filter-active');
-  }
 
-  hideSidebar() {
-    document.body.classList.remove('sidebar-filter-active');
-  }
 
   trackByFn(index: number, item: any) {
     return item?.slug || index;
   }
 
-  search() {
-    this.router.navigate(['/blog/listing'], {
-      queryParams: { searchTerm: this.keySearch.trim() || null, page: 1 }
-    });
-  }
-
-  applySearch() {
-    if (!this.keySearch) this.router.navigate(['/blog/listing'], { queryParams: { page: 1 } });
-  }
 
   transition(page?: number) {
     this.page = page || this.page || 1;

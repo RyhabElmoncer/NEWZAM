@@ -1,0 +1,12 @@
+<div class="page-content" *ngIf="loaded; else loading">
+  <div class="container">
+    <h2 class="post-title">{{ post.title }}</h2>
+    <p class="post-date">{{ post.date | date:'dd/MM/yyyy' }}</p>
+    <img [src]="post.imageUrl" [alt]="post.title" class="post-image">
+    <div class="post-content" [innerHTML]="post.content"></div>
+  </div>
+</div>
+
+<ng-template #loading>
+  <p class="text-center py-8">Chargement de l'article...</p>
+</ng-template>

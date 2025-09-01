@@ -15,10 +15,16 @@ import {TestdebitComponent} from './features/testdebit/testdebit.component';
 import {
   StepperLinearComponentComponent
 } from './shared/components/Similateur/stepper-linear-component/stepper-linear-component.component';
+import {VotreConseillerComponent} from './shared/components/pages/votre-conseiller/votre-conseiller.component';
+import {RgpdComponent} from './shared/components/pages/rgpd/rgpd.component';
+import {MentionsLegalesComponent} from './shared/components/pages/mentions-legales/mentions-legales.component';
+import {ContactTwoPageComponent} from './shared/components/pages/contact-two/contact-two.component';
+import {ActualitesDetailComponent} from './features/actualites/actualites-detail/actualites-detail.component';
 
 export const routes: Routes = [
   { path: '', component: AcceuilComponent, pathMatch: 'full' },
   { path: 'actualites', component: ActualitesComponent, pathMatch: 'full' },
+  { path: 'actualites/detail/:id', component: ActualitesDetailComponent },
 
   // FreePro
   { path: 'freepro', component: ListFreeComponent, pathMatch: 'full' },
@@ -39,6 +45,11 @@ export const routes: Routes = [
  { path: 'test-debit', component: TestdebitComponent, pathMatch: 'full' },
   //similateur
  { path: 'Stepper', component: StepperLinearComponentComponent, pathMatch: 'full' },
+//pages others
+  { path: 'votre-conseiller', component: VotreConseillerComponent, pathMatch: 'full' },
+  { path: 'rgpd', component: RgpdComponent, pathMatch: 'full' },
+  { path: 'mentions-legales', component: MentionsLegalesComponent, pathMatch: 'full' },
+  { path: 'contact', component: ContactTwoPageComponent, pathMatch: 'full' },
 
   { path: '**', redirectTo: '', pathMatch: 'full' },
 ];

@@ -1,0 +1,83 @@
+.h64 {
+  width: 64px;
+}
+.advisorow>div {
+  margin-top: 10px;
+  text-align: center;
+}
+.advisor1, .advisor2 {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+
+.advisorow>div {
+  margin-top: 10px;
+  text-align: center;
+}
+
+.advisor1, .advisor2 {
+  padding-bottom: 20px;
+  padding-top: 20px;
+}
+.advisor2 {
+  margin-top: 0!important;
+  min-height: 225px;
+  padding-top: 0!important;
+}
+
+.phone_number a, .phone_number a:hover {
+  text-decoration: none;
+}
+.phone_number a {
+  background-color: #fff;
+  border: 2px solid #158450;
+  border-radius: 24px;
+  color: #158450;
+  display: block;
+  font-weight: 700;
+  padding-right: 12px;
+}
+.cadre {
+  background-color: #ebebeb;
+  border-radius: 4px;
+  color: #535353;
+  height: 100%;
+  padding: 10px;
+  width: 100%;
+}
+.cadre h3 {
+  margin-top: 0;
+}
+
+.h3, .h4, h3, h4, h5, h6 {
+  color: #00425c;
+  font-stretch: normal;
+  line-height: 1.33;
+}
+.h3, h3 {
+  font-size: 21px;
+  font-weight: 400;
+}
+.freecall {
+  clear: both;
+  color: #2cba74;
+  float: right;
+  font-size: 50%;
+  font-weight: 400;
+  line-height: 120%;
+  padding-right: 18px;
+}
+
+.btnclbck, a.btnclbck {
+  background: #158450;
+  border: none;
+  border-radius: 3px;
+  color: #fff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 15px;
+  padding: 8px 20px 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+}

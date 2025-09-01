@@ -147,6 +147,7 @@ export class ApiService {
       })
     );
   }
+
   private formatAddressLabel(properties: any): string {
     const parts = [
       properties.housenumber,
@@ -156,4 +157,21 @@ export class ApiService {
     ].filter(part => part);
     return parts.join(' ');
   }
+
+  public getSingleNews(id: string): Observable<any> {
+    return this.http.get(`${environment.SERVER_URL_2}api/public/news/${id}`);
+  }
+
+  public getSingleBoxInternt(id: string): Observable<any> {
+    return this.http.get(`${environment.SERVER_URL_2}api/public/box-internets/${id}`);
+  }
+
+  public getSinglePhonePlan(id: string): Observable<any> {
+    return this.http.get(`${environment.SERVER_URL_2}api/public/phone-plans/${id}`);
+  }
+
+  public getSingleNewsByWriter(id: string): Observable<any> {
+    return this.http.get(`${environment.SERVER_URL_2}api/public/writers/all-news-of-writer/${id}`);
+  }
+
 }

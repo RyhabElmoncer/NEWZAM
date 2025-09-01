@@ -1,13 +1,15 @@
+
+
 <footer class="footer">
-  <div class="footer-middle border-0">
-    <div [ngClass]="containerClass">
+  <div class="footer-middle">
+    <div class="container">
       <div class="row">
         <div class="col-sm-6 col-lg-3">
           <div class="widget widget-about">
-            <img src="assets/images/ZONE.png" class="footer-logo" alt="Footer Logo">
+            <img src="assets/images/TELEVORA2.png" class="footer-logo" alt="Footer Logo" width="180">
 
             <div class="widget-call">
-              <i class="icon-phone"></i>
+              <i class="fas fa-phone-alt"></i>
               Vous avez une question ? Appelez-nous 24h/24 et 7j/7
               <a href="tel:+330980803537">09 80 80 35 37</a>
             </div>
@@ -31,51 +33,67 @@
 
         <div class="col-sm-6 col-lg-3">
           <div class="widget">
-            <h4 class="widget-title">CONTACT</h4>
+            <h4 class="widget-title">NOS SERVICES</h4>
             <ul class="widget-list">
-              <li><a routerLink="pages/contact">Contactez-nous</a></li>
-              <li><a routerLink="pages/votre-conseiller">Votre conseiller</a></li>
-            </ul>
-          </div>
-
-          <div class="widget">
-            <h4 class="widget-title">À PROPOS</h4>
-            <ul class="widget-list">
-              <li><a routerLink="pages/mentions-legales">Mentions légales</a></li>
-              <li><a routerLink="pages/rgpd">Politique de confidentialité</a></li>
-              <li><a routerLink="pages/cookies">Cookies</a></li>
-              <li><a routerLink="/blog/listing">Actualités</a></li>
+              <li><a href="#">Comparateur box internet
+              </a></li>
+              <li><a href="#">Comparateur forfait mobile</a></li>
+              <li><a href="/freepro">FreePro</a></li>
+              <li><a href="/gaz-electricite">Gaz & Électricité<</a></li>
             </ul>
           </div>
         </div>
 
+        <div class="col-sm-6 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title">ASSISTANCE</h4>
+            <ul class="widget-list">
+              <li><a href="#">Support Technique</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Guide d'installation</a></li>
+              <li><a href="#">État du réseau</a></li>
+              <li><a href="#">Espace Client</a></li>
+            </ul>
+          </div>
+        </div>
 
+        <div class="col-sm-6 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title">CONTACT & INFORMATIONS</h4>
+            <ul class="widget-list">
+              <li><a href="/contact">Contactez-nous</a></li>
+              <li><a href="/votre-conseiller">Votre conseiller</a></li>
+              <li><a href="/mentions-legales">Mentions légales</a></li>
+              <li><a href="/rgpd">Politique de confidentialité</a></li>
+              <li><a href="/Actualites">Actualités</a></li>
+            </ul>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <div [ngClass]="containerClass">
+    <div class="container">
       <div class="rating-container">
         <img src="assets/images/avis.png" alt="Avis Vérifiés">
         <div class="rating-stars">
-          <i class="icon-star"></i>
-          <i class="icon-star"></i>
-          <i class="icon-star"></i>
-          <i class="icon-star"></i>
-          <i class="icon-star-half"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star"></i>
+          <i class="fas fa-star-half-alt"></i>
         </div>
         <span>4.5/5 sur 287 avis</span>
       </div>
 
+
+
       <p class="footer-copyright">
-        © 2025 <a href="https://zoneadslmobile.com/">ZONE ADSL MOBILE</a> - Développé par
-        <a target="_blank" href="https://maps-it.com/">/ MapsIT</a>
+        © 2025 <a href="https://TELEVORA.fr/">TELEVORA</a> - Développé par
+        <a target="_blank" href="https://maps-it.com/">MapsIT</a>
       </p>
-
-
     </div>
   </div>
-
-  <div class="mb-10" *ngIf="isBottomSticky"></div>
 </footer>

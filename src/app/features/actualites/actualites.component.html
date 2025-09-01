@@ -23,7 +23,7 @@
         <div *ngFor="let post of posts; trackBy: trackByFn; let i = index"
              class="post-item">
 
-          <a [routerLink]="['/blog/detail/' + post.id]" class="post-card">
+          <a [routerLink]="['/actualites/detail/' + post.id]" class="post-card">
             <img [src]="post?.imageUrl"
                  [alt]="post.title"
                  class="post-image">
