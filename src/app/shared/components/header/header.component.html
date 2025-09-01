@@ -148,7 +148,9 @@
         <li class="nav-item">
           <a routerLink="/" (click)="closeMobileMenu()">Accueil</a>
         </li>
-
+        <li class="nav-item">
+          <a routerLink="/Actualites" (click)="closeMobileMenu()">Actualités</a>
+        </li>
         <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('boxInternet')">
           <a href="javascript:void(0)" (click)="toggleMobileDropdown('boxInternet')">
             Box Internet <i class="icon-angle-down"></i>
@@ -156,7 +158,8 @@
           <ul class="dropdown-menu" [class.open]="isDropdownOpen('boxInternet')">
             <li><a routerLink="/box-internet/adsl" (click)="closeMobileMenu()">ADSL</a></li>
             <li><a routerLink="/box-internet/fibre" (click)="closeMobileMenu()">Fibre</a></li>
-            <li><a routerLink="/box-internet/comparatif" (click)="closeMobileMenu()">Comparatif</a></li>
+            <li><a routerLink="/box-internet/comparatif" (click)="closeMobileMenu()">Box 4G</a></li>
+            <li><a routerLink="/box-internet/comparatif" (click)="closeMobileMenu()">Box 5G</a></li>
           </ul>
         </li>
 
@@ -165,8 +168,10 @@
             Forfait Mobile <i class="icon-angle-down"></i>
           </a>
           <ul class="dropdown-menu" [class.open]="isDropdownOpen('forfaitMobile')">
-            <li><a routerLink="/mobile/forfait-sans-engagement" (click)="closeMobileMenu()">Sans engagement</a></li>
-            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">Forfait bloqué</a></li>
+            <li><a routerLink="/mobile/forfait-sans-engagement" (click)="closeMobileMenu()">Free</a></li>
+            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">Orange</a></li>
+            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">SFR</a></li>
+            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">Bouygues</a></li>
           </ul>
         </li>
         <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
@@ -180,9 +185,7 @@
 
 
 
-        <li class="nav-item">
-          <a routerLink="/Actualites" (click)="closeMobileMenu()">Actualités</a>
-        </li>
+
         <li class="nav-item">
           <a routerLink="/freepro" (click)="closeMobileMenu()">FreePro</a>
         </li>
@@ -191,6 +194,9 @@
         </li>
         <li class="nav-item">
           <a routerLink="/grvv-corp" (click)="closeMobileMenu()">GRVV CORP</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/grvv-corp" (click)="closeMobileMenu()">Assurance</a>
         </li>
       </ul>
 
