@@ -142,6 +142,8 @@ $large: 1200px;
       }
     }
 
+
+
     .header-right {
       display: flex !important;
       align-items: center !important;
@@ -591,13 +593,14 @@ $large: 1200px;
     .container, .container-fluid {
       max-width: 1400px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 0 10px;
       display: flex !important;
       justify-content: space-between !important;
       align-items: center !important;
     }
 
     .nav-left {
+      display: flex;
       .main-nav {
         display: flex !important;
         list-style: none !important;
