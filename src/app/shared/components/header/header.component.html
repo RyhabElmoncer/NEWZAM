@@ -1,0 +1,213 @@
+<header class="header header-intro-clearance header-4">
+  <!-- Bouton mobile à GAUCHE maintenant -->
+  <button class="mobile-menu-toggle d-lg-none" (click)="onMobileMenuClick($event)">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <!-- HEADER TOP - Barre d'informations -->
+  <div class="header-top">
+    <div [class]="containerClass">
+      <div class="header-left">
+        <a routerLink="/" class="logo">
+          <img src="assets/images/zone_11.png" alt="zone adsl">
+        </a>
+        <img src="assets/images/avis.png" alt="Avis">
+        <ul class="navbar_right">
+          <li class="callcenterIsOpen">
+            <a href="tel:+33980803537" class="phone_inbound">
+              <i class="icon-phone"></i> 09 80 80 35 37
+            </a>
+            <span class="freecall">Appel gratuit</span>
+          </li>
+        </ul>
+      </div>
+      <div class="header-right">
+        <div class="header-right">
+          <div class="social-icons">
+            <a href="https://wa.me/33756892743" class="social-icon" target="_blank">
+              <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://www.facebook.com/zoneadslmobile/" class="social-icon" target="_blank">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-icon" target="_blank">
+              <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-icon" target="_blank">
+              <i class="fab fa-linkedin-in"></i>
+            </a>
+          </div>
+        </div>
+
+        <ul class="navbar_right">
+          <li class="me-3"><a routerLink="pages/contact">Contactez-nous</a></li>
+          <li><a routerLink="pages/votre-conseiller">Votre conseiller</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- HEADER MIDDLE - Logo, Recherche, Réseaux sociaux -->
+
+
+  <!-- NAVIGATION PRINCIPALE -->
+  <div class="header-navigation">
+    <div [class]="containerClass">
+      <div class="nav-left">
+        <ul class="main-nav">
+          <li class="nav-item">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+              Accueil
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="javascript:;">
+              Box Internet <i class="icon-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/box-internet/adsl">ADSL</a></li>
+              <li><a routerLink="/box-internet/fibre">Fibre</a></li>
+              <li><a routerLink="/box-internet/comparatif">Comparatif</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="javascript:;">
+              Forfait Mobile <i class="icon-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/mobile/forfait-sans-engagement">Sans engagement</a></li>
+              <li><a routerLink="/mobile/forfait-bloque">Forfait bloqué</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="javascript:;">
+              Test Débit <i class="icon-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/test-debit">Test de débit</a></li>
+              <li><a routerLink="/test-eligibilite">Test d'éligibilité</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/actualites">Actualités</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/freepro">FreePro</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/gaz-electricite">Gaz & Électricité</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="/grvv-corp">GRVV CORP</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="sticky-wrapper" [style.height]="utilsService.isSticky ? utilsService.stickyHeight + 'px' : ''">
+        <div class="header-bottom sticky-header" [class.fixed]="utilsService.isSticky">
+          <div class="w-100 px-4 d-flex justify-content-between align-items-center" style="max-width: 1400px; margin: 0 auto;">
+            <div style="justify-content: center"></div>
+            <div class="header-right">
+              <ul class="navbar_right">
+                <li>
+                  <button (click)="onShowModel()" class="rappel">être rappelé</button>
+                </li>
+                <li>
+                  <button (click)="goToStepper()" class="rappel">Simulateur d'offres</button>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MENU MOBILE - MODIFIÉ avec icônes sociales -->
+  <div class="mobile-nav" [class.active]="isMobileMenuOpen">
+    <div class="mobile-nav-content" [class.active]="isMobileMenuOpen">
+      <div class="mobile-nav-header">
+        <!-- Bouton fermeture à droite -->
+        <button class="close-btn" (click)="closeMobileMenu()">
+          <i class="fas fa-times"></i>
+        </button>
+
+        <!-- Logo centré -->
+        <a routerLink="/" class="logo" (click)="closeMobileMenu()">
+          <img src="assets/images/zone_11.png" alt="zone adsl">
+        </a>
+      </div>
+
+      <!-- Icônes sociales ajoutées -->
+      <div class="mobile-social-icons">
+        <a href="https://wa.me/33756892743" class="social-icon" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.facebook.com/zoneadslmobile/" class="social-icon" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-icon" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-icon" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </div>
+
+      <ul class="mobile-nav-menu">
+        <li class="nav-item">
+          <a routerLink="/" (click)="closeMobileMenu()">Accueil</a>
+        </li>
+
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('boxInternet')">
+          <a href="javascript:void(0)" (click)="toggleMobileDropdown('boxInternet')">
+            Box Internet <i class="icon-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('boxInternet')">
+            <li><a routerLink="/box-internet/adsl" (click)="closeMobileMenu()">ADSL</a></li>
+            <li><a routerLink="/box-internet/fibre" (click)="closeMobileMenu()">Fibre</a></li>
+            <li><a routerLink="/box-internet/comparatif" (click)="closeMobileMenu()">Comparatif</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('forfaitMobile')">
+          <a href="javascript:void(0)" (click)="toggleMobileDropdown('forfaitMobile')">
+            Forfait Mobile <i class="icon-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('forfaitMobile')">
+            <li><a routerLink="/mobile/forfait-sans-engagement" (click)="closeMobileMenu()">Sans engagement</a></li>
+            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">Forfait bloqué</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
+          <a href="javascript:void(0)" (click)="toggleMobileDropdown('testDebit')">
+            Test Débit <i class="icon-angle-down"></i>
+          </a>
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
+            <li><a routerLink="/test-debit" (click)="closeMobileMenu()">Test de débit</a></li>
+            <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test d'éligibilité</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a routerLink="/Actualites" (click)="closeMobileMenu()">Actualités</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/freepro" (click)="closeMobileMenu()">FreePro</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/gaz-electricite" (click)="closeMobileMenu()">Gaz & Électricité</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="/grvv-corp" (click)="closeMobileMenu()">GRVV CORP</a>
+        </li>
+      </ul>
+
+      <div class="mobile-nav-actions">
+        <button (click)="onShowModel(); closeMobileMenu()" class="btn-action">être rappelé</button>
+        <button (click)="goToStepper(); closeMobileMenu()" class="btn-action btn-secondary">Simulateur d'offres</button>
+      </div>
+    </div>
+  </div>
+</header>

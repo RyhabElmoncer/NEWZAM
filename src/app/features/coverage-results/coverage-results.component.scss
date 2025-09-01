@@ -1,0 +1,230 @@
+/* Container avec défilement horizontal */
+.cards-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 15px;
+  padding: 25px 0;
+  scroll-behavior: smooth;
+
+  /* equivalent of mx-auto */
+  margin-left: auto;
+  margin-right: auto;
+
+  /* optionally set a width so centering works */
+  max-width: 1200px; /* or any width you prefer */
+}
+
+
+.cards-container::-webkit-scrollbar {
+  height: 3px;
+}
+
+.cards-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 3px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+  background: #c1c1c1;
+  border-radius: 3px;
+}
+
+.cards-container::-webkit-scrollbar-thumb:hover {
+  background: #a1a1a1;
+}
+
+/* Style des cartes réduites */
+.operator-card {
+  flex: 0 0 220px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 320px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.operator-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* Logo de l'opérateur réduit */
+.operator-logo {
+  width: 60px;
+  height: 45px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+/* Section des cercles de progression réduits */
+.coverage-circles {
+  display: flex;
+  flex-direction: row;
+  gap: 25px;
+  margin: 15px 0;
+  flex-grow: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.circle-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+
+.technology-label {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+/* Cercle de progression SVG réduit */
+.progress-circle {
+  position: relative;
+  width: 70px;
+  height: 70px;
+}
+
+.progress-circle svg {
+  width: 100%;
+  height: 100%;
+  transform: rotate(-90deg);
+}
+
+.percentage-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+  pointer-events: none;
+}
+
+.circle-bg {
+  fill: none;
+  stroke: #e9ecef;
+  stroke-width: 6;
+}
+
+.circle-progress {
+  fill: none;
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dasharray 0.6s ease;
+}
+
+.circle-4g {
+  stroke: #6c757d;
+}
+
+.circle-5g {
+  stroke: #073577;
+}
+
+/* Boutons réduits */
+.action-buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+}
+
+.btn {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  text-align: center;
+  font-size: 12px;
+}
+
+.btn-primary {
+  background-color: #073577;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #0a4088;
+  transform: translateY(-1px);
+}
+
+.btn-outline-primary {
+  background-color: transparent;
+  color: #073577;
+  border: 1px solid #073577;
+}
+
+.btn-outline-primary:hover {
+  background-color: #073577;
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Message d'absence de données réduit */
+.alert {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  padding: 15px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #bee5eb;
+}
+
+.alert h5 {
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+/* Responsive pour mobile */
+@media (max-width: 768px) {
+  .operator-card {
+    flex: 0 0 190px;
+    padding: 15px;
+    min-height: 280px;
+  }
+
+  .progress-circle {
+    width: 60px;
+    height: 60px;
+  }
+
+  .percentage-text {
+    font-size: 12px;
+  }
+
+  .coverage-circles {
+    gap: 15px;
+  }
+
+  .technology-label {
+    font-size: 12px;
+  }
+
+  .btn {
+    padding: 8px 12px;
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 480px) {
+  .operator-card {
+    flex: 0 0 170px;
+    min-height: 260px;
+  }
+
+  .operator-logo {
+    width: 50px;
+    height: 38px;
+  }
+}

@@ -1,0 +1,234 @@
+<div class="hero-carousel-container">
+  <!-- Hero Carousel Section -->
+  <section class="hero-section">
+
+
+    <!-- Loading State -->
+    <div *ngIf="loadingSlides" class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>Chargement des offres en cours...</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="errorSlides" class="error-state">
+      <div class="error-icon">⚠️</div>
+      <h3>Oups! Une erreur s'est produite</h3>
+      <p>{{ errorSlides }}</p>
+      <button class="retry-btn" (click)="fetchSlides()">Réessayer</button>
+    </div>
+
+    <!-- Main Carousel -->
+    <div class="carousel-wrapper"
+         *ngIf="!loadingSlides && !errorSlides && slides.length > 0"
+         (mouseenter)="onMouseEnter()"
+         (mouseleave)="onMouseLeave()"
+         (touchstart)="onTouchStart($event)"
+         (touchend)="onTouchEnd($event)">
+
+      <div class="carousel-container">
+        <div class="slides-track"
+             [style.transform]="'translateX(-' + (activeSlideIndex * 100) + '%)'">
+
+          <div class="slide-item"
+               *ngFor="let slide of slides; let i = index"
+               [class.active]="i === activeSlideIndex"
+               [class.prev]="i === (activeSlideIndex - 1 + slides.length) % slides.length"
+               [class.next]="i === (activeSlideIndex + 1) % slides.length">
+
+            <div class="slide-background">
+              <img [src]="slide.imageUrl || 'assets/images/no-image.png'"
+                   [alt]="slide.titre"
+                   loading="lazy"
+                   class="slide-image">
+              <div class="slide-overlay"></div>
+            </div>
+
+
+          </div>
+        </div>
+
+        <!-- Navigation Controls -->
+        <div class="carousel-controls" *ngIf="slides.length > 1">
+          <button class="nav-button prev"
+                  (click)="prevSlide()"
+                  [disabled]="slides.length <= 1"
+                  aria-label="Slide précédent">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+
+          <button class="nav-button next"
+                  (click)="nextSlide()"
+                  [disabled]="slides.length <= 1"
+                  aria-label="Slide suivant">
+            <svg viewBox="0 0 24 24" fill="none">
+              <path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+          </button>
+        </div>
+
+        <!-- Pagination Dots -->
+        <div class="pagination-dots" *ngIf="slides.length > 1">
+          <button *ngFor="let slide of slides; let i = index"
+                  class="dot"
+                  [class.active]="i === activeSlideIndex"
+                  (click)="goToSlide(i)"
+                  [attr.aria-label]="'Aller au slide ' + (i + 1)">
+          </button>
+        </div>
+
+        <!-- Progress Bar -->
+        <div class="progress-container" *ngIf="slides.length > 1">
+          <div class="progress-bar" [style.width]="slideProgress + '%'"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="!loadingSlides && !errorSlides && slides.length === 0" class="empty-state">
+      <h3>Aucune offre disponible</h3>
+      <p>Revenez bientôt pour découvrir nos nouvelles offres exclusives</p>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="products-section" *ngIf="loaded">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Les bons plans du moment</h2>
+        <p class="section-subtitle">
+          Changez d'opérateur et choisissez une offre internet et un forfait mobile adapté à votre budget et à vos besoins.
+        </p>
+      </div>
+
+      <!-- Loading Skeletons -->
+      <div class="products-grid" *ngIf="!loaded">
+        <div class="product-skeleton" *ngFor="let i of [1,2,3,4,5,6]">
+          <div class="skeleton-header"></div>
+          <div class="skeleton-content">
+            <div class="skeleton-line"></div>
+            <div class="skeleton-line short"></div>
+          </div>
+          <div class="skeleton-footer"></div>
+        </div>
+      </div>
+
+      <!-- Products Grid -->
+      <div class="products-grid" *ngIf="loaded">
+        <!-- Internet Boxes -->
+        <article class="product-card" *ngFor="let item of box; trackBy: trackByFn">
+          <div class="product-header">
+            <div class="product-info">
+              <a [routerLink]="['/box-internet/detail/', item.id]" class="product-link">
+                <h3 class="product-title">{{ item.title | slice:0:30 }}</h3>
+              </a>
+              <span class="product-category">Box Internet</span>
+            </div>
+            <div class="product-image">
+              <a [routerLink]="['/box-internet/detail/', item.id]">
+                <img [src]="item.imageUrl"
+                     [alt]="item.title"
+                     loading="lazy"
+                     class="product-img">
+              </a>
+            </div>
+          </div>
+
+          <div class="product-price">
+            <span class="price-value">{{ item.price.toFixed(2) }}€</span>
+
+            <span class="price-period">/mois</span>
+          </div>
+
+          <div class="product-features">
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      fill="currentColor"/>
+              </svg>
+              <span class="engagement-text" *ngIf="item.isWithoutEngagement">
+                Engagement {{ item?.period }} Mois
+              </span>
+              <span class="engagement-text" *ngIf="!item.isWithoutEngagement">
+                Sans Engagement
+              </span>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <button class="callback-btn" (click)="onShowModel()">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Être rappelé
+            </button>
+            <a [routerLink]="['/box-internet/detail/', item.id]" class="details-btn">
+              Voir détail
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+        <!-- Mobile Plans -->
+        <article class="product-card" *ngFor="let item of phones; trackBy: trackByFn">
+          <div class="product-header">
+            <div class="product-info">
+              <a [routerLink]="['/phone-plans/detail/', item.id]" class="product-link">
+                <h3 class="product-title">{{ item.title | slice:0:30 }}</h3>
+              </a>
+              <span class="product-category">Forfait Mobile</span>
+            </div>
+            <div class="product-image">
+              <a [routerLink]="['/phone-plans/detail/', item.id]">
+                <img [src]="item.imageUrl"
+                     [alt]="item.title"
+                     loading="lazy"
+                     class="product-img">
+              </a>
+            </div>
+          </div>
+
+          <div class="product-price">
+            <span class="price-value">{{ item.price.toFixed(2) }}€</span>
+            <span class="price-period">/mois</span>
+          </div>
+
+          <div class="product-features">
+            <div class="feature-item">
+              <svg class="feature-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      fill="currentColor"/>
+              </svg>
+              <span class="engagement-text" *ngIf="item.isWithoutEngagement">
+                Engagement {{ item?.period }} Mois
+              </span>
+              <span class="engagement-text" *ngIf="!item.isWithoutEngagement">
+                Sans Engagement
+              </span>
+            </div>
+          </div>
+
+          <div class="product-actions">
+            <button class="callback-btn" (click)="onShowModel()">
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+                      stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+              Être rappelé
+            </button>
+            <a [routerLink]="['/phone-plans/detail/', item.id]" class="details-btn">
+              Voir détail
+              <svg class="btn-icon" viewBox="0 0 24 24" fill="none">
+                <path d="M7 17L17 7M17 7H7M17 7V17" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,542 @@
+/* ========== STYLES GÉNÉRAUX ========== */
+.main {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #2c3e50;
+}
+
+/* ========== SECTION HERO ========== */
+.hero-section {
+  background: linear-gradient(135deg, #1a237e 0%, #283593 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.hero-section .subtitle {
+  font-size: 1.3rem;
+  margin-bottom: 30px;
+  opacity: 0.9;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ========== SÉLECTEUR DE PROFILS ========== */
+.profile-selector {
+  background: white;
+  border-radius: 15px;
+  padding: 40px;
+  margin: -50px auto 80px;
+  max-width: 800px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  border: 1px solid #e0e0e0;
+}
+
+.profile-card {
+  background: #f8f9fa;
+  border-radius: 10px;
+  padding: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  height: 100%;
+  border: 1px solid #e0e0e0;
+}
+
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  border-color: #1a237e;
+}
+
+.profile-card.active {
+  background: #1a237e;
+  color: white;
+  border-color: #1a237e;
+}
+
+.profile-card.active p {
+  color: white !important;
+}
+
+.profile-icon {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  color: #1a237e;
+}
+
+.profile-card.active .profile-icon {
+  color: white;
+}
+
+/* ========== CARTES D'OFFRES ========== */
+.offer-card {
+  background: white;
+  border-radius: 15px;
+  padding: 30px;
+  margin-bottom: 30px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #e0e0e0;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.offer-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(26, 35, 126, 0.1);
+  border-color: #1a237e;
+}
+
+.offer-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: #1a237e;
+  color: white;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-size: 12px; /* ou toute autre taille souhaitée, ex: 1.2rem */
+  font-weight: bold;
+}
+
+.offer-badge.yellow { background: #ffc107; color: #000; }
+.offer-badge.blue { background: #1976d2; }
+.offer-badge.pink { background: #c2185b; }
+.offer-badge.purple { background: #7b1fa2; }
+.offer-badge.red { background: #d32f2f; }
+.offer-badge.green { background: #388e3c; }
+
+.offer-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #1a237e;
+}
+
+.offer-price {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #1a237e;
+  margin-bottom: 10px;
+}
+
+.offer-coverage {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.feature-list {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+  flex-grow: 1;
+}
+
+.feature-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+  display: flex;
+  align-items: center;
+}
+
+.feature-list li:last-child {
+  border-bottom: none;
+}
+
+.feature-list li i {
+  color: #1a237e;
+  margin-right: 10px;
+  font-size: 1.1rem;
+}
+
+/* ========== CONTENEUR BOUTONS ========== */
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-top: auto;
+}
+
+.call-button {
+  background: #6c757d; /* Couleur grise */
+  color: white;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  display: block;
+  text-align: center;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 15px; /* Espace entre les boutons */
+}
+
+.call-button:hover {
+  background: #5a6268; /* Gris plus foncé au survol */
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.btn-primary {
+  background: linear-gradient(45deg, #1a237e, #303f9f);
+  border: none;
+  border-radius: 25px;
+  padding: 12px 30px;
+  font-weight: bold;
+  transition: all 0.3s ease;
+  color: white;
+  width: 100%;
+  margin-top: 10px; /* Espace supplémentaire au-dessus du bouton */
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(26, 35, 126, 0.3);
+  background: linear-gradient(45deg, #303f9f, #1a237e);
+  color: white;
+}
+
+/* ========== SECTION STATISTIQUES ========== */
+.stats-section {
+  background: #f5f5f5;
+  padding: 80px 0;
+  text-align: center;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.stats-number {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #1a237e;
+  margin-bottom: 10px;
+}
+
+/* ========== INDICATEURS DE CONFIANCE ========== */
+.trust-indicators {
+  background: white;
+  padding: 60px 0;
+}
+
+.trust-item {
+  text-align: center;
+  padding: 20px;
+}
+
+.trust-icon {
+  font-size: 3rem;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.trust-item p {
+  color: white;
+}
+
+/* ========== TITRES DE SECTION ========== */
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 50px;
+  color: #1a237e;
+  position: relative;
+}
+
+.section-title:after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: #1a237e;
+  margin: 15px auto 0;
+}
+
+/* ========== SECTION PROTECTION ========== */
+.protection-info {
+  background: linear-gradient(135deg, #1a237e 0%, #303f9f 100%);
+  color: white;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.protection-info h2 {
+  color: white;
+}
+
+/* ========== SECTION AVANTAGES ========== */
+.why-choose {
+  padding: 80px 0;
+  background: #f5f5f5;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.advantage-card {
+  background: white;
+  border-radius: 10px;
+  padding: 30px;
+  text-align: center;
+  height: 100%;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+  border: 1px solid #e0e0e0;
+}
+
+.advantage-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(26, 35, 126, 0.1);
+  border-color: #1a237e;
+}
+
+.advantage-icon {
+  font-size: 3rem;
+  color: #1a237e;
+  margin-bottom: 20px;
+}
+
+/* ========== CLASSES UTILITAIRES ========== */
+.bg-light {
+  background-color: #f5f5f5 !important;
+}
+
+.bg-primary {
+  background-color: #1a237e !important;
+}
+
+.btn-outline-light {
+  border-color: white;
+  color: white;
+}
+
+.btn-outline-light:hover {
+  background-color: white;
+  color: #1a237e;
+}
+
+/* ========== BOUTONS FOOTER ========== */
+.footer-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Augmentation de l'espace entre les boutons */
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.footer-buttons .btn {
+  min-width: 200px;
+  margin: 5px; /* Espace supplémentaire autour de chaque bouton */
+}
+
+/* ========== MODIFICATION DES BOUTONS DANS LES OFFRES ========== */
+.offer-card .mt-4 {
+  margin-top: 1.5rem !important;
+}
+
+.offer-card .mt-4 a,
+.offer-card .mt-4 button {
+  margin-bottom: 15px; /* Espace entre les boutons dans les cartes d'offres */
+}
+
+.offer-card .mt-4 button:last-child {
+  margin-bottom: 0; /* Supprime la marge du dernier bouton */
+}
+
+/* ========== RESPONSIVE - TABLETTES ========== */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 60px 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-section .subtitle {
+    font-size: 1.1rem;
+    padding: 0 20px;
+  }
+
+  .profile-selector {
+    margin: -30px 15px 60px;
+    padding: 30px;
+  }
+
+  .profile-card {
+    padding: 20px;
+    margin-bottom: 15px;
+  }
+
+  .profile-icon {
+    font-size: 2rem;
+  }
+
+  .offer-card {
+    padding: 25px;
+  }
+
+  .offer-badge {
+    top: 15px;
+    right: 15px;
+    padding: 5px 12px;
+    font-size: 2.5rem;
+  }
+
+  .offer-title {
+    font-size: 1.3rem;
+  }
+
+  .offer-price {
+    font-size: 1.8rem;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .stats-number {
+    font-size: 3rem;
+  }
+
+  .trust-icon {
+    font-size: 2.5rem;
+  }
+
+  .advantage-icon {
+    font-size: 2.5rem;
+  }
+
+  .advantage-card {
+    padding: 25px;
+    margin-bottom: 20px;
+  }
+
+  .protection-info,
+  .why-choose,
+  .stats-section {
+    padding: 60px 0;
+  }
+
+  .footer-buttons {
+    flex-direction: column;
+    align-items: center;
+    gap: 15px; /* Maintient l'espace entre les boutons en responsive */
+  }
+
+  .footer-buttons .btn {
+    width: 100%;
+    max-width: 300px;
+    margin: 5px 0; /* Espace vertical entre les boutons */
+  }
+}
+
+/* ========== RESPONSIVE - MOBILES ========== */
+@media (max-width: 576px) {
+  .hero-section {
+    padding: 40px 0;
+  }
+
+  .hero-section h1 {
+    font-size: 2rem;
+  }
+
+  .hero-section .subtitle {
+    font-size: 1rem;
+  }
+
+  .profile-selector {
+    margin: -20px 10px 40px;
+    padding: 20px;
+  }
+
+  .profile-card {
+    padding: 15px;
+  }
+
+  .profile-icon {
+    font-size: 1.5rem;
+  }
+
+  .offer-card {
+    padding: 20px;
+  }
+
+  .offer-badge {
+    top: 10px;
+    right: 10px;
+    padding: 3px 8px;
+    font-size: 1.2rem;
+  }
+
+  .offer-title {
+    font-size: 1.1rem;
+  }
+
+  .offer-price {
+    font-size: 1.5rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .stats-number {
+    font-size: 2.5rem;
+  }
+
+  .trust-icon {
+    font-size: 2rem;
+  }
+
+  .advantage-icon {
+    font-size: 2rem;
+  }
+
+  .advantage-card {
+    padding: 20px;
+  }
+
+  .protection-info,
+  .why-choose,
+  .stats-section {
+    padding: 40px 0;
+  }
+
+  .btn-lg {
+    padding: 12px 25px;
+  }
+
+  .feature-list li {
+    padding: 6px 0;
+    font-size: 0.9rem;
+  }
+
+  /* Maintient l'espace entre les boutons sur mobile */
+  .call-button {
+    margin-bottom: 15px;
+  }
+}
+
+/* ========== RESPONSIVE - GRILLE CARTES ========== */
+@media (max-width: 991px) {
+  .offer-card {
+    max-width: 100%;
+  }
+
+  .row .col-lg-6 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+}

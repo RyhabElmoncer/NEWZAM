@@ -1,0 +1,132 @@
+/* Switch component */
+.switch input:checked + .switch-state {
+  background-color: #000000; /* Noir */
+}
+
+.switch-state {
+  border-radius: 20px;
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #e0e0e0; /* Gris clair */
+  transition: 0.4s;
+  border: 1px solid #b0bec5;
+}
+
+/* Media object */
+.media {
+  display: flex;
+  align-items: flex-start;
+  background-color: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  margin-bottom: 15px;
+}
+
+/* Form labels */
+.col-form-label {
+  padding-top: calc(0.375rem + 1px);
+  padding-bottom: calc(0.375rem + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1.5;
+  color: #000000; /* Noir */
+  font-weight: 500;
+}
+
+/* Title */
+.freepro-title {
+  color: #000000; /* Noir */
+  border-bottom: 2px solid #000000;
+  padding-bottom: 8px;
+  display: inline-block;
+}
+
+/* Success background */
+.bg-success {
+  background-color: #000000 !important; /* Noir */
+  color: #fff !important;
+}
+
+/* List styles */
+ul.list_callback {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0;
+  padding: 0;
+  list-style: none;
+}
+
+ul.list_callback li {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 0 10px 10px 0;
+  color: #333;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.05);
+}
+
+/* Modal operations */
+.modal_ops {
+  display: flex;
+  margin-bottom: 30px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  border: 1px solid #e0e0e0;
+}
+
+/* Additional global styles for the theme */
+body {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: #000000; /* Noir */
+}
+
+a {
+  color: #000000;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #333333; /* Gris foncé pour hover */
+}
+
+.btn-primary {
+  background-color: #000000;
+  border-color: #000000;
+  color: white;
+}
+
+.btn-primary:hover {
+  background-color: #333333;
+  border-color: #333333;
+}
+
+/* Card styles */
+.card {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+}
+
+/* Table styles */
+.table {
+  background-color: white;
+}
+
+.table th {
+  background-color: #000000;
+  color: white;
+}

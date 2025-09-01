@@ -1,0 +1,94 @@
+<div class="container newsletter-popup-container h-auto" id="newsletter-popup-form">
+  <div class="modal-content overflow-hidden m-0">
+    <div class="row justify-content-center position-relative">
+      <div class="col-12">
+        <div class="row no-gutters bg-white newsletter-popup-content">
+
+          <div class="col-xl-12 col-lg-12 banner-content-wrap">
+            <!-- Mode appeler maintenant -->
+            <div class="banner-content text-center" *ngIf="isAppointmentNow">
+              <form [formGroup]="editForm">
+                <h4 style="line-height: 35px; color: rgb(25 44 78/var(1)) !important;">
+                  <span class="span_callback">Un expert vous accompagne <span class="text-success">gratuitement 24H/24H et 7J/7J</span> pour choisir votre box <br> ou votre forfait mobile.</span>
+                </h4>
+                <ul class="list_callback d-flex justify-content-center font-weight-bold">
+                  <li class="ml-2 mr-2"> Résiliation</li>
+                  <li class="ml-1 mr-1"> - </li>
+                  <li class="ml-2 mr-2"> Ouverture ligne</li>
+                  <li class="ml-1 mr-1"> - </li>
+                  <li class="ml-2 mr-2"> Portabilité</li>
+                  <li class="ml-1 mr-1"> - </li>
+                  <li class="ml-2 mr-2"> Déménagement</li>
+                  <li class="ml-1 mr-1"> - </li>
+                  <li class="ml-2 mr-2"> Raccordement</li>
+                </ul>
+                <app-search-address class="mt-3" (addressFound)="debugAddressFound($event)"></app-search-address>
+                <input type="tel" formControlName="phone" [(ngModel)]="phone"
+                       [ngClass]="{'is-invalid': !isValidate && (editForm.get('phone')?.dirty || editForm.get('phone')?.touched)}"
+                       placeholder="Renseignez votre téléphone (10 chiffres)" class="form-control">
+                <div *ngIf="!isValidate && (editForm.get('phone')?.dirty || editForm.get('phone')?.touched)">
+                  <small class="form-text text-danger" *ngIf="editForm.get('phone')?.errors?.['required']">Numéro de téléphone requis.</small>
+                  <small class="form-text text-danger" *ngIf="editForm.get('phone')?.errors?.['pattern']">Numéro doit commencer par 0 et contenir 10 chiffres.</small>
+                </div>
+                <input type="text" formControlName="name" [(ngModel)]="name" placeholder="Saisissez votre nom & prénom" class="form-control mt-2">
+                <input type="email" formControlName="email" [(ngModel)]="email" placeholder="Saisissez votre email" class="form-control mt-2">
+              </form>
+
+              <div class="form-choice row mt-3">
+                <div class="col-sm-6">
+                  <a (click)="reservedAnAppointmentNow()" class="btn btn-login btn-g w-100"><i class="icon-phone"></i> M'appeler immédiatement</a>
+                </div>
+                <div class="col-sm-6">
+                  <a (click)="isAppointmentNow = false" class="btn btn-login btn-f w-100"><i class="icon-calendar"></i> Prendre rendez-vous</a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Mode prendre RDV -->
+            <div class="banner-content text-center" *ngIf="!isAppointmentNow">
+              <form [formGroup]="editForm2">
+                <h4><span class="span_callback">Un expert vous accompagne <span class="text-success">gratuitement 24H/24H et 7J/7J</span> pour choisir votre box ou votre forfait.</span></h4>
+                <ul class="list_callback">
+                  <li>Résiliation</li><li>-</li><li>Ouverture ligne</li><li>-</li><li>Portabilité</li><li>-</li><li>Déménagement</li><li>-</li><li>Raccordement</li>
+                </ul>
+                <app-search-address class="mt-3" (addressFound)="debugAddressFound2($event)"></app-search-address>
+                <input type="tel" formControlName="phone" [(ngModel)]="phone" placeholder="Renseignez votre téléphone (10 chiffres)" class="form-control mt-2">
+                <input type="tel" formControlName="phoneFix" [(ngModel)]="phoneFix" placeholder="N° Fix" class="form-control mt-2">
+                <input type="text" formControlName="name" [(ngModel)]="name" placeholder="Nom & prénom" class="form-control mt-2">
+                <input type="email" formControlName="email" [(ngModel)]="email" placeholder="Email" class="form-control mt-2">
+
+                <div class="form-row mt-2">
+                  <div class="col-md-6">
+                    <select formControlName="isSwitchSupplier" class="form-control">
+                      <option [value]="null">Changer de FAI</option>
+                      <option [value]="'Oui'">Oui</option>
+                      <option [value]="'Non'">Non</option>
+                    </select>
+                  </div>
+                  <div class="col-md-6">
+                    <select formControlName="supplier" class="form-control">
+                      <option [value]="null">Choisissez votre opérateur</option>
+                      <option *ngFor="let item of operateurs" [value]="item.title">{{item.title}}</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-row mt-2">
+                  <div class="col-md-6"><input type="date" formControlName="recallDate" class="form-control"></div>
+                  <div class="col-md-6">
+                    <select formControlName="recallHour" class="form-control">
+                      <option *ngFor="let option of availableHours" [value]="option.id">{{option.text}}</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+              <a (click)="reservedAnAppointment()" class="btn btn-login btn-f w-100 mt-3"><i class="icon-calendar"></i> Prendre un RDV</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      <button title="Close (Esc)" type="button" class="mfp-close" (click)="closeModal()"><span>×</span></button>
+    </div>
+  </div>
+</div>

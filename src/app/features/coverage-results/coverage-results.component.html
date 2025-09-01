@@ -1,0 +1,58 @@
+<!-- Résultats -->
+<div *ngIf="coverageData" class="results-section mx-auto">
+  <div class="cards-container">
+    <div *ngFor="let operator of getFilteredOperators()" class="operator-card">
+
+      <!-- Logo de l'opérateur en haut -->
+      <img [src]="'assets/images/operators/' + operator + '.png'"
+           [alt]="getOperatorName(operator)"
+           class="operator-logo">
+
+      <!-- Cercles de progression au centre -->
+      <div class="coverage-circles">
+        <div *ngIf="selectedTechnologies.includes('4G')" class="circle-item">
+          <span class="technology-label">4G</span>
+          <div class="progress-circle">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" class="circle-bg"></circle>
+              <circle cx="50" cy="50" r="40"
+                      class="circle-progress circle-4g"
+                      [attr.stroke-dasharray]="getCircleProgress(getCoverageValue(operator, '4g'))"
+                      stroke-dashoffset="0">
+              </circle>
+            </svg>
+            <div class="percentage-text">{{ getCoverageValue(operator, '4g') }}%</div>
+          </div>
+        </div>
+
+        <div *ngIf="selectedTechnologies.includes('5G')" class="circle-item">
+          <span class="technology-label">5G</span>
+          <div class="progress-circle">
+            <svg viewBox="0 0 100 100">
+              <circle cx="50" cy="50" r="40" class="circle-bg"></circle>
+              <circle cx="50" cy="50" r="40"
+                      class="circle-progress circle-5g"
+                      [attr.stroke-dasharray]="getCircleProgress(getCoverageValue(operator, '5g'))"
+                      stroke-dashoffset="0">
+              </circle>
+            </svg>
+            <div class="percentage-text">{{ getCoverageValue(operator, '5g') }}%</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boutons en bas -->
+      <div class="action-buttons">
+        <button class="btn btn-outline-primary" (click)="requestCallBack(operator)">
+          Être rappelé
+        </button>
+        <button class="btn btn-primary" (click)="viewOffers(operator)">
+          Voir offres
+        </button>
+        <button class="btn btn btn-primary" (click)="goToStepper()">
+          Simuler  offres
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

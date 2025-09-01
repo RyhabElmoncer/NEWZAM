@@ -1,0 +1,156 @@
+<div class="container newsletter-popup-container h-auto" id="newsletter-popup-form">
+  <div class="modal-content overflow-hidden m-0">
+    <div class="row justify-content-center position-relative">
+      <div class="col-12">
+        <div class="row no-gutters bg-white newsletter-popup-content">
+          <div class="col-xl-12 col-lg-12 banner-content-wrap">
+            <div class="banner-content text-center" *ngIf="!isAppointmentNow">
+              <form [formGroup]="editForm2">
+                <div class="text-center mb-3">
+                  <img src="assets/images/logofree.png" alt="Logo" class="img-fluid"
+                       style="max-width: 100px; display: block; margin: auto;" />
+                  <h4 class="mt-2" style="font-size: 14px; font-weight: bold; color: #000; text-align: center;">
+                    Me faire rappeler par les équipes commerciales de Free Pro
+                  </h4>
+                  <p style="color: #666; font-size: 11px; text-align: center;">
+                    Pour toutes demandes relatives au suivi de commandes ou à vos factures, rendez-vous sur l'Espace Client Free Pro
+                  </p>
+                </div>
+                <div class="form-group">
+                  <input
+                    name="phone"
+                    class="form-control"
+                    formControlName="phone"
+                    type="tel"
+                    placeholder="Renseignez votre téléphone (10 chiffres)"
+                    [ngClass]="{
+      'is-invalid': editForm2.get('phone')?.invalid && (editForm2.get('phone')?.touched || editForm2.get('phone')?.dirty)
+    }"
+                  />
+
+                  <div *ngIf="editForm2.get('phone')?.invalid && (editForm2.get('phone')?.touched || editForm2.get('phone')?.dirty)">
+                    <small class="form-text text-danger" *ngIf="editForm2.get('phone')?.errors?.required">
+                      Numéro de téléphone requis.
+                    </small>
+                    <small class="form-text text-danger" *ngIf="editForm2.get('phone')?.errors?.pattern">
+                      Numéro de téléphone invalide. Il doit contenir exactement 10 chiffres et commencer par 0.
+                    </small>
+                  </div>
+                </div>
+
+
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="lastName">Nom</label>
+                      <input
+                        type="text"
+                        id="lastName"
+                        class="form-control"
+                        formControlName="lastName"
+                        [(ngModel)]="lastName"
+                        placeholder="Votre nom"
+                      />
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label for="firstName">Prénom</label>
+                      <input
+                        type="text"
+                        id="firstName"
+                        class="form-control"
+                        formControlName="firstName"
+                        [(ngModel)]="firstName"
+                        placeholder="Votre prénom"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    class="form-control"
+                    formControlName="email"
+                    placeholder="Votre adresse email"
+                    [ngClass]="{
+      'is-invalid': editForm2.get('email')?.invalid && (editForm2.get('email')?.touched || editForm2.get('email')?.dirty)
+    }"
+                    (blur)="editForm2.get('email')?.markAsTouched()"
+                  />
+
+                  <div *ngIf="editForm2.get('email')?.invalid && (editForm2.get('email')?.touched || editForm2.get('email')?.dirty)">
+                    <small class="form-text text-danger" *ngIf="editForm2.get('email')?.errors?.email">
+                      Format de l'email invalide.
+                    </small>
+                  </div>
+                </div>
+
+
+
+                <div class="form-row">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Date de Rappel (RDV)</label>
+                      <input type="date" class="form-control" [(ngModel)]="recallDate" name="recallDate"
+                             formControlName="recallDate" (change)="onDateChange($event)">
+                      <div
+                        *ngIf="editForm2.get('recallDate')!.invalid && (editForm2.get('recallDate')!.dirty || editForm2.get('recallDate')!.touched)">
+                        <small class="form-text text-danger" *ngIf="editForm2.get('recallDate')?.errors?.required">
+                          Date obligatoire.
+                        </small>
+                        <small class="form-text text-danger" *ngIf="editForm2.get('recallDate')?.errors?.futureDate">
+                          La date doit être égale ou supérieure à la date actuelle.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Heure de Rappel (RDV)</label>
+                      <select class="form-control" name="recallHour" formControlName="recallHour"
+                              [(ngModel)]="recallHour">
+                        <option *ngFor="let option of availableHours" [value]="option.id">{{ option.text }}</option>
+                      </select>
+                      <div
+                        *ngIf="editForm2.get('recallHour')!.invalid && (editForm2.get('recallHour')!.dirty || editForm2.get('recallHour')!.touched)">
+                        <small class="form-text text-danger" *ngIf="editForm2.get('recallHour')?.errors?.required">
+                          Heure obligatoire.
+                        </small>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-check mt-3">
+                  <input type="checkbox" class="form-check-input" formControlName="acceptation" id="accept">
+                  <label class="form-check-label" for="accept" style="font-size: 10px; color: #666;">
+                    J’accepte que mes données personnelles soient réutilisées à des fins d’information.
+                  </label>
+                </div>
+              </form>
+
+              <div class="form-choice">
+                <div class="row">
+                  <div class="col-sm-12">
+                    <a href="javascript:;" (click)="reservedAnAppointment()" class="btn btn-login btn-f">
+                      <i class="icon-calendar"></i>
+                      Prendre un RDV
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <button title="Close (Esc)" type="button" class="mfp-close" (click)="closeModal()"><span>×</span></button>
+    </div>
+  </div>
+</div>

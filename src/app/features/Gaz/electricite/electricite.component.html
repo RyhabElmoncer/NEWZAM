@@ -1,0 +1,485 @@
+<div class="main shop">
+  <molla-page-header [title]="'Fournisseur d’Électricité Moins Cher : Découvrez l’Offre EXTRA ÉCO et Économisez !'" subtitle=""></molla-page-header>
+
+  <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/">Accueil</a>
+        </li>
+        <li class="breadcrumb-item active">Électricité</li>
+      </ol>
+    </div>
+  </nav>
+
+  <div class="blue-banner">
+    Offre électricité EXTRA ÉCO : -12% sur le prix du kWh HT (2) par rapport au TRV en vigueur.
+  </div>
+
+  <!-- ✅ Section compteur -->
+
+</div>
+<h2 class="text-center my-4" style="color: #003366;">Découvrez nos offres D'électricités</h2>
+
+
+<div class="energy-offers-container">
+  <div class="energy-section">
+    <div class="offers-grid">
+
+      <!-- Offre Classique Gaz -->
+      <div class="offer-card green">
+        <div class="offer-badge">Notre offre VERTE</div>
+        <h3>OFFRE CLASSIQUE</h3>
+        <img src="assets/images/bulb.png" alt="Gaz vert" class="offer-icon" />
+        <ul class="offer-features">
+          <li>✔ -10% sur l’abonnement HT par rapport au TRV(5)</li>
+          <li>✔ Prix identique et indexé au TRV</li>
+          <li>✔ <strong>Électricité 100 % verte</strong> produite en France</li>
+          <li>✔ <strong>Sans engagement</strong></li>
+          <li>✔ Service <strong>Suivi Conso inclus</strong></li>
+        </ul>
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+        </div>
+      </div>
+
+      <!-- Offre Extra Éco Gaz -->
+      <div class="offer-card yellow">
+        <div class="offer-badge">-12% sur le kWh HT (2) !</div>
+        <h3>OFFRE EXTRA ÉCO</h3>
+        <img src="assets/images/bulb2.png" alt="Économie gaz" class="offer-icon" />
+        <ul class="offer-features">
+          <li>✔ <strong>-12% sur le prix du kWh HT</strong> par rapport au TRV en vigueur (2)</li>
+          <li>✔ <strong>Prix révisable 2x par an au maximum</strong></li>
+          <li>✔ <strong>Sans engagement</strong></li>
+          <li>✔ Service <strong>Suivi Conso inclus</strong></li>
+          <li>✔ Option (+2€/mois) : énergie verte 100% française</li>
+        </ul>
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+        </div>
+      </div>
+
+      <!-- Offre Modulo Gaz -->
+      <div class="offer-card blue">
+        <div class="offer-badge">Heures creuses en journée !</div>
+        <h3>OFFRE MODULO</h3>
+        <img src="assets/images/bubl3.png" alt="Gaz fixe" class="offer-icon" />
+        <ul class="offer-features">
+          <li>✔ Prix fixe 1 an</li>
+          <li>✔ Des prix bas toute l’année</li>
+          <li>✔ Exclusif : des <strong>Heures Solaires (3)</strong> à -30% sur le kWh HT / TRV en vigueur (3)</li>
+          <li>✔ Réduisez les émissions de CO²</li>
+          <li>✔ Exclusif : <strong>15 jours SÉRÉNITÉ</strong> à prix cassés, à -65% sur le kWh HT / TRV en vigueur (4)</li>
+          <li>✔ <strong>Sans engagement</strong></li>
+          <li>✔ Service <strong>Suivi Conso inclus</strong></li>
+        </ul>
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+        </div>
+      </div>
+
+      <!-- Offre Soir & Week-end -->
+      <div class="offer-card red">
+        <div class="offer-badge">Absent de chez vous en journée ?</div>
+        <h3>SOIR & WEEK-END</h3>
+        <img src="assets/images/bul4.png" alt="Gaz vert" class="offer-icon" />
+        <ul class="offer-features">
+          <li>✔ Prix fixe garanti pendant 1 an (6)</li>
+          <li>✔ – 40% sur le kWh le week-end et en heures creuses par rapport aux heures pleines</li>
+          <li>✔ Sérénité : vous sécurisez votre budget.</li>
+          <li>✔ <strong>Sans engagement</strong></li>
+          <li>✔ Option (+2€/mois) : plantation d’arbres avec Reforest’Action</li>
+        </ul>
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+        </div>
+      </div>
+      <div class="offer-card pink" (click)="openPdf($event)">
+        <div class="offer-badge">Notre offre fixe</div>
+        <h3>Offre FIXE 2 ans</h3>
+        <img src="assets/elc.png" alt="Économie gaz" class="offer-icon" />
+
+        <ul class="offer-features">
+          <li>✔ Prix fixe garanti pendant 2 ans</li>
+          <li>✔ <strong>Électricité d’origine renouvelable</strong> + 1 arbre planté /an (1)</li>
+          <li>✔ <strong>20 € offert</strong> au terme de la 1ère année (7)</li>
+        </ul>
+
+        <a class="link-button">📄 Plus d'informations sur l'offre</a>
+
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button" (click)="$event.stopPropagation()">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button" (click)="onShowModel(); $event.stopPropagation()">Expert gratuit</button>
+        </div>
+      </div>
+      <div class="switch-info">
+        <h3>
+          <span style="color: green;">Changez</span> de fournisseur quand vous voulez !
+        </h3>
+        <p>Simple, rapide, gratuit : <strong style="color: #00b87b;">les économies, c’est ici !</strong></p>
+
+        <ul class="switch-benefits">
+          <li>⏱ Changement en 5 min : 100% en ligne, rapide et sans paperasse</li>
+          <li>🔌 Sans coupure : on s’occupe de tout, même de prévenir votre ancien fournisseur</li>
+          <li>📅 Sans engagement : partez quand vous voulez, sans frais</li>
+          <li>🔓 Résiliation gratuite : aucun frais caché</li>
+          <li>🧘 Zéro stress : une énergie simple, pratique et transparente</li>
+        </ul>
+      </div>
+
+      </div>
+  </div>
+  <section class="text-center py-5" style="background-color: #f7f9fb;">
+    <div class="container">
+      <h2 style="font-weight: bold; font-size: 1.8rem; color: #002b5c;">
+        Rejoignez le premier fournisseur Français d’énergie verte indépendant 🥇🇫🇷🌳
+      </h2>
+      <div class="my-4">
+        <span [innerText]="displayedCount" style="font-size: 3rem; color: #0076c0; font-weight: bold;"></span>
+      </div>
+      <p style="font-weight: 500;">C’est le nombre de compteurs déjà branchés chez nous,</p>
+      <p style="font-weight: bold;">Merci pour votre confiance !</p>
+    </div>
+  </section>
+  <section style="background-color: #f5f5f5; padding: 40px 20px; text-align: center;">
+    <h3 style="color: #0c2d52; font-size: 20px; font-weight: bold;">0 temps perdu</h3>
+    <p>Souscription rapide en 5 min</p>
+
+    <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; margin-top: 30px;">
+
+      <!-- Bloc -->
+      <div style="width: 180px; min-height: 230px; display: flex; flex-direction: column; align-items: center;">
+        <div style="background-color: #002B5C; color: white; padding: 20px; border-radius: 15px; width: 100%;">
+          <div style="font-size: 30px;">💶</div>
+          <h4 style="margin: 10px 0 0;">0 </h4>
+          <h4 style="margin: 10px 0 0;"> frais</h4>
+        </div>
+        <p style="margin-top: 10px; font-size: 14px; flex-grow: 1;">Changement de fournisseur gratuit</p>
+      </div>
+
+      <!-- Bloc -->
+      <div style="width: 180px; min-height: 230px; display: flex; flex-direction: column; align-items: center;">
+        <div style="background-color: #3B9EFF; color: white; padding: 20px; border-radius: 15px; width: 100%;">
+          <div style="font-size: 30px;">🔓</div>
+          <h4 style="margin: 10px 0 0;">0 engagement</h4>
+        </div>
+        <p style="margin-top: 10px; font-size: 14px; flex-grow: 1;">Résiliation sans frais à tout moment</p>
+      </div>
+
+      <!-- Bloc -->
+      <div style="width: 180px; min-height: 230px; display: flex; flex-direction: column; align-items: center;">
+        <div style="background-color: #00B87B; color: white; padding: 20px; border-radius: 15px; width: 100%;">
+          <div style="font-size: 30px;">⚡</div>
+          <h4 style="margin: 10px 0 0;">0 </h4>
+          <h4 style="margin: 10px 0 0;"> coupure</h4>
+        </div>
+        <p style="margin-top: 10px; font-size: 14px; flex-grow: 1;">Changement facile, sans intervention technique</p>
+      </div>
+
+      <!-- Bloc -->
+      <div style="width: 180px; min-height: 230px; display: flex; flex-direction: column; align-items: center;">
+        <div style="background-color: #F55275; color: white; padding: 20px; border-radius: 15px; width: 100%;">
+          <div style="font-size: 30px;">📄✈️</div>
+          <h4 style="margin: 10px 0 0;">0 paperasse</h4>
+        </div>
+        <p style="margin-top: 10px; font-size: 14px; flex-grow: 1;">On s'occupe de TOUT pour résilier l'ancien contrat</p>
+      </div>
+
+    </div>
+  </section>
+
+
+
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <article class="bg-white p-4 p-lg-5 rounded-3 shadow-sm">
+        <h1 class="h2 mb-4 fw-bold text-primary">Offre Électricité : Économisez Durablement Sans Compromis</h1>
+
+        <div class="row g-4">
+          <!-- Offre Extra Éco -->
+          <div class="col-lg-6">
+            <div class="p-4 rounded-3 h-100" style="background-color: #fff8e1;">
+              <h2 class="h4 fw-bold mb-3">
+                <i class="bi bi-lightning-charge-fill text-warning me-2"></i>
+                Les points forts de l'offre EXTRA ÉCO
+              </h2>
+              <ul class="list-unstyled">
+                <li class="mb-2"><strong>Économie immédiate :</strong> -12% sur le prix du kWh HT</li>
+                <li class="mb-2"><strong>Tarif indexé :</strong> ajusté selon le TRV (max 2 révisions/an)</li>
+                <li class="mb-2"><strong>Sans engagement :</strong> liberté de changer sans frais</li>
+                <li class="mb-2"><strong>Suivi Conso inclus :</strong> visualisation en temps réel</li>
+                <li><strong>Option Verte :</strong> +2€/mois pour une énergie 100% française</li>
+              </ul>
+              <div class="mt-3 pt-2 border-top">
+                <a href="tel:+33980803537" class="btn btn-warning">
+                  <i class="bi bi-telephone me-2"></i>09 80 80 35 37
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offre Verte -->
+          <div class="col-lg-6">
+            <div class="p-4 rounded-3 h-100" style="background-color: #e8f5e9;">
+              <h2 class="h4 fw-bold mb-3">
+                <i class="bi bi-tree-fill text-success me-2"></i>
+                Électricité Verte : 100% propre et locale
+              </h2>
+              <p class="mb-3">
+                Rejoignez le 1er fournisseur indépendant d'énergie verte en France, déjà choisi par plus de 274 000 clients.
+              </p>
+              <ul class="list-unstyled">
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Production 100% renouvelable en France</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>Tarif indexé bénéficiant des baisses du marché</li>
+                <li class="mb-2"><i class="bi bi-check-circle text-success me-2"></i>-10% sur l'abonnement HT</li>
+                <li><i class="bi bi-check-circle text-success me-2"></i>Accessible à tous sans engagement</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- Offres spécifiques -->
+        <div class="row mt-4 g-4">
+          <!-- Offre Modulo -->
+          <div class="col-lg-6">
+            <div class="p-4 rounded-3 h-100 border">
+              <h2 class="h4 fw-bold mb-3 text-info">
+                <i class="bi bi-clock-fill me-2"></i>
+                OFFRE MODULO : Adaptée à votre rythme
+              </h2>
+              <p class="mb-3">Profitez des heures creuses même en journée pour optimiser votre consommation.</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><strong>Prix fixe 1 an</strong></li>
+                    <li class="mb-2"><strong>Heures Solaires -30%</strong></li>
+                    <li><strong>15 jours à -65%</strong></li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-2">Réduction CO₂</li>
+                    <li>Sans engagement</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Offre Soir & Week-end -->
+          <div class="col-lg-6">
+            <div class="p-4 rounded-3 h-100 border">
+              <h2 class="h4 fw-bold mb-3 text-danger">
+                <i class="bi bi-moon-stars-fill me-2"></i>
+                SOIR & WEEK-END : Pour les actifs
+              </h2>
+              <p class="mb-3">Optimisez vos coûts lorsque vous êtes à la maison.</p>
+              <div class="row">
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-2"><strong>-40% soir/week-end</strong></li>
+                    <li class="mb-2"><strong>Tarif fixe 1 an</strong></li>
+                    <li><strong>Sans engagement</strong></li>
+                  </ul>
+                </div>
+                <div class="col-md-6">
+                  <ul class="list-unstyled">
+                    <li class="mb-2">Option Reforest'Action</li>
+                    <li>Adapté aux rythmes modernes</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pourquoi nous choisir -->
+        <div class="mt-5 pt-4">
+          <h2 class="h3 fw-bold text-primary mb-4">
+            <i class="bi bi-star-fill text-warning me-2"></i>
+            Pourquoi comparer avec Zone ADSL Mobile ?
+          </h2>
+          <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+              <div class="text-center p-3">
+                <i class="bi bi-cash-coin display-6 text-primary mb-3"></i>
+                <h3 class="h5 fw-bold">Tarifs négociés</h3>
+                <p>Des prix transparents et compétitifs</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="text-center p-3">
+                <i class="bi bi-graph-up display-6 text-primary mb-3"></i>
+                <h3 class="h5 fw-bold">Analyse personnalisée</h3>
+                <p>Étude de votre profil de consommation</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="text-center p-3">
+                <i class="bi bi-speedometer2 display-6 text-primary mb-3"></i>
+                <h3 class="h5 fw-bold">Souscription rapide</h3>
+                <p>Zéro paperasse, tout en ligne</p>
+              </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+              <div class="text-center p-3">
+                <i class="bi bi-tools display-6 text-primary mb-3"></i>
+                <h3 class="h5 fw-bold">Suivi intégré</h3>
+                <p>Maîtrisez votre consommation</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Critères de comparaison -->
+        <div class="mt-5 pt-3">
+          <h2 class="h3 fw-bold text-primary mb-3">Comment bien comparer les offres ?</h2>
+          <div class="alert alert-light">
+            <ul class="mb-0 column-list">
+              <li><strong>Prix de l'énergie :</strong> abonnement, prix du kWh, taxes</li>
+              <li><strong>Options tarifaires :</strong> indexé, fixe, heures creuses</li>
+              <li><strong>Service client :</strong> disponibilité et réactivité</li>
+              <li><strong>Options supplémentaires :</strong> verte, suivi conso</li>
+            </ul>
+          </div>
+          <div class="text-center mt-4">
+
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+  <section class="container py-5">
+    <h2>Fournisseur d'électricité : Offre EXTRA ÉCO Sans Compromis</h2>
+
+    <p>Économisez jusqu'à 12 % sur le kWh HT par rapport au tarif réglementé (TRV) !</p>
+    <p>Avec l'offre EXTRA ÉCO, bénéficiez de l'énergie au meilleur prix, tout en soutenant une production 100 % verte, locale et responsable. Cette offre est idéale pour ceux qui recherchent un compromis entre économies immédiates et choix durable.</p>
+
+    <h3>Pourquoi choisir l'offre EXTRA ÉCO ?</h3>
+
+    <ul>
+      <li>Réduction tarifaire immédiate : Profitez de -12 % sur le prix du kWh HT comparé au tarif réglementé en vigueur.</li>
+      <li>Indexation avantageuse : Le tarif est révisable deux fois par an au maximum, ce qui vous permet de profiter des baisses du marché sans surprises.</li>
+      <li>Sans engagement : Vous restez libre de changer d'offre à tout moment, sans frais supplémentaires.</li>
+      <li>Suivi Conso inclus : Visualisez votre consommation en temps réel grâce à notre service innovant qui vous aide à mieux maîtriser vos dépenses énergétiques.</li>
+      <li>Option énergie verte : Pour seulement +2€/mois, vous optez pour une électricité 100 % produite en France à partir de sources renouvelables. Un geste fort pour la planète !</li>
+    </ul>
+
+    <h3>Nos valeurs : L'Engagement pour une Énergie 100% Verte</h3>
+
+    <p>Rejoignez le premier fournisseur indépendant d'énergie verte en France, déjà choisi par plus de 274 000 clients.</p>
+    <p>Notre électricité est exclusivement produite à partir de sources renouvelables locales, ce qui permet de réduire l'empreinte carbone et d'encourager la transition énergétique.</p>
+
+    <p>L'avantage ?</p>
+    <p>Un tarif indexé au TRV, qui bénéficie des baisses du marché, tout en garantissant un prix stable et compétitif.</p>
+
+    <h3>Découvrez nos autres offres pour une consommation adaptée à vos besoins</h3>
+
+    <h4>OFFRE MODULO : L'énergie sur-mesure</h4>
+
+    <p>L'offre MODULO est pensée pour les consommateurs qui souhaitent optimiser leur consommation en fonction de leur rythme de vie, notamment pendant les heures creuses.</p>
+
+    <ul>
+      <li>Prix fixe pendant 1 an : Garantissez une stabilité tarifaire sur toute l'année.</li>
+      <li>Heures Solaires à -30% sur le kWh HT : Profitez de tarifs réduits pendant les heures creuses, même en journée, grâce à notre offre exclusive des heures solaires.</li>
+      <li>15 jours SÉRÉNITÉ à -65% sur le kWh HT : Une offre exceptionnelle vous permettant de réaliser des économies supplémentaires pendant 15 jours par an.</li>
+      <li>Réduction des émissions de CO₂ : Réduisez votre empreinte écologique tout en faisant des économies.</li>
+    </ul>
+
+    <h4>SOIR & WEEK-END : Pour les actifs qui veulent économiser intelligemment</h4>
+
+    <p>Si vous êtes souvent absent pendant la journée, l'offre SOIR & WEEK-END est la solution idéale pour profiter de tarifs avantageux quand vous êtes à la maison.</p>
+
+    <ul>
+      <li>-40% sur le kWh HT pendant les heures creuses du soir et week-end : Profitez des meilleurs prix quand vous êtes chez vous.</li>
+      <li>Prix fixe garanti pendant 1 an : Sécurisez votre budget énergétique sans mauvaises surprises.</li>
+      <li>Option écologique : Pour seulement +2€/mois, vous pouvez contribuer à la reforestation avec Reforest'Action, en plantant des arbres et en participant à un projet vert.</li>
+    </ul>
+
+    <h3>Un Service Client à votre écoute</h3>
+
+    <p>Besoin de plus d'informations ou de conseils ?</p>
+    <p>Notre service client est disponible au 09 80 80 35 37, pour répondre à toutes vos questions et vous aider à choisir l'offre la plus adaptée à vos besoins.</p>
+
+    <h4>1. La Transition Énergétique : Un Choix Responsable</h4>
+
+    <p>L'énergie verte n'est pas seulement une tendance, c'est un choix stratégique pour un avenir plus durable. En choisissant l'offre EXTRA ÉCO, vous contribuez à la transition énergétique de manière concrète, tout en bénéficiant d'un tarif compétitif. Notre électricité est produite 100 % en France, à partir de sources renouvelables comme l'éolien, le solaire et l'hydraulique.</p>
+
+    <p>Nous avons fait le choix d'un approvisionnement local afin de réduire les émissions liées au transport de l'énergie et ainsi contribuer à la réduction de l'empreinte carbone du secteur. En tant qu'acteur engagé, nous vous offrons une énergie de qualité, qui respecte l'environnement et les générations futures.</p>
+
+    <h4>2. Des Solutions d'Optimisation de Consommation : Mieux Consommer, Moins Dépenser</h4>
+
+    <p>L'économie d'énergie commence par une gestion intelligente de sa consommation. C'est pourquoi toutes nos offres incluent un service de suivi de consommation, qui vous permet de visualiser en temps réel votre utilisation énergétique. Grâce à des outils simples et intuitifs, vous pouvez suivre vos habitudes de consommation et ajuster vos comportements pour réaliser encore plus d'économies.</p>
+    <p>De plus, avec des options comme les heures solaires ou les tarifs réduits pour les week-ends et soirées, nous vous aidons à adopter des pratiques plus responsables tout en réduisant vos coûts énergétiques.</p>
+
+    <h4>3. Une Flexibilité Totale : Votre Énergie à Votre Rythme</h4>
+
+    <p>Nous comprenons que chaque foyer, chaque entreprise a des besoins spécifiques en matière d'énergie. C'est pourquoi nous avons conçu des offres flexibles qui s'adaptent à vos habitudes et à vos horaires de consommation.</p>
+    <p>Que vous soyez souvent absent en journée ou que vous préfériez consommer en dehors des heures de pointe, vous trouverez une offre sur-mesure qui correspond à votre mode de vie. Avec des options de tarif fixe, des heures creuses avantageuses et des réductions supplémentaires, vous êtes libre de choisir l'offre qui répond le mieux à vos besoins sans vous imposer de contraintes.</p>
+
+    <h4>4. Nos Engagements RSE : Une Énergie Humaine et Responsable</h4>
+
+    <p>En tant que fournisseur d'énergie, nous avons à cœur de concilier performance économique et responsabilité sociale. Nous mettons en place des actions concrètes pour réduire notre impact environnemental et participer activement à la transition énergétique.</p>
+
+    <ul>
+      <li>Reforestation : En partenariat avec Reforest'Action, chaque abonnement est l'occasion de planter des arbres et de contribuer à la lutte contre la déforestation.</li>
+      <li>Accessibilité à tous : Nos offres sont accessibles sans engagement, afin de garantir la liberté de choix pour tous nos clients, qu'ils soient particuliers ou professionnels.</li>
+      <li>Support local : Nous privilégions les producteurs d'énergie locaux et soutenons les projets d'énergie renouvelable en France.</li>
+    </ul>
+
+    <h4>5. L'Innovation au Service de l'Énergie</h4>
+
+    <p>En tant que leader de l'énergie verte en France, nous sommes constamment à la recherche de solutions innovantes pour améliorer notre offre. Nos technologies de suivi de consommation en temps réel, la mise à jour dynamique de nos tarifs et nos options de gestion intelligente de la consommation vous assurent une expérience unique.</p>
+    <p>De plus, grâce à notre application mobile, vous pouvez suivre, gérer et optimiser votre consommation d'énergie en toute simplicité. Cela vous permet de prendre des décisions éclairées, d'ajuster vos usages et de réaliser des économies sur vos factures.</p>
+
+    <h4>6. Témoignages Clients : Ce Que Disent Nos Abonnés</h4>
+
+    <p>Nos clients sont au cœur de notre démarche, et leur satisfaction est notre priorité. Voici quelques témoignages de ceux qui ont déjà fait le choix de l'énergie verte avec nous :</p>
+
+    <ul>
+      <li>« Depuis que je suis passé à l'offre EXTRA ÉCO, je vois clairement la différence sur ma facture. En plus de faire un geste pour la planète, j'économise chaque mois ! »<br>Anne-Marie, cliente depuis 6 mois.</li>
+      <li>« La flexibilité de l'offre et la possibilité de choisir des heures solaires ont vraiment optimisé ma consommation. Je recommande vivement ! »<br>Michel, client depuis 1 an.</li>
+      <li>« Ce que j'apprécie le plus, c'est l'absence d'engagement. J'ai pu tester l'offre sans risque et profiter d'économies immédiates. »<br>Julien, client depuis 8 mois.</li>
+    </ul>
+
+    <h4>Foire aux Questions (FAQ)</h4>
+
+    <p><strong>Q : Qu'est-ce que signifie "tarif indexé" ?</strong><br>
+      R : Le tarif indexé signifie que le prix du kWh est ajusté périodiquement en fonction du tarif réglementé de vente (TRV), vous permettant de profiter de baisses du marché tout en étant protégé des hausses.</p>
+
+    <p><strong>Q : L'option d'énergie verte est-elle réellement 100 % renouvelable ?</strong><br>
+      R : Oui, notre option d'énergie verte vous garantit une production 100 % renouvelable, provenant exclusivement de sources d'énergie vertes en France, telles que l'éolien, le solaire et l'hydraulique.</p>
+
+    <p><strong>Q : Puis-je changer d'offre si je le souhaite ?</strong><br>
+      R : Oui, nos offres sont sans engagement. Vous êtes libre de changer d'offre ou de fournisseur à tout moment, sans frais supplémentaires.</p>
+  </section>
+
+</div>
+<!-- MODALE PDF -->
+<!-- MODALE PDF -->
+<div class="pdf-modal" *ngIf="showPdfModal" (click)="closePdfModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-button" (click)="closePdfModal()">&times;</button>
+    <div class="pdf-container">
+      <iframe [src]="pdfUrl" frameborder="0" class="pdf-iframe"></iframe>
+    </div>
+  </div>
+</div>
+
+

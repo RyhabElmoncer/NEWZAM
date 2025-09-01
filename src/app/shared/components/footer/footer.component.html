@@ -1,0 +1,119 @@
+<footer class="footer">
+  <div class="footer-middle border-0">
+    <div [ngClass]="containerClass">
+      <div class="row">
+        <div class="col-sm-6 col-lg-3">
+          <div class="widget widget-about">
+            <img src="assets/images/ZONE.png" class="footer-logo" alt="Footer Logo">
+
+            <div class="widget-call">
+              <i class="icon-phone"></i>
+              Vous avez une question ? Appelez-nous 24h/24 et 7j/7
+              <a href="tel:+330980803537">09 80 80 35 37</a>
+            </div>
+
+            <div class="social-links">
+              <a href="https://wa.me/33756892743" class="social-link social-whatsapp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+              </a>
+              <a href="https://www.facebook.com/zoneadslmobile/" class="social-link social-facebook" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+              </a>
+              <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-link social-youtube" target="_blank">
+                <i class="fab fa-youtube"></i>
+              </a>
+              <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-link social-linkedin" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title">CONTACT</h4>
+            <ul class="widget-list">
+              <li><a routerLink="pages/contact">Contactez-nous</a></li>
+              <li><a routerLink="pages/votre-conseiller">Votre conseiller</a></li>
+            </ul>
+          </div>
+
+          <div class="widget">
+            <h4 class="widget-title">À PROPOS</h4>
+            <ul class="widget-list">
+              <li><a routerLink="pages/mentions-legales">Mentions légales</a></li>
+              <li><a routerLink="pages/rgpd">Politique de confidentialité</a></li>
+              <li><a routerLink="pages/cookies">Cookies</a></li>
+              <li><a routerLink="/blog/listing">Actualités</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title">Comparateur box internet</h4>
+            <ul class="widget-list">
+              <li><a href="#">Box ADSL</a></li>
+              <li><a href="#">Box Fibre</a></li>
+              <li><a href="#">Comparateur</a></li>
+            </ul>
+          </div>
+
+          <div class="widget">
+            <h4 class="widget-title">Comparateur forfait mobile</h4>
+            <ul class="widget-list">
+              <li><a href="#">Forfait sans engagement</a></li>
+              <li><a href="#">Forfait bloqué</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-sm-6 col-lg-3">
+          <div class="widget">
+            <h4 class="widget-title">Opérateurs</h4>
+            <ul class="widget-list">
+              <li><a href="#">Orange</a></li>
+              <li><a href="#">SFR</a></li>
+              <li><a href="#">Free</a></li>
+              <li><a href="#">Bouygues Telecom</a></li>
+            </ul>
+          </div>
+
+          <div class="widget">
+            <h4 class="widget-title">Newsletter</h4>
+            <div class="newsletter-form">
+              <input type="email" placeholder="Votre email">
+              <button>S'inscrire</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div [ngClass]="containerClass">
+      <div class="rating-container">
+        <img src="assets/images/avis.png" alt="Avis Vérifiés">
+        <div class="rating-stars">
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star"></i>
+          <i class="icon-star-half"></i>
+        </div>
+        <span>4.5/5 sur 287 avis</span>
+      </div>
+
+      <p class="footer-copyright">
+        © 2025 <a href="https://zoneadslmobile.com/">ZONE ADSL MOBILE</a> - Développé par
+        <a target="_blank" href="https://hsstore.compaktor.app/">HSStore</a>
+        <a target="_blank" href="https://maps-it.com/">/ MapsIT</a>
+      </p>
+
+
+    </div>
+  </div>
+
+  <div class="mb-10" *ngIf="isBottomSticky"></div>
+</footer>

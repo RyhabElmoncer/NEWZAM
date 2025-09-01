@@ -1,0 +1,35 @@
+<main class="main">
+  <nav class="breadcrumb-nav border-0 mb-0">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/">Home</a></li>
+        <li class="breadcrumb-item"><a href="javascript:;">Pages</a></li>
+        <li class="breadcrumb-item active">Succès</li>
+      </ol>
+    </div>
+  </nav>
+
+  <img src="assets/images/logofree.png" alt="Logo" class="img-fluid"
+       style="max-width: 100px; display: block; margin: auto;" />
+
+  <div class="success-content text-center position-relative"
+       style="background-image: url(assets/images/backgrounds/success-bg.jpg); margin-bottom: -1px;">
+    <div class="container">
+      <h1 class="success-title">Succès !</h1>
+      <p class="mb-4">{{ successMessage }}</p>
+
+      <div class="modal-body text-center">
+        <p>Nom et Prénom : {{ firstName }} {{ lastName }}</p>
+        <p>Email  {{ email }}</p>
+        <p>Téléphone Mobile : {{ phone }}</p>
+      </div>
+
+
+      <!-- Bouton de retour -->
+      <a routerLink="/" class="btn btn-outline-primary-2 btn-minwidth-lg mt-4">
+        <span>RETOUR À LA PAGE D'ACCUEIL</span>
+        <i class="icon-long-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</main>

@@ -1,0 +1,220 @@
+<div class="main shop">
+  <molla-page-header [title]="'Nos offres Free Box'" subtitle=""></molla-page-header>
+  <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/">Accueil</a>
+        </li>
+        <li class="breadcrumb-item active">Free Box</li>
+        <li class="breadcrumb-item" *ngIf="searchTerm != ''">
+          <span>Rechercher - {{ searchTerm }}</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <div class="free-box-container">
+    <div class="logo-container">
+      <img class="offer-logo" src="assets/images/logobalnc.png" alt="Logo">
+    </div>
+    <div class="free-box-visual">
+      <img [src]="freeBox.imageUrl" alt="Freebox Pro" />
+    </div>
+
+    <div class="free-box-content">
+      <h2 class="title">{{ freeBox.titre }}</h2>
+      <p class="subtitle">{{ freeBox.sousTitre }}</p>
+      <p class="description">{{ freeBox.description }}</p>
+
+      <div class="pricing">
+        <span class="price">{{ freeBox.prix }}</span>
+        <span class="price-info">{{ freeBox.infoPrix }}</span>
+        <span class="additional-info">{{ freeBox.infoAdditionnelle }}</span>
+        <span class="commitment">{{ freeBox.engagement }}</span>
+      </div>
+
+      <div class="features-container">
+        <h3>INCLUS DANS VOTRE OFFRE</h3>
+        <ul class="features-list">
+          <li *ngFor="let feature of freeBox.features">{{ feature.name }}</li>
+        </ul>
+      </div>
+      <br>
+      <div class="button-container">
+        <a class="offer-button phone-button" href="tel:+33980803537"> <i class="icon-phone"></i> Appeler sur 0980803537</a>
+        <button class="offer-button subscribe-button" (click)="onShowModel()">Demandez un expert gratuitement</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section class="freebox-pro-section">
+  <div class="container">
+    <h1 class="main-title">Freebox Pro : L'Infrastructure Télécom Haute Performance pour Entreprises Exigeantes</h1>
+
+    <div class="intro-section">
+      <p class="lead">La Freebox Pro incarne la nouvelle génération d'équipements réseau à destination des professionnels. Pensée pour accompagner la transformation numérique des entreprises, elle combine fibre ultra-rapide, téléphonie fixe & mobile intégrée, sauvegarde sécurisée, connectivité Wi-Fi de dernière génération et protection réseau avancée. Le tout, dans une solution modulaire, évolutive et simple à administrer.</p>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="section-title">Des Performances Réseau à la Hauteur de Vos Enjeux Métiers</h2>
+
+      <div class="feature-card">
+        <h3 class="feature-title">Connexion Fibre Professionnelle Ultra-Rapide</h3>
+        <p>Grâce à la technologie 10G EPON, la Freebox Pro propose des débits symétriques allant jusqu'à 8 Gbit/s, en émission comme en réception. Idéale pour les usages intensifs en cloud, les visioconférences HD, le transfert de fichiers volumineux ou encore l'hébergement d'applications professionnelles.</p>
+        <ul class="feature-list">
+          <li>Débits symétriques : jusqu'à 8 Gbit/s</li>
+          <li>Latence réduite, stabilité renforcée</li>
+          <li>Idéal pour les environnements collaboratifs et connectés</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">Continuité d'Activité Garantie</h3>
+        <p>En cas d'interruption du lien fibre, la Freebox Pro bascule automatiquement sur son lien 4G de secours intégré, garantissant la continuité de service, sans action manuelle.</p>
+        <ul class="feature-list">
+          <li>Backup 4G automatique intégré</li>
+          <li>Connexion Internet ininterrompue</li>
+          <li>Adaptée aux activités critiques ou multisites</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="section-title">Sécurité & Stockage : Vos Données Protégées, Accessibles, Centralisées</h2>
+
+      <div class="feature-card">
+        <h3 class="feature-title">Serveur de Stockage Intégré (NAS)</h3>
+        <p>La Freebox Pro intègre un disque dur NVMe de 1 To, fonctionnant comme serveur NAS centralisé pour vos fichiers métiers.</p>
+        <ul class="feature-list">
+          <li>Sauvegarde locale ultra-rapide</li>
+          <li>Disque NVMe PCIe 2280, haute performance</li>
+          <li>Idéal pour les partages internes, la gestion documentaire ou les sauvegardes automatiques</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">Synchronisation Cloud Sécurisée</h3>
+        <p>Vos données les plus critiques sont automatiquement synchronisées vers le Cloud Free Pro, dans la limite de 200 Go, plusieurs fois par jour. Vous accédez à vos documents en local ou à distance, en toute simplicité.</p>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">Cybersécurité Intégrée</h3>
+        <p>Avec plus de 4 millions de signatures de menaces surveillées et mises à jour quotidiennement, la Freebox Pro assure un premier niveau de protection réseau avancé.</p>
+        <ul class="feature-list">
+          <li>Détection et analyse des flux entrants/sortants</li>
+          <li>Alertes e-mail en cas d'anomalies</li>
+          <li>Recommandations de remédiation intégrées</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="section-title">Wi-Fi 7 Professionnel : Connectivité Haute Densité et Haute Fiabilité</h2>
+      <p>La Freebox Pro est compatible Wi-Fi 7 Quad-Band MU-MIMO, avec des performances exceptionnelles, même dans des environnements denses ou surchargés (bureaux, open space, ateliers...).</p>
+      <ul class="feature-list">
+        <li>Répéteur Wi-Fi 7 Pro inclus</li>
+        <li>Quad-band : 2,4 GHz, 5 GHz (x2), 6 GHz</li>
+        <li>Protocole de sécurité WPA3</li>
+        <li>Couverture étendue et débits optimaux dans tous vos espaces</li>
+      </ul>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="section-title">Téléphonie Fixe et Mobile Incluse</h2>
+
+      <div class="feature-card">
+        <h3 class="feature-title">2 Lignes Fixes Incluses</h3>
+        <p>Profitez d'une téléphonie fixe illimitée :</p>
+        <ul class="feature-list">
+          <li>Vers les mobiles en France métropolitaine, DOM, USA, Canada, Chine</li>
+          <li>Vers les fixes de plus de 100 destinations internationales</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">1 Forfait Mobile Free Pro 5G Offert</h3>
+        <p>À l'activation de la Freebox Pro, vous bénéficiez automatiquement d'un forfait mobile Free Pro 5G :</p>
+        <ul class="feature-list">
+          <li>150 Go de data en France</li>
+          <li>31 Go depuis l'étranger (70+ destinations)</li>
+          <li>Appels/SMS/MMS illimités vers les principales zones internationales</li>
+          <li>Services pros inclus : VoWiFi, VoLTE, messagerie visuelle, conférence téléphonique</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="feature-section">
+      <h2 class="section-title">Interface & Intégration : Administration Centralisée et Connectique Complète</h2>
+
+      <div class="feature-card">
+        <h3 class="feature-title">Console de Gestion Unique</h3>
+        <p>L'ensemble des services Free Pro (Internet, téléphonie, mobile, stockage, sécurité) est pilotable depuis un espace client unifié :</p>
+        <ul class="feature-list">
+          <li>Gestion de la Freebox et des lignes mobiles</li>
+          <li>Suivi des consommations</li>
+          <li>Facturation centralisée multi-sites</li>
+        </ul>
+      </div>
+
+      <div class="feature-card">
+        <h3 class="feature-title">Kit de Mise en Baie (en option)</h3>
+        <p>Un kit de montage en baie est disponible pour intégrer la Freebox Pro dans votre infrastructure existante (baie de brassage, armoire réseau...).</p>
+      </div>
+    </div>
+
+    <div class="specs-section">
+      <h3 class="specs-title">Fiche technique – Freebox Pro</h3>
+      <div class="specs-grid">
+        <div class="specs-column">
+          <h4>Connectivité</h4>
+          <ul class="specs-list">
+            <li><strong>Technologie fibre :</strong> 10G EPON</li>
+            <li><strong>Débits :</strong> jusqu'à 8 Gbit/s symétriques (montant et descendant)</li>
+            <li><strong>Wi-Fi :</strong> Wi-Fi 7, Quad-Band MU-MIMO (2,4 GHz / 5 GHz bas / 5 GHz haut / 6 GHz)</li>
+            <li><strong>Sécurité Wi-Fi :</strong> Compatible WPA3</li>
+          </ul>
+        </div>
+
+        <div class="specs-column">
+          <h4>Hardware</h4>
+          <ul class="specs-list">
+            <li><strong>Processeur :</strong> Quad-core ARM Cortex-A73 cadencé à 2,2 GHz</li>
+            <li><strong>Mémoire vive (RAM) :</strong> 4 Go</li>
+            <li><strong>Stockage intégré :</strong> 1 To via un disque NVMe PCIe au format 2280</li>
+          </ul>
+        </div>
+
+        <div class="specs-column">
+          <h4>Connectique</h4>
+          <ul class="specs-list">
+            <li><strong>Ethernet :</strong> 4 ports Ethernet 2,5 Gbit/s (dont 1 port PoE)</li>
+            <li><strong>Port SFP+ :</strong> 1 port LAN 10G pour connexion fibre dédiée</li>
+            <li><strong>USB :</strong> 1 port USB 3.0 type A + 1 port USB-C (alimentation 20V, 90W+)</li>
+            <li><strong>Téléphonie :</strong> 1 port FXS pour la ligne téléphonique fixe</li>
+          </ul>
+        </div>
+
+        <div class="specs-column">
+          <h4>Dimensions</h4>
+          <ul class="specs-list">
+            <li><strong>Largeur :</strong> 295 mm</li>
+            <li><strong>Profondeur :</strong> 160 mm</li>
+            <li><strong>Hauteur :</strong> 45,5 mm</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="target-section">
+      <h3 class="target-title">La Freebox Pro est conçue pour :</h3>
+      <ul class="target-list">
+        <li>PME et ETI cherchant une infrastructure réseau évolutive</li>
+        <li>Professions libérales ou structures indépendantes souhaitant une solution simple et sécurisée</li>
+        <li>Entreprises multisites ou avec des besoins de continuité d'activité</li>
+        <li>Structures avec usage cloud intensif, nécessitant des débits symétriques</li>
+      </ul>
+    </div>
+  </div>
+</section>

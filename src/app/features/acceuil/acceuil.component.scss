@@ -1,0 +1,106 @@
+
+.acceuil-container {
+  overflow-x: hidden;
+}
+
+[contentAnim] {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.animate__animated {
+  opacity: 1;
+}
+
+// Styles supplémentaires pour améliorer l'apparence
+.circle {
+  border-radius: 50%;
+  overflow: hidden;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.cta-border-wrapper {
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.btn-outline-primary {
+  border-width: 2px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+  }
+}
+
+.main-content {
+  h2, h3, h4 {
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+
+    li {
+      margin-bottom: 0.5rem;
+    }
+  }
+}
+
+// Animation personnalisée pour blurIn
+@keyframes blurIn {
+  from {
+    opacity: 0;
+    filter: blur(10px);
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+.animate__blurIn {
+  animation-name: blurIn;
+  animation-duration: 0.8s;
+  animation-fill-mode: both;
+}
+
+// Responsive design
+@media (max-width: 992px) {
+  .circle {
+    width: 250px;
+    height: 250px;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    padding: 15px !important;
+  }
+
+  .circle {
+    width: 200px;
+    height: 200px;
+  }
+}

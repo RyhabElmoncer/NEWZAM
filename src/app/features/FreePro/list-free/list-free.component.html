@@ -1,0 +1,326 @@
+<div class="main shop">
+  <molla-page-header [title]="'Nos offres Free Mobile'" subtitle=""></molla-page-header>
+  <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/">Accueil</a>
+        </li>
+
+        <li class="breadcrumb-item active">Free Mobiles</li>
+        <li class="breadcrumb-item" *ngIf="searchTerm != ''">
+          <span>Rechercher - {{ searchTerm }}</span>
+        </li>
+      </ol>
+    </div>
+  </nav>
+  <div class="offers-container">
+    <div class="offer-card">
+      <div class="logo-container">
+        <img class="offer-logo" src="assets/images/logofree.png" alt="Logo">
+      </div>
+      <div class="offer-top-label">FIBRE</div>
+      <div class="offer-icon">
+        <img src="assets/images/box.jpg" alt="Icon">
+      </div>
+      <h2 class="offer-title">Freebox <span style="color: red;">Pro</span></h2>
+
+      <ul class="offer-details">
+        <li>Wi-Fi 7 et débits symétriques jusqu à 8 Gbit/s</li>
+        <li>1 Forfait Mobile Free Pro inclus</li>
+        <li>2 lignes fixes incluses</li>
+        <li>Backup automatique inclus</li>
+        <li>Cybersécurité Essentielle</li>
+      </ul>
+      <p class="offer-price">
+        <span class="big-price">39</span>
+        <span class="small-price">.99€</span>
+        <span class="price-unit">/mois</span>
+      </p>
+      <h3 class="offer-subtitle">Pendant 1 an puis 49,99 € HT/mois</h3>
+
+      <p class="offer-commitment">Sans engagement</p>
+      <div class="button-container">
+        <a class="offer-button phone-button" href="tel:+33980803537"> <i class="icon-phone"></i> Appeler sur 0980803537</a>
+
+        <button class="offer-button subscribe-button" (click)="onShowModel()">Demandez un expert gratuitement</button>
+
+      </div>
+
+
+    </div>
+
+    <div class="offer-card">
+      <div class="logo-container">
+        <img class="offer-logo" src="assets/images/logofree.png" alt="Logo">
+      </div>
+      <div class="offer-top-label">COMMUNICATIONS UNIFIÉES</div>
+      <div class="offer-icon">
+        <img src="assets/images/load.png" alt="Icon">
+      </div>
+      <h2 class="offer-title">Coms <span style="color: red;">Pro</span></h2>
+
+      <ul class="offer-details">
+        <li>Téléphonie d entreprise simple et performante</li>
+        <li>Serveur vocal interactif</li>
+        <li>Portabilité des lignes</li>
+        <li>Messagerie instantanée, partage et visioconférence</li>
+        <li>Applications dédiées mobile et ordinateur</li>
+      </ul>
+      <p class="offer-price">
+        <span class="big-price">9</span>
+        <span class="small-price">.99€</span>
+        <span class="price-unit">/mois</span>
+      </p>
+      <h3 class="offer-subtitle">tarif et offre réservés au clients freebox Pro</h3>
+
+      <p class="offer-commitment">Sans engagement</p>
+      <div class="button-container">
+        <a class="offer-button phone-button" href="tel:+33980803537"> <i class="icon-phone"></i> Appeler sur 0980803537</a>
+
+        <button class="offer-button subscribe-button" (click)="onShowModel()">Demandez un expert gratuitement</button>
+
+      </div>
+    </div>
+
+    <div class="offer-card">
+      <div class="logo-container">
+        <img class="offer-logo" src="assets/images/logofree.png" alt="Logo">
+      </div>
+      <div class="offer-top-label">TÉLÉPHONES & FORFAITS MOBILES</div>
+      <div class="offer-icon">
+        <img src="assets/images/iphone.png" alt="Icon">
+      </div>
+      <h2 class="offer-title">Mobilité <span style="color: red;">Pro</span></h2>
+
+      <ul class="offer-details">
+        <li>150 Go en 5G / 4G+ en France métropolitaine</li>
+        <li>31 Go à l étranger dans plus de 70 destinations</li>
+        <li>Activation simplifiée de vos lignes depuis l Espace Client Free Pro</li>
+        <li>Gestion de flotte mobile en ligne</li>
+      </ul>
+      <p class="offer-price">
+        <span class="big-price">9</span>
+        <span class="small-price">.99€</span>
+        <span class="price-unit">/mois</span>
+      </p>
+      <h3 class="offer-subtitle">avec Avantages Free Pro sinon 19.99 € HT /mois</h3>
+
+      <p class="offer-commitment">Sans engagement</p>
+      <div class="button-container">
+        <a class="offer-button phone-button" href="tel:+33980803537"> <i class="icon-phone"></i> Appeler sur 0980803537</a>
+
+        <button class="offer-button subscribe-button" (click)="onShowModel()">Demandez un expert gratuitement</button>
+
+      </div>
+    </div>
+    <section class="py-5 bg-light">
+      <div class="container">
+        <article class="bg-white p-4 p-lg-5 rounded-4 shadow-lg">
+          <h1 class="display-5 fw-semibold text-center mb-5 text-dark">
+            Solution Tout-en-Un pour Connecter Votre Entreprise
+          </h1>
+
+          <!-- Solution Fibre -->
+          <div class="row align-items-center mb-5">
+            <p class="text-muted lead">Cette offre professionnelle propose une infrastructure télécom convergente, modulaire et performante. Conçue pour répondre aux exigences de connectivité, de mobilité et de communications unifiées des environnements professionnels modernes, elle s'articule autour de trois solutions complémentaires : une solution fibre (fibre symétrique, backup 4G, sécurité réseau), une solution téléphonie (téléphonie IP et outils collaboratifs), et un forfait mobile (5G, gestion de flotte, services avancés). Une approche intégrée, évolutive et optimisée pour garantir la continuité d'activité, la performance des équipes et une maîtrise totale des coûts d'exploitation.</p>
+          </div>
+
+          <div class="row align-items-center mb-5">
+            <h2 class="h2 fw-bold mb-3 text-danger">Solution Fibre : La Fibre Ultra-Rapide et Sécurisée</h2>
+            <p class="text-muted lead">Cette solution fibre constitue l'infrastructure réseau professionnelle. Fiable, puissante, sécurisée et évolutive, elle est idéale pour les professionnels nécessitant une connexion sans faille avec des outils intégrés de sauvegarde et cybersécurité.</p>
+
+            <h3 class="h2 fw-bold mb-3 text-danger">Caractéristiques techniques</h3>
+            <ul class="list-unstyled mt-4">
+              <li class="mb-2">
+                <i class="bi bi-lightning-charge-fill text-danger me-2"></i>
+                <strong>Connexion fibre professionnelle :</strong>  Débits symétriques jusqu’à 8 Gbit/s, pour envoyer et recevoir vos fichiers, vidéos, données cloud à très haute vitesse.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-shield-lock-fill text-danger me-2"></i>
+                <strong>Continuité d'activité garantie:</strong> Grâce au backup 4G automatique intégré, vous restez connecté même en cas de coupure fibre.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-hdd-network text-danger me-2"></i>
+                <strong>Sauvegarde locale et cloud:</strong> Stockez vos données localement via un disque dur NVMe de 1 To intégré à la Freebox (NAS), et synchronisez automatiquement jusqu’à 200 Go dans le Cloud Free Pro.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-wifi text-danger me-2"></i>
+                <strong>Répéteur Wi-Fi 7 Pro inclus :</strong> Pour couvrir l’ensemble de vos bureaux avec une connectivité stable et rapide. Simple à installer, prêt à l’emploi.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-shield-exclamation text-danger me-2"></i>
+                <strong>Sécurité réseau intégrée :</strong>   Surveillance des flux réseau via une base de 4 millions de signatures de menaces mises à jour quotidiennement, avec alertes en cas d’anomalie.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-telephone-fill text-danger me-2"></i>
+                <strong>2 lignes téléphoniques fixes incluses  :</strong> Appels illimités vers les mobiles en France, DOM, Canada, USA, Chine et vers les fixes de plus de 100 pays.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-phone-fill text-danger me-2"></i>
+                <strong>1 forfait mobile Pro 5G offert:</strong> activable immédiatement après la souscription.
+              </li>
+              <li class="mb-2">
+                <i class="bi bi-tools text-danger me-2"></i>
+                <strong>Kit de mise en baie (en option) :</strong> Pour une intégration facile dans votre baie de brassage ou armoire réseau.            </li>
+              <li>
+                <i class="bi bi-speedometer2 text-danger me-2"></i>
+                <strong>Interface de gestion centralisée :</strong> Administrez vos lignes, votre box et vos services pro depuis un tableau de bord unique.
+              </li>
+            </ul>
+          </div>
+
+          <!-- Solution Téléphonie -->
+          <div class="row align-items-center mb-5 flex-lg-row-reverse">
+            <div class="col-12">
+              <h2 class="h2 fw-bold mb-3 text-primary">Coms Pro : La Téléphonie d’Entreprise Moderne et Collaborative</h2>
+              <p class="text-muted lead">
+                Coms Pro est la solution de communications unifiées de Free Pro. Elle centralise vos outils de téléphonie, d’accueil client et de collaboration interne dans une interface unique, intuitive et accessible à distance.</p>
+
+              <h3 class="fw-semibold text-primary mt-4">Fonctionnalités principales</h3>
+              <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">  Appels illimités vers les fixes et mobiles en France métropolitaine, DOM, USA, Canada, Chine, et vers les fixes de plus de 100 destinations.</li>
+                <li class="list-group-item">Serveur Vocal Interactif (SVI) entièrement personnalisable pour gérer les appels entrants.</li>
+                <li class="list-group-item">  Messagerie d’accueil personnalisée, gestion des horaires, transferts d’appel.</li>
+                <li class="list-group-item">     Gestion de présence : Visualisez en temps réel la disponibilité des collaborateurs (en ligne, en appel, en réunion...).</li>
+                <li class="list-group-item">Application mobile & web : Accédez à tous vos outils de téléphonie où que vous soyez — au bureau, en télétravail ou en déplacement.</li>
+              </ul>
+
+              <h4 class="fw-semibold text-primary mt-4">Administration simplifiée :</h4>
+              <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item">Suivi du trafic d'appels</li>
+                <li class="list-group-item">  Création/gestion d’utilisateurs</li>
+                <li class="list-group-item"> Statistiques d’usage en temps réel</li>
+              </ul>
+
+              <h3 class="fw-semibold text-primary mt-4">Pourquoi choisir Coms Pro ?</h3>
+              <ul class="list-group list-group-flush mb-4">
+                <li class="list-group-item"><strong>Autonomie :</strong>  Vous gérez votre téléphonie et votre accueil client sans dépendre d’un prestataire externe</li>
+                <li class="list-group-item"><strong>Flexibilité :</strong> Travail hybride, internationalisation, travail collaboratif... Coms Pro s’adapte à toutes les configurations.</li>
+                <li class="list-group-item"><strong>Productivité :</strong>Centralisez les échanges et facilitez la collaboration au quotidien.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="row align-items-center mb-5 flex-lg-row-reverse">
+            <div class="col-12">
+              <h2>Forfait Mobile Free Pro : 150 Go, Appels Illimités et Gestion de Flotte à Petit Prix</h2>
+
+              <p>pensé pour répondre aux exigences de mobilité des professionnels, le Forfait Mobile Free Pro associe une connectivité 5G haut débit, des communications internationales incluses et une interface de gestion centralisée. Il s’intègre parfaitement dans l’écosystème Free Pro, en complément de la Freebox Pro et de la solution Coms Pro, pour garantir cohérence, efficacité et maîtrise des coûts.
+              </p>   <h3> Ce que comprend le forfait (avec Freebox Pro)</h3>
+              <p>
+                Chaque abonnement Freebox Pro intègre un forfait mobile Free Pro 5G sans surcoût. Il inclut :
+
+                150 Go d’Internet mobile en 5G/4G+ sur le territoire métropolitain
+                31 Go à l’étranger, utilisables dans plus de 70 destinations, pour accompagner les déplacements professionnels sans surcoût imprévu
+
+                Idéal pour les usages intensifs : navigation, collaboration à distance, transfert de fichiers volumineux ou consultation d’outils SaaS en mobilité.
+              </p>
+              <h3> Appels, SMS et MMS illimités inclus</h3>
+
+              <p> Vers les mobiles et fixes de France métropolitaine, DOM, Europe, USA, Canada, Chine, etc.
+                Vers les fixes de plus de 100 pays
+              </p>
+              <h3>Services mobiles professionnels intégrés</h3>
+
+              <p>  Le Forfait Mobile Free Pro inclut des services avancés pour renforcer la qualité des communications et la productivité en mobilité :
+
+                Appels Wi-Fi (VoWiFi) : pour rester joignable même en zones sans couverture réseau
+                Appels VoLTE (4G) : pour bénéficier d’une meilleure qualité sonore et de connexions plus rapides
+                Messagerie vocale visuelle : gestion des messages simplifiée depuis le mobile
+                Conférence téléphonique : collaboration facilitée sans passer par une application tierce
+              </p>
+              <h3> Gestion de flotte mobile centralisée</h3>
+
+              <p> L’administration de votre parc mobile est simplifiée via l’espace client Free Pro, permettant :
+
+                Le suivi de la consommation par ligne, en temps réel
+                L’activation ou désactivation instantanée des lignes
+                La configuration à distance des paramètres SIM
+                Le pilotage centralisé de la facturation, par site ou par utilisateur
+
+                Une solution idéale pour les entreprises multi-sites, les équipes terrain ou les flottes de commerciaux.</p>
+
+            </div>
+          </div>
+          <!-- Support -->
+          <div class="mt-5 pt-5 border-top">
+            <div class="text-center mb-5">
+              <h2 class="display-6 fw-bold">Support Professionnel Dédié</h2>
+              <p class="text-muted lead">Disponible du lundi au samedi, de 8h à 19h</p>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="text-center p-4 h-100 bg-white rounded-3 shadow-sm">
+                  <i class="bi bi-headset display-4 text-primary mb-3"></i>
+                  <h5 class="fw-bold">Assistance technique</h5>
+                  <p class="text-muted">Experts dédiés pour les problèmes techniques</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="text-center p-4 h-100 bg-white rounded-3 shadow-sm">
+                  <i class="bi bi-clock-history display-4 text-primary mb-3"></i>
+                  <h5 class="fw-bold">Réactivité</h5>
+                  <p class="text-muted">Réponse sous 8h ouvrées pour les urgences</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="text-center p-4 h-100 bg-white rounded-3 shadow-sm">
+                  <i class="bi bi-person-video3 display-4 text-primary mb-3"></i>
+                  <h5 class="fw-bold">Accompagnement</h5>
+                  <p class="text-muted">Optimisation et configuration des services</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tarification -->
+          <div class="mt-5 pt-5 border-top">
+            <div class="text-center mb-5">
+              <h2 class="display-6 fw-bold">Tarification Transparente</h2>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-4">
+                <div class="p-4 h-100 bg-white rounded-3 shadow-sm text-center">
+                  <h5 class="fw-bold text-danger">Solution Fibre</h5>
+                  <p class="text-muted">Inclut 1 forfait mobile 5G</p>
+                  <p class="h4 fw-bold">À partir de XX€ HT/mois</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-4 h-100 bg-white rounded-3 shadow-sm text-center">
+                  <h5 class="fw-bold text-primary">Lignes supplémentaires</h5>
+                  <p class="text-muted">Même qualité de service</p>
+                  <p class="h4 fw-bold">9,99€ HT/mois</p>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="p-4 h-100 bg-white rounded-3 shadow-sm text-center">
+                  <h5 class="fw-bold text-success">Forfait seul</h5>
+                  <p class="text-muted">Sans abonnement fibre</p>
+                  <p class="h4 fw-bold">19,99€ HT/mois</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="cta-final mt-5 py-5 px-4 rounded-4 text-center bg-light border">
+            <h2 class="display-6 fw-bold mb-3">Prêt à moderniser votre infrastructure ?</h2>
+            <p class="lead text-muted mb-4">Nos experts vous conseillent la solution adaptée.</p>
+            <div class="d-flex justify-content-center flex-wrap gap-3">
+              <a href="tel:+33980803537" class="btn btn-primary btn-lg px-4">
+                <i class="bi bi-telephone me-2"></i>09 80 80 35 37
+              </a>
+              <button class="btn btn-outline-primary btn-lg px-4">
+                <i class="bi bi-chat-left-text me-2"></i>Contactez-nous
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+  </div>
+
+</div>

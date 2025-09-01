@@ -1,0 +1,135 @@
+<div class="container newsletter-popup-container h-auto" id="newsletter-popup-form" style="background-color: #f8f9fa;">
+  <div class="modal-content overflow-hidden m-0" style="border-radius: 15px; border: none;">
+    <div class="row justify-content-center position-relative">
+      <div class="col-12">
+        <div class="row no-gutters newsletter-popup-content" style="background-color: white; border-radius: 15px;">
+          <div class="col-xl-12 col-lg-12 banner-content-wrap">
+            <div class="banner-content text-center" *ngIf="!isAppointmentNow">
+              <form [formGroup]="editForm2" (ngSubmit)="completeMobile()">
+
+                <!-- Header -->
+                <div class="text-center mb-4">
+                  <img src="assets/images/corp.png" class="img-fluid" style="max-width: 100px; margin: auto;" />
+                  <h4 class="mt-3" style="font-size: 18px; font-weight: bold; color: #000000;">
+                    Demande de rappel GRYV CORP
+                  </h4>
+                  <p style="color: #666; font-size: 14px;">
+                    Un expert vous contactera à la date et heure de votre choix
+                  </p>
+                </div>
+
+                <!-- Téléphone -->
+                <div class="form-group mb-3">
+                  <input
+                    type="tel"
+                    class="form-control"
+                    placeholder="Téléphone (ex: 0612345678)"
+                    formControlName="phone"
+                    style="border-radius: 8px; border: 1px solid #e0e0e0; padding: 12px;"
+                    [ngClass]="{ 'is-invalid': editForm2.get('phone')?.invalid && editForm2.get('phone')?.touched }" />
+                  <div class="invalid-feedback" *ngIf="editForm2.get('phone')?.errors?.required">
+                    Le numéro de téléphone est requis.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="editForm2.get('phone')?.errors?.pattern">
+                    Format invalide. Le numéro doit comporter 10 chiffres et commencer par 0.
+                  </div>
+                </div>
+
+                <!-- Prénom et Nom -->
+                <div class="form-row mb-3">
+                  <div class="form-group col-md-6 pr-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Prénom"
+                      formControlName="firstName"
+                      style="border-radius: 8px; border: 1px solid #e0e0e0; padding: 12px;" />
+                  </div>
+                  <div class="form-group col-md-6 pl-2">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Nom"
+                      formControlName="lastName"
+                      style="border-radius: 8px; border: 1px solid #e0e0e0; padding: 12px;" />
+                  </div>
+                </div>
+
+                <!-- Email -->
+                <div class="form-group mb-3">
+                  <input
+                    type="email"
+                    class="form-control"
+                    placeholder="Email"
+                    formControlName="email"
+                    style="border-radius: 8px; border: 1px solid #e0e0e0; padding: 12px;"
+                    [ngClass]="{ 'is-invalid': editForm2.get('email')?.invalid && editForm2.get('email')?.touched }" />
+                  <div class="invalid-feedback" *ngIf="editForm2.get('email')?.errors?.required">
+                    L'adresse email est requise.
+                  </div>
+                  <div class="invalid-feedback" *ngIf="editForm2.get('email')?.errors?.email">
+                    Format d'email invalide.
+                  </div>
+                </div>
+
+                <!-- Date et Heure de rappel -->
+                <div class="form-row mb-4">
+                  <div class="form-group col-md-6 pr-2">
+                    <input
+                      type="date"
+                      class="form-control"
+                      formControlName="recallDate"
+                      (change)="onDateChange($event)"
+                      style="border-radius: 8px; border: 1px solid #e0e0e0; padding: 12px;"
+                      [ngClass]="{ 'is-invalid': editForm2.get('recallDate')?.invalid && editForm2.get('recallDate')?.touched }" />
+                    <div class="invalid-feedback" *ngIf="editForm2.get('recallDate')?.errors?.required">
+                      La date de rappel est requise.
+                    </div>
+                    <div class="invalid-feedback" *ngIf="editForm2.get('recallDate')?.errors?.futureDate">
+                      La date doit être aujourd'hui ou dans le futur.
+                    </div>
+                  </div>
+
+                  <div class="form-group col-md-6 pl-2">
+                    <select
+                      class="form-control"
+                      formControlName="recallHour"
+                      style="border-radius: 8px; border: 1px solid #e0e0e0; padding: 12px;"
+                      [ngClass]="{ 'is-invalid': editForm2.get('recallHour')?.invalid && editForm2.get('recallHour')?.touched }">
+                      <option value="">Sélectionnez une heure</option>
+                      <option *ngFor="let hour of availableHours" [value]="hour.id">{{ hour.text }}</option>
+                    </select>
+                    <div class="invalid-feedback" *ngIf="editForm2.get('recallHour')?.errors?.required">
+                      L'heure de rappel est requise.
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Bouton d'envoi -->
+                <button
+                  type="submit"
+                  class="btn btn-primary w-100 py-3"
+                  [disabled]="editForm2.invalid || isLoading"
+                  style="background: linear-gradient(45deg, #000000, #333333); border: none; border-radius: 8px; font-weight: bold;">
+                  <i class="fas fa-paper-plane mr-2"></i>
+                  {{ isLoading ? 'Envoi en cours...' : 'Envoyer ma demande de rappel' }}
+                </button>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bouton de fermeture -->
+      <button
+        title="Fermer"
+        type="button"
+        class="mfp-close"
+        (click)="closeModal()"
+        style="color: #d32f2f; font-size: 28px; right: 15px; top: 15px;">
+        <span>×</span>
+      </button>
+    </div>
+  </div>
+</div>

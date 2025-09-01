@@ -1,0 +1,232 @@
+<molla-page-header [title]="'Fournisseur gaz vert et d’éco-énergie'" subtitle=""></molla-page-header>
+<nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+  <div class="container">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item">
+        <a routerLink="/">Accueil</a>
+      </li>
+
+      <li class="breadcrumb-item active">Gaz </li>
+
+    </ol>
+  </div>
+  <div class="container">
+
+    <h2 class="text-center my-4" style="color: #003366;">Découvrez nos offres de gaz </h2>
+  </div>
+
+
+</nav>
+<div class="energy-offers-container">
+  <!-- ÉLECTRICITÉ -->
+
+
+  <!-- GAZ -->
+  <div class="energy-section">
+    <div class="offers-grid">
+
+      <!-- Offre Classique Gaz -->
+      <div class="offer-card green">
+        <div class="offer-badge">Notre offre VERTE</div>
+        <h3>OFFRE CLASSIQUE</h3>
+        <img src="assets/images/class.png" alt="Gaz vert" class="offer-icon"/>
+        <ul class="offer-features">
+          <li>✔ 10% de biogaz inclus</li>
+          <li>✔ Max 4 révisions/an</li>
+          <li>✔ <strong>Suivi Conso inclus</strong></li>
+          <li>✔ <strong>Sans engagement</strong></li>
+          <li>✔ Option plantation d'arbres</li>
+        </ul>
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button"(click)="onShowModel()">Expert gratuit</button>        </div>
+      </div>
+
+      <div class="offer-card pink" (click)="openBorPdf($event)">
+        <div class="offer-badge">Notre offre fixe</div>
+        <h3>Offre FIXE 2 ans</h3>
+        <img src="assets/images/offre.png" alt="Économie gaz" class="offer-icon"/>
+
+        <ul class="offer-features">
+          <li>✔ <strong>Prix fixe</strong> garanti pendant 2 ans</li>
+          <li>✔ <strong>Sérénité :</strong> vous sécurisez votre budget.</li>
+          <li>✔ <strong>1 arbre planté par an</strong> – sans surcoût</li>
+        </ul>
+
+        <a class="link-button">📄 Plus d'informations sur l'offre</a>
+
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button" (click)="$event.stopPropagation()">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button" (click)="onShowModel(); $event.stopPropagation()">Expert gratuit</button>
+        </div>
+      </div>
+
+      <!-- Offre Extra Éco Gaz -->
+      <div class="offer-card yellow">
+        <div class="offer-badge">Notre MEILLEUR PRIX</div>
+        <h3>OFFRE EXTRA ÉCO</h3>
+        <img src="assets/images/eco.png" alt="Économie gaz" class="offer-icon"/>
+        <ul class="offer-features">
+          <li>✔ <strong>Prix les plus bas</strong></li>
+          <li>✔ Prix révisables</li>
+          <li>✔ <strong>Suivi Conso inclus</strong></li>
+          <li>✔ <strong>Sans engagement</strong></li>
+          <li>✔ Option plantation d'arbres</li>
+        </ul>
+        <div class="offer-actions">
+          <a href="tel:+33980803537" class="call-button">
+            <i class="icon-phone"></i> 09 80 80 35 37
+          </a>
+          <button class="primary-button"(click)="onShowModel()">Expert gratuit</button>        </div>
+      </div>
+
+      <!-- Offre Fixe Gaz -->
+    </div>
+  </div>
+  <div class="offre-container">
+    <div class="offre-text">
+      <h2 style="font-size: 24px;">
+        Votre fournisseur d’éco-énergie<br>
+        <span class="highlight">plus économique,plus écologique</span><br>
+        <span class="highlight">plus simple&nbsp;!</span>
+      </h2>
+
+
+      <p class="tarif">
+        <strong>Des tarifs <span class="green">moins chers</span></strong>, une électricité verte produite<br>
+        dans votre région, par des producteurs indépendants&nbsp;!
+      </p>
+
+      <button class="btn-green">Hop&nbsp;! J’estime mes économies</button>
+
+      <!--      <div class="offre-infos">-->
+      <!--        <div><i class="fa fa-clock"></i> 5&nbsp;min chrono&nbsp;!</div>-->
+      <!--        <div><i class="fa fa-lock"></i> Sans engagement&nbsp;!</div>-->
+      <!--      </div>-->
+    </div>
+
+    <div class="offre-image-section">
+      <img src="assets/images/download.gif" alt="Animation méditation" class="img-gif" />
+    </div>
+  </div>
+
+</div>
+<div style="text-align: center; padding: 2rem;">
+  <h2>
+    <span style="color: #28a745; font-weight: bold;">Changez</span> de fournisseur quand vous voulez !<br>
+    <strong>Simple, rapide, gratuit : les <span style="color: #28a745;">économies</span> c’est ici !</strong>
+  </h2>
+
+  <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem; margin-top: 2rem;">
+    <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; width: 300px;">
+      ✅ <strong>Changement en 5 min</strong> : 100% en ligne, rapide et sans paperasse
+    </div>
+
+    <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; width: 300px;">
+      ✅ <strong>Sans coupure</strong> : on s’occupe de tout, même de prévenir votre ancien fournisseur
+    </div>
+
+    <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; width: 300px;">
+      ✅ <strong>Sans engagement</strong> : partez quand vous voulez, sans frais
+    </div>
+
+    <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; width: 300px;">
+      ✅ <strong>Zéro stress</strong> : une énergie simple, pratique et transparente
+    </div>
+
+    <div style="border: 1px solid #ccc; border-radius: 8px; padding: 1rem; width: 300px;">
+      ✅ <strong>Résiliation gratuite</strong> : aucun frais caché
+    </div>
+  </div>
+
+
+</div>
+
+<section class="container py-5">
+  <h2>Fournisseur de Gaz vert : Économisez, Agissez pour la Planète, Simplifiez-vous la Vie</h2>
+  <p>Votre Fournisseur d'Énergie Responsable et Accessible</p>
+
+  <p>Nous vous proposons des offres de gaz qui allient économies, respect de l'environnement et simplicité. Que vous soyez à la recherche d'une énergie plus verte ou que vous souhaitiez simplement optimiser vos dépenses énergétiques, nous avons la solution qui vous correspond.</p>
+
+  <h3>Découvrez nos Offres de Gaz : Choisissez l'Option qui Vous Convient</h3>
+  <p>Nous vous offrons une gamme variée d'offres adaptées à vos besoins. Que vous privilégiez une consommation responsable, des prix compétitifs ou une prévisibilité sur votre facture, vous trouverez la solution idéale.</p>
+
+  <h4>1. Offre Gaz Vert : Pour un Avenir Durable</h4>
+
+  <p>L'offre Gaz Vert est idéale pour ceux qui veulent combiner économies et engagement écologique. Grâce à cette option, vous bénéficiez de gaz produit de manière responsable, avec un pourcentage significatif de biogaz, tout en soutenant la transition énergétique locale.</p>
+
+  <ul>
+    <li>10% de biogaz inclus dans votre consommation</li>
+    <li>Révisions maximales de 4 fois par an pour un suivi optimal de votre consommation</li>
+    <li>Suivi Conso inclus : une visibilité claire sur vos dépenses</li>
+    <li>Sans engagement : vous êtes libre de changer d'offre à tout moment</li>
+    <li>Option Plantation d'arbres : pour compenser vos émissions de CO2 et agir pour la planète</li>
+  </ul>
+
+  <h5>Pourquoi Choisir l'Offre Gaz Vert ?</h5>
+
+  <p>Opter pour cette offre, c'est faire un geste concret pour l'environnement, tout en bénéficiant d'un prix compétitif. Le gaz que vous consommez provient principalement de sources renouvelables, une manière simple de participer à la transition énergétique tout en optimisant vos dépenses.</p>
+
+  <h4>2. Offre Extra Éco : L'Économie Avant Tout</h4>
+
+  <p>Si vous cherchez à réduire vos factures sans compromis, l'Offre Extra Éco est la solution. Profitez des prix les plus bas et d'une offre flexible qui s'ajuste à vos besoins, tout en incluant des services pratiques pour gérer votre consommation.</p>
+
+  <ul>
+    <li>Prix les plus bas du marché</li>
+    <li>Prix révisables pour plus de flexibilité</li>
+    <li>Suivi Conso inclus pour une gestion optimale de votre consommation</li>
+    <li>Sans engagement : la liberté de choisir sans contrainte</li>
+    <li>Option Plantation d'arbres : contribuez à la reforestation tout en réduisant votre empreinte carbone</li>
+  </ul>
+
+  <h4>Les Avantages de l'Offre Extra Éco</h4>
+
+  <p>Cette offre s'adresse à ceux qui recherchent avant tout l'économie, mais sans sacrifier la qualité ni l'impact écologique. Grâce à la révision des prix, vous êtes à l'abri des hausses inattendues, et avec l'option plantation d'arbres, vous participez activement à l'amélioration de notre environnement.</p>
+
+  <h4>3. Offre Fixe : La Sécurité et la Sérénité de Votre Budget</h4>
+
+  <p>Pour ceux qui souhaitent sécuriser leurs finances, l'Offre Fixe est la solution idéale. Grâce à un tarif stable pendant 12 mois, vous n'aurez plus à vous soucier des variations du marché. De plus, cette offre inclut des outils pour suivre et maîtriser votre consommation.</p>
+
+  <ul>
+    <li>Prix fixe pendant 1 an : la tranquillité d'esprit sur vos factures</li>
+    <li>Sécurisez votre budget : pas de surprise, vous payez le même tarif chaque mois</li>
+    <li>Suivi Conso inclus pour une gestion précise de votre consommation</li>
+    <li>Sans engagement : la possibilité de changer d'offre sans frais</li>
+    <li>Option Plantation d'arbres : compensez votre consommation et agissez pour la planète</li>
+  </ul>
+
+  <h5>Pourquoi Choisir l'Offre Fixe ?</h5>
+
+  <p>Si vous souhaitez éviter les fluctuations des prix et garder une maîtrise totale de vos dépenses, l'Offre Fixe est parfaite. Elle vous garantit une stabilité financière sur l'année, tout en incluant des services pour une consommation plus responsable.</p>
+
+  <h3>Nos Engagements : Un Choix Durable et Accessible</h3>
+
+  <p>Nous croyons qu'il est possible de conjuguer économies et actions pour la planète. C'est pourquoi, en plus de nos offres de gaz, nous avons mis en place des initiatives concrètes pour contribuer à un avenir énergétique plus propre.</p>
+
+  <h4>Une Énergie Plus Verte</h4>
+
+  <p>Tous nos gaz sont produits de manière responsable, avec une part importante de biogaz, pour réduire l'empreinte carbone de nos clients.</p>
+
+  <h4>Un Suivi de Consommation Personnalisé</h4>
+  <p>Grâce à nos outils, vous avez une vision claire de votre consommation et de vos économies, afin de mieux gérer votre budget et votre impact écologique.</p>
+
+  <h4>Un Engagement pour la Planète</h4>
+  <p>Avec l'option plantation d'arbres, chaque client peut contribuer à la reforestation et à la réduction de CO2, transformant ainsi chaque kilowatt-heure consommé en une action positive pour l'environnement.</p>
+
+  <h4>Contactez-Nous : Simplifiez Votre Choix</h4>
+  <p>Pour en savoir plus sur nos offres, bénéficiez de conseils personnalisés ou souscrivez directement à l'une de nos offres, contactez-nous au 09 80 80 35 37 ou visitez notre site web.</p>
+
+  <p>Ne laissez pas la complexité vous freiner ! Choisissez dès aujourd'hui un fournisseur d'énergie à la fois économique et respectueux de l'environnement. Nous sommes là pour vous accompagner dans chaque étape de votre transition énergétique.</p>
+</section>
+<div class="pdf-modal" *ngIf="showPdfModal" (click)="closePdfModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <button class="close-button" (click)="closePdfModal()">&times;</button>
+    <div class="pdf-container">
+      <iframe [src]="pdfUrl" frameborder="0" class="pdf-iframe"></iframe>
+    </div>
+  </div>
+</div>

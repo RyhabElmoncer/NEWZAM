@@ -1,0 +1,287 @@
+<div class="main">
+  <!-- Hero Section -->
+  <molla-page-header
+    [title]="'Assurance perte d’emploi : la protection essentielle dès 9,99€/mois avec GRYV CORP'"
+   >
+  </molla-page-header>
+
+
+
+
+
+  <!-- Profile Selector -->
+  <div class="container">
+    <div class="profile-selector">
+      <h2 class="text-center mb-4">Choisissez votre profil</h2>
+      <div class="row">
+        <div class="col-md-4 mb-3">
+          <div class="profile-card" [class.active]="selectedProfile === 'salaries'" (click)="onSelectProfile('salaries')">
+            <div class="profile-icon">
+              <i class="fas fa-briefcase"></i>
+            </div>
+            <h4>Salariés</h4>
+            <p style="color:  #1a237e;">Protection contre la perte d'emploi et arrêt de travail</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="profile-card" [class.active]="selectedProfile === 'familles'" (click)="onSelectProfile('familles')">
+            <div class="profile-icon">
+              <i class="fas fa-home"></i>
+            </div>
+            <h4>Familles</h4>
+            <p style="color:  #1a237e;">Solutions adaptées aux besoins familiaux</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <div class="profile-card" [class.active]="selectedProfile === 'independants'" (click)="onSelectProfile('independants')">
+            <div class="profile-icon">
+              <i class="fas fa-user-tie"></i>
+            </div>
+            <h4>Indépendants</h4>
+            <p style="color:  #1a237e;">Protection spécifique pour les entrepreneurs</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-number">{{ displayedCount | number }}</div>
+      <h3>Personnes déjà protégées par GRYV CORP</h3>
+      <p class="lead">Rejoignez les milliers de Français qui ont choisi la sécurité</p>
+    </div>
+  </section>
+  <!-- Présentation Assurance -->
+  <section class="intro-section py-5">
+    <div class="container">
+      <h2 class="section-title">
+        Assurance perte d’emploi : la protection essentielle dès 9,99€/mois avec GRYV CORP
+      </h2>
+      <p>
+        1 Français sur 5 risque de ne pas pouvoir payer son loyer ou ses factures en cas d’arrêt brutal de revenus.
+        Pourtant, 95 % n’ont aucune assurance perte d’emploi.
+      </p>
+      <p>
+        Avec GRYV CORP, anticipez l’imprévu grâce à des formules simples, souples et sans engagement.
+        Que vous soyez salarié, indépendant ou jeune actif, ne laissez plus un coup dur décider à votre place.
+      </p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Questions fréquentes (FAQ)</h2>
+      <div class="faq-item">
+        <p><strong>Est-ce que je peux m’assurer même si je suis déjà en CDI ou indépendant ?</strong><br>
+          Oui, nos offres s’adaptent à tous les statuts : salariés, freelances, auto-entrepreneurs, jeunes actifs…</p>
+
+        <p><strong>Est-ce que l’assurance couvre mon crédit immobilier ou mes factures ?</strong><br>
+          Absolument. Nos formules permettent de prendre en charge vos charges mensuelles, y compris vos mensualités de prêt immobilier ou de crédit consommation.</p>
+
+        <p><strong>En cas de coup dur, comment déclencher l’indemnisation ?</strong><br>
+          Tout se fait en ligne, en transmettant les justificatifs de votre arrêt d’activité ou perte de revenus. Nos équipes vous accompagnent à chaque étape.</p>
+
+        <p><strong>Est-ce que je peux résilier facilement ?</strong><br>
+          Oui. Il n’y a aucun engagement. Vous arrêtez votre contrat à tout moment, sans frais cachés.</p>
+
+        <p><strong>Et si j’ai déjà une assurance ?</strong><br>
+          La majorité des assurances ne couvrent ni la perte d’emploi, ni la baisse de revenus. GRYV CORP vous protège là où les autres ne vont pas.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="cta-final py-5 text-center text-white bg-primary">
+    <div class="container">
+      <h3>Anticipez aujourd’hui, sécurisez demain</h3>
+      <p class="lead text-white">
+        Un coup dur peut arriver sans prévenir. <br>
+        Faites le choix d’une assurance perte d’emploi qui comprend vos enjeux.
+      </p>
+      <div class="mt-4">
+        <a href="tel:+33123456789" class="btn btn-light btn-lg me-3">
+          <i class="fas fa-phone"></i> Être rappelé maintenant
+        </a>
+        <button class="btn btn-outline-light btn-lg" (click)="onShowModel()">
+          Parler à un conseiller GRYV CORP
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offres Salariés -->
+  <section id="offres-salaries" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Nos offres pour les salariés</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4" *ngFor="let offre of offresSalaries">
+          <div class="offer-card">
+            <div class="offer-badge" [class.green]="offre.color === 'green'"
+                 [class.yellow]="offre.color === 'yellow'"
+                 [class.blue]="offre.color === 'blue'"
+                 [class.pink]="offre.color === 'pink'"
+                 [class.purple]="offre.color === 'purple'"
+                 [class.red]="offre.color === 'red'">
+              {{ offre.badge }}
+            </div>
+            <h3 class="offer-title">{{ offre.titre }}</h3>
+            <div class="offer-price">{{ offre.prix }}</div>
+            <div class="offer-coverage">Couverture {{ offre.couverture }}</div>
+            <ul class="feature-list">
+              <li *ngFor="let feature of offre.features">
+                <i class="fas fa-check"></i> {{ feature }}
+              </li>
+            </ul>
+            <div class="mt-4">
+              <a href="tel:+33123456789" class="call-button">
+                <i class="fas fa-phone"></i> Appeler sur GRYV CORP 0980803537
+              </a>
+              <button class="btn btn-primary" (click)="onSubscribe(offre)">
+                Expert gratuit GRYV CORP
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offres Familles -->
+  <section id="offres-familles" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Nos offres pour les familles</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4" *ngFor="let offre of offresFamilles">
+          <div class="offer-card">
+            <div class="offer-badge" [class.green]="offre.color === 'green'"
+                 [class.yellow]="offre.color === 'yellow'"
+                 [class.blue]="offre.color === 'blue'"
+                 [class.pink]="offre.color === 'pink'"
+                 [class.purple]="offre.color === 'purple'"
+                 [class.red]="offre.color === 'red'">
+              {{ offre.badge }}
+            </div>
+            <h3 class="offer-title">{{ offre.titre }}</h3>
+            <div class="offer-price">{{ offre.prix }}</div>
+            <div class="offer-coverage">Couverture {{ offre.couverture }}</div>
+            <ul class="feature-list">
+              <li *ngFor="let feature of offre.features">
+                <i class="fas fa-check"></i> {{ feature }}
+              </li>
+            </ul>
+            <div class="mt-4">
+              <a href="tel:+33123456789" class="call-button">
+                <i class="fas fa-phone"></i> Appeler sur GRYV CORP 0980803537
+              </a>
+              <button class="btn btn-primary" (click)="onSubscribe(offre)">
+                Expert gratuit GRYV CORP
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offres Indépendants -->
+  <section id="offres-independants" class="py-5">
+    <div class="container">
+      <h2 class="section-title">Nos offres pour les indépendants</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4" *ngFor="let offre of offresIndependants">
+          <div class="offer-card">
+            <div class="offer-badge" [class.green]="offre.color === 'green'"
+                 [class.yellow]="offre.color === 'yellow'"
+                 [class.blue]="offre.color === 'blue'"
+                 [class.pink]="offre.color === 'pink'"
+                 [class.purple]="offre.color === 'purple'"
+                 [class.red]="offre.color === 'red'">
+              {{ offre.badge }}
+            </div>
+            <h3 class="offer-title">{{ offre.titre }}</h3>
+            <div class="offer-price">{{ offre.prix }}</div>
+            <ul class="feature-list">
+              <li *ngFor="let feature of offre.features">
+                <i class="fas fa-check"></i> {{ feature }}
+              </li>
+            </ul>
+            <div class="mt-4">
+              <a href="tel:+33123456789" class="call-button">
+                <i class="fas fa-phone"></i> Appeler sur GRYV CORP 0980803537
+              </a>
+              <button class="btn btn-primary" (click)="onSubscribe(offre)">
+                Expert gratuit GRYV CORP
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Protection Info -->
+  <section class="protection-info">
+    <div class="container">
+      <h2 class="mb-4">Pourquoi choisir GRYV CORP ?</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="trust-item">
+            <i class="fas fa-bolt trust-icon" style="color: white;"></i>
+            <h4>Activation immédiate</h4>
+            <p style="color: white;">Votre protection prend effet dès la souscription</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="trust-item">
+            <i class="fas fa-handshake trust-icon" style="color: white;"></i>
+            <h4>Sans engagement</h4>
+            <p style="color: white;">Résiliez quand vous voulez, sans frais</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="trust-item">
+            <i class="fas fa-headset trust-icon" style="color: white;"></i>
+            <h4>Support 24/7</h4>
+            <p style="color: white;">Une équipe dédiée à votre service</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="why-choose">
+    <div class="container">
+      <h2 class="section-title">Les avantages GRYV CORP</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="advantage-card">
+            <i class="fas fa-shield-alt advantage-icon"></i>
+            <h4>Sécurité garantie</h4>
+            <p>Vos données sont protégées et vos versements sécurisés</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="advantage-card">
+            <i class="fas fa-euro-sign advantage-icon"></i>
+            <h4>Tarifs transparents</h4>
+            <p>Pas de frais cachés, des prix clairs et compétitifs</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="advantage-card">
+            <i class="fas fa-clock advantage-icon"></i>
+            <h4>Traitement rapide</h4>
+            <p>Vos demandes traitées en moins de 48h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+
+</div>

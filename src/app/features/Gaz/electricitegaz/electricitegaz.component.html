@@ -1,0 +1,401 @@
+<div class="main shop">
+  <molla-page-header [title]="'Nos offres Gaz et Electricité'" subtitle=""></molla-page-header>
+  <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
+    <div class="container">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/">Accueil</a>
+        </li>
+        <li class="breadcrumb-item active">Nos offres Gaz et Electricité
+        </li>
+      </ol>
+    </div>
+  </nav>
+
+  <div class="offre-container">
+    <div class="offre-text">
+      <h2>
+        Votre fournisseur d’éco-énergie<br>
+        <span class="highlight">plus économique,plus écologique</span><br>
+        <span class="highlight">plus simple&nbsp;!</span>
+      </h2>
+
+      <p class="tarif">
+        <strong>Des tarifs <span class="green">moins chers</span></strong>, une électricité verte produite<br>
+        dans votre région, par des producteurs indépendants&nbsp;!
+      </p>
+
+
+
+
+      <!--      <div class="offre-infos">-->
+<!--        <div><i class="fa fa-clock"></i> 5&nbsp;min chrono&nbsp;!</div>-->
+<!--        <div><i class="fa fa-lock"></i> Sans engagement&nbsp;!</div>-->
+<!--      </div>-->
+    </div>
+
+    <div class="offre-image-section">
+      <img src="assets/images/download.gif" alt="Animation méditation" class="img-gif" />
+    </div>
+  </div>
+
+
+  <div class="energy-section">
+    <div class="container">
+      <h2 class="text-center my-4" style="color: #003366;">Découvrez nos offres de Gaz</h2>
+    </div>
+    <div class="energy-offers-container">
+      <!-- ÉLECTRICITÉ -->
+
+
+      <!-- GAZ -->
+      <div class="energy-section">
+        <div class="offers-grid">
+
+          <!-- Offre Classique Gaz -->
+          <div class="offer-card green">
+            <div class="offer-badge">Notre offre VERTE</div>
+            <h3>OFFRE CLASSIQUE</h3>
+            <img src="assets/images/class.png" alt="Gaz vert" class="offer-icon"/>
+            <ul class="offer-features">
+              <li>✔ 10% de biogaz inclus</li>
+              <li>✔ Max 4 révisions/an</li>
+              <li>✔ <strong>Suivi Conso inclus</strong></li>
+              <li>✔ <strong>Sans engagement</strong></li>
+              <li>✔ Option plantation d'arbres</li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button"(click)="onShowModel()">Expert gratuit</button>        </div>
+          </div>
+
+          <!-- Offre Extra Éco Gaz -->
+          <div class="offer-card yellow">
+            <div class="offer-badge">Notre MEILLEUR PRIX</div>
+            <h3>OFFRE EXTRA ÉCO</h3>
+            <img src="assets/images/eco.png" alt="Économie gaz" class="offer-icon"/>
+            <ul class="offer-features">
+              <li>✔ <strong>Prix les plus bas</strong></li>
+              <li>✔ Prix révisables</li>
+              <li>✔ <strong>Suivi Conso inclus</strong></li>
+              <li>✔ <strong>Sans engagement</strong></li>
+              <li>✔ Option plantation d'arbres</li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button"(click)="onShowModel()">Expert gratuit</button>        </div>
+          </div>
+
+          <!-- Offre Fixe Gaz -->
+          <div class="offer-card pink">
+            <div class="offer-badge">Notre offre fixe
+            </div>
+            <h3>Offre FIXE 2 ans
+            </h3>
+            <img src="assets/images/offre.png" alt="Économie gaz" class="offer-icon"/>
+            <ul class="offer-features">
+              <li>✔ <strong>Prix fixe </strong>garanti pendant 2 ans</li>
+              <li>✔ <strong>Sérénité : </strong>vous sécurisez votre budget.</li>
+              <li>✔ <strong>1 arbre planté par an </strong>1 arbre planté par an – sans surcoût</li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button"(click)="onShowModel()">Expert gratuit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="blue-banner">
+      Offre électricité EXTRA ÉCO : -12% sur le prix du kWh HT (2) par rapport au TRV en vigueur.
+    </div>
+
+    <section class="text-center py-5" style="background-color: #f7f9fb;">
+      <div class="container">
+        <h2 style="font-weight: bold; font-size: 1.8rem; color: #002b5c;">
+          Rejoignez le premier fournisseur Français d’énergie verte indépendant 🥇🇫🇷🌳
+        </h2>
+
+        <div class="my-4">
+          <span [innerText]="displayedCount" style="font-size: 3rem; color: #0076c0; font-weight: bold;"></span>
+        </div>
+
+        <p style="font-weight: 500;">C’est le nombre de compteurs déjà branchés chez nous,</p>
+        <p style="font-weight: bold;">Merci pour votre confiance !</p>
+      </div>
+    </section>
+
+    <div class="container">
+      <h2 class="text-center my-4" style="color: #003366;">Découvrez nos offres D'électricité</h2>
+    </div>
+
+    <div class="energy-offers-container">
+      <div class="energy-section">
+        <div class="offers-grid">
+
+          <!-- Offre Classique Gaz -->
+          <div class="offer-card green">
+            <div class="offer-badge">Notre offre VERTE</div>
+            <h3>OFFRE CLASSIQUE</h3>
+            <img src="assets/images/bulb.png" alt="Gaz vert" class="offer-icon" />
+            <ul class="offer-features">
+              <li>✔ -10% sur l’abonnement HT par rapport au TRV(5)</li>
+              <li>✔ Prix identique et indexé au TRV</li>
+              <li>✔ <strong>Électricité 100 % verte</strong> produite en France</li>
+              <li>✔ <strong>Sans engagement</strong></li>
+              <li>✔ Service <strong>Suivi Conso inclus</strong></li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+            </div>
+          </div>
+
+          <!-- Offre Extra Éco Gaz -->
+          <div class="offer-card yellow">
+            <div class="offer-badge">-12% sur le kWh HT (2) !</div>
+            <h3>OFFRE EXTRA ÉCO</h3>
+            <img src="assets/images/bulb2.png" alt="Économie gaz" class="offer-icon" />
+            <ul class="offer-features">
+              <li>✔ <strong>-12% sur le prix du kWh HT</strong> par rapport au TRV en vigueur (2)</li>
+              <li>✔ <strong>Prix révisable 2x par an au maximum</strong></li>
+              <li>✔ <strong>Sans engagement</strong></li>
+              <li>✔ Service <strong>Suivi Conso inclus</strong></li>
+              <li>✔ Option (+2€/mois) : énergie verte 100% française</li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+            </div>
+          </div>
+
+          <!-- Offre Modulo Gaz -->
+          <div class="offer-card blue">
+            <div class="offer-badge">Heures creuses en journée !</div>
+            <h3>OFFRE MODULO</h3>
+            <img src="assets/images/bubl3.png" alt="Gaz fixe" class="offer-icon" />
+            <ul class="offer-features">
+              <li>✔ Prix fixe 1 an</li>
+              <li>✔ Des prix bas toute l’année</li>
+              <li>✔ Exclusif : des <strong>Heures Solaires (3)</strong> à -30% sur le kWh HT / TRV en vigueur (3)</li>
+              <li>✔ Réduisez les émissions de CO²</li>
+              <li>✔ Exclusif : <strong>15 jours SÉRÉNITÉ</strong> à prix cassés, à -65% sur le kWh HT / TRV en vigueur (4)</li>
+              <li>✔ <strong>Sans engagement</strong></li>
+              <li>✔ Service <strong>Suivi Conso inclus</strong></li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+            </div>
+          </div>
+
+          <!-- Offre Soir & Week-end -->
+          <div class="offer-card red">
+            <div class="offer-badge">Absent de chez vous en journée ?</div>
+            <h3>SOIR & WEEK-END</h3>
+            <img src="assets/images/bul4.png" alt="Gaz vert" class="offer-icon" />
+            <ul class="offer-features">
+              <li>✔ Prix fixe garanti pendant 1 an (6)</li>
+              <li>✔ – 40% sur le kWh le week-end et en heures creuses par rapport aux heures pleines</li>
+              <li>✔ Sérénité : vous sécurisez votre budget.</li>
+              <li>✔ <strong>Sans engagement</strong></li>
+              <li>✔ Option (+2€/mois) : plantation d’arbres avec Reforest’Action</li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button" (click)="onShowModel()">Expert gratuit</button>
+            </div>
+          </div>
+          <div class="offer-card pink">
+            <div class="offer-badge">Notre offre fixe
+            </div>
+            <h3>Offre FIXE 2 ans
+            </h3>
+            <img src="assets/elc.png" alt="Économie gaz" class="offer-icon"/>
+            <ul class="offer-features">
+              <li>✔ Prix fixe garanti pendant 2 ans</li>
+              <li>✔ <strong>Électricité d’origine renouvelable </strong>+ 1 arbre planté /an (1)</li>
+              <li>✔ <strong>20 € offert </strong>au terme de la 1ère année (7)</li>
+            </ul>
+            <div class="offer-actions">
+              <a href="tel:+33980803537" class="call-button">
+                <i class="icon-phone"></i> 09 80 80 35 37
+              </a>
+              <button class="primary-button"(click)="onShowModel()">Expert gratuit</button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <section class="green-energy-intro py-5">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Colonne texte -->
+        <div class="col-md-6 mb-4 mb-md-0">
+
+          <h2 style="font-weight: bold;">
+            Sélectionnez votre région pour découvrir l’énergie verte produite près de chez vous !
+          </h2>
+          <p class="mt-3" style="font-size: 1.1rem;">
+            Lorsque vous choisissez une offre verte, Ohm énergie vous assure une énergie locale.
+            Cliquez sur votre région pour découvrir les moyens de production que vous utiliserez !
+          </p>
+          <button class="btn btn-light shadow-sm mt-3" style="border-radius: 20px; font-weight: bold;">
+            Je passe au vert !
+          </button>
+        </div>
+
+        <!-- Colonne image -->
+        <div class="col-md-6 text-center">
+          <img src="assets/images/cercle.png" alt="Carte de France Ohm énergie"
+               style="width: 100%; max-width: 450px; height: auto;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-5 bg-light">
+    <div class="container">
+      <article class="bg-white p-4 p-lg-5 rounded-3 shadow-sm">
+        <h1 class="h2 mb-4 fw-bold">Offres d'Énergie : Gaz & Électricité – Choisissez l'Option la Plus Avantageuse</h1>
+
+        <p class="lead">
+          Chez ZoneADSLMobile, nous vous guidons pour sélectionner les meilleures offres d'énergie adaptées à vos besoins.
+          Que vous soyez un particulier ou une entreprise, notre comparateur vous aide à trouver l'offre la plus économique et la plus adaptée à votre consommation.
+        </p>
+
+        <div class="row g-4 mt-4">
+          <div class="col-lg-6">
+            <div class="bg-light p-4 rounded-3 h-100">
+              <h2 class="h4 fw-bold mb-3">Types d'Offres d'Énergie</h2>
+
+              <div class="accordion" id="energyTypesAccordion">
+                <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne">
+                      Offre à Prix Indexé
+                    </button>
+                  </h3>
+                  <div id="collapseOne" class="accordion-collapse collapse show">
+                    <div class="accordion-body">
+                      <p><strong>Principe :</strong> Le tarif est indexé sur le Tarif Réglementé de Vente (TRV), avec une réduction de X% par rapport à ce dernier.</p>
+                      <p><strong>Avantages :</strong> Profitez immédiatement d'économies sur votre facture d'énergie.</p>
+                      <p><strong>Inconvénients :</strong> Exposition aux hausses du TRV, bien que vous puissiez bénéficier des baisses.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0 mb-3 rounded-3 overflow-hidden shadow-sm">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo">
+                      Offre à Prix Fixe
+                    </button>
+                  </h3>
+                  <div id="collapseTwo" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                      <p><strong>Principe :</strong> Le tarif est bloqué pour une durée déterminée (1, 2 ou 3 ans).</p>
+                      <p><strong>Avantages :</strong> Protection contre les hausses du TRV, avec une facture stable et prévisible.</p>
+                      <p><strong>Inconvénients :</strong> Pas de bénéfice en cas de baisse du TRV.</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="accordion-item border-0 rounded-3 overflow-hidden shadow-sm">
+                  <h3 class="accordion-header">
+                    <button class="accordion-button collapsed bg-white" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree">
+                      Tarif Réglementé de Vente (TRV)
+                    </button>
+                  </h3>
+                  <div id="collapseThree" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                      <p><strong>Principe :</strong> Le TRV est déterminé chaque année par les pouvoirs publics.</p>
+                      <p><strong>Offreur :</strong> Uniquement EDF propose encore le TRV pour l'électricité.</p>
+                      <p><strong>Avantages :</strong> Prix de référence pour l'électricité et le gaz, garantissant une certaine stabilité.</p>
+                      <p><strong>Inconvénients :</strong> Moins compétitif par rapport aux offres de marché.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-lg-6">
+            <div class="bg-light p-4 rounded-3 h-100">
+              <h2 class="h4 fw-bold mb-3">Options Tarifaires d'Électricité</h2>
+
+              <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body">
+                  <h3 class="h5 fw-bold">Option Base</h3>
+                  <p><strong>Principe :</strong> Le prix de l'électricité est constant tout au long de l'année.</p>
+                  <p><strong>Idéal pour :</strong> Les petits consommateurs ou ceux ayant une consommation régulière.</p>
+                </div>
+              </div>
+
+              <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                  <h3 class="h5 fw-bold">Option Heures Pleines/Heures Creuses</h3>
+                  <p><strong>Principe :</strong> Le prix de l'électricité varie selon les heures de la journée : plus cher durant les heures pleines, moins cher durant les heures creuses.</p>
+                  <p><strong>Idéal pour :</strong> Les gros consommateurs ou ceux pouvant décaler leur consommation (chauffage, chauffe-eau, etc.).</p>
+                </div>
+              </div>
+
+              <div class="mt-4 pt-3">
+                <h3 class="h4 fw-bold">Offres Duales : Gaz & Électricité</h3>
+
+                <div class="row g-3 mt-3">
+                  <div class="col-md-6">
+                    <div class="p-3 bg-white rounded-3 shadow-sm h-100">
+                      <h4 class="h6 fw-bold text-success">Avantages</h4>
+                      <ul class="ps-3 mb-0">
+                        <li>Un seul interlocuteur</li>
+                        <li>Facturation unique</li>
+                        <li>Remises attractives</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="p-3 bg-white rounded-3 shadow-sm h-100">
+                      <h4 class="h6 fw-bold text-danger">Inconvénients</h4>
+                      <ul class="ps-3 mb-0">
+                        <li>Risque en cas de litige</li>
+                        <li>Moins de flexibilité</li>
+                        <li>Tarifs parfois moins compétitifs</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="alert alert-info mt-3">
+                  <strong>À qui s'adresse une offre duale ?</strong>
+                  <ul class="mb-0 mt-2">
+                    <li>Logements avec double énergie</li>
+                    <li>Consommateurs réguliers</li>
+                    <li>Ceux souhaitant simplifier la gestion</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+</div>

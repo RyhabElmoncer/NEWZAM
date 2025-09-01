@@ -1,0 +1,354 @@
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+}
+
+/* Alternative avec flex/grid pour mieux s'intégrer */
+.free-box-container {
+  background-color: #000;
+  color: #fff;
+  padding: 2rem;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 8px;
+  box-sizing: border-box;
+
+  /* Mobile first - pleine largeur */
+  width: 100%;
+  max-width: 100%;
+
+  /* Desktop - 25% de largeur */
+  @media (min-width: 992px) {
+    width: 25%;
+    min-width: 300px;
+    max-width: 400px;
+  }
+}
+
+.logo-container {
+  margin-bottom: 1rem;
+}
+
+.offer-logo {
+  max-width: 150px;
+  height: auto;
+}
+
+.free-box-visual img {
+  max-width: 100%;
+  height: auto;
+  margin: 1rem 0;
+}
+
+.free-box-content .title {
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.free-box-content .subtitle {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 300;
+}
+
+.free-box-content .description {
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+.free-box-content .pricing {
+  margin-bottom: 1.5rem;
+}
+
+.free-box-content .pricing .price {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-right: 0.5rem;
+}
+
+.free-box-content .pricing .price-info {
+  font-size: 0.95rem;
+  margin-right: 1rem;
+}
+
+.free-box-content .pricing .additional-info {
+  display: block;
+  font-size: 0.85rem;
+  margin-top: 0.5rem;
+}
+
+.free-box-content .pricing .commitment {
+  display: block;
+  margin-top: 0.5rem;
+  font-style: italic;
+  opacity: 0.8;
+  font-size: 0.85rem;
+}
+
+.free-box-content .features-container {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.free-box-content .features-container h3 {
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.free-box-content .features-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+}
+
+.free-box-content .features-list li {
+  padding-left: 1.5rem;
+  position: relative;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+}
+
+.free-box-content .features-list li::before {
+  content: "✔";
+  color: white;
+  font-size: 1rem;
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.button-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  align-items: center;
+  margin-top: 1.5rem;
+}
+
+.offer-button {
+  width: 100%;
+  max-width: 300px;
+  height: 50px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.subscribe-button {
+  background-color: #e50914;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.phone-button {
+  background-color: #d3d3d3;
+  color: black;
+  border: none;
+}
+
+.offer-button:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+/* Section Freebox Pro */
+.freebox-pro-section {
+  padding: 2rem 0;
+}
+
+.main-title {
+  font-size: 1.8rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #000;
+}
+
+.intro-section .lead {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+.feature-section {
+  margin-bottom: 3rem;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e50914;
+  padding-bottom: 0.5rem;
+}
+
+.feature-card {
+  background: #f9f9f9;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.feature-title {
+  font-size: 1.2rem;
+  color: #e50914;
+  margin-bottom: 1rem;
+}
+
+.feature-list {
+  padding-left: 1.5rem;
+}
+
+.feature-list li {
+  margin-bottom: 0.5rem;
+}
+
+.specs-section {
+  margin: 3rem 0;
+}
+
+.specs-title {
+  font-size: 1.3rem;
+  color: #000;
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.specs-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.specs-column {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+.specs-column h4 {
+  font-size: 1.1rem;
+  color: #e50914;
+  margin-bottom: 1rem;
+}
+
+.specs-list {
+  padding-left: 1rem;
+}
+
+.specs-list li {
+  margin-bottom: 0.5rem;
+}
+
+.target-section {
+  margin-top: 3rem;
+}
+
+.target-title {
+  font-size: 1.3rem;
+  color: #000;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.target-list {
+  padding-left: 1.5rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Media Queries pour le responsive */
+@media (max-width: 992px) {
+  .main-title {
+    font-size: 1.6rem;
+  }
+
+  .feature-card {
+    padding: 1.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .free-box-container {
+    padding: 1.5rem;
+  }
+
+  .free-box-content .title {
+    font-size: 1.3rem;
+  }
+
+  .free-box-content .pricing .price {
+    font-size: 1.8rem;
+  }
+
+  .main-title {
+    font-size: 1.4rem;
+  }
+
+  .section-title {
+    font-size: 1.3rem;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 576px) {
+  .free-box-content .features-list {
+    grid-template-columns: 1fr;
+  }
+
+  .free-box-content .title {
+    font-size: 1.2rem;
+  }
+
+  .free-box-content .subtitle {
+    font-size: 1rem;
+  }
+
+  .free-box-content .pricing .price {
+    font-size: 1.6rem;
+  }
+
+  .main-title {
+    font-size: 1.2rem;
+  }
+
+  .section-title {
+    font-size: 1.1rem;
+  }
+
+  .feature-title {
+    font-size: 1rem;
+  }
+
+  .offer-button {
+    font-size: 0.9rem;
+    height: 45px;
+  }
+}

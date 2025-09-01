@@ -1,0 +1,614 @@
+// Variables - Thème Blanc et Bleu Marine
+$primary: #1e40af;
+$primary-hover: #1d4ed8;
+$secondary: #3b82f6;
+$success: #10b981;
+$danger: #ef4444;
+$warning: #f59e0b;
+$white: #ffffff;
+$gray-50: #f8fafc;
+$gray-100: #f1f5f9;
+$gray-200: #e2e8f0;
+$gray-300: #cbd5e1;
+$gray-400: #94a3b8;
+$gray-500: #64748b;
+$gray-600: #475569;
+$gray-700: #334155;
+$gray-800: #1e293b;
+
+// Mixins
+@mixin transition {
+  transition: all 0.3s ease;
+}
+
+@mixin card-shadow {
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+@mixin card-shadow-hover {
+  box-shadow: 0 4px 15px rgba(30, 64, 175, 0.1);
+}
+
+// Animations
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+// Container principal
+.simple-coverage-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  background: $gray-50;
+  min-height: 100vh;
+
+  // États de chargement et d'erreur
+  .loading-state,
+  .error-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh;
+    text-align: center;
+    color: $gray-500;
+
+    i {
+      font-size: 48px;
+      color: $primary;
+      margin-bottom: 16px;
+    }
+
+    h3 {
+      color: $gray-800;
+      font-size: 20px;
+      margin: 0 0 8px 0;
+    }
+
+    p {
+      color: $gray-600;
+      font-size: 16px;
+      margin: 0 0 20px 0;
+    }
+
+    .spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid $gray-200;
+      border-top: 3px solid $primary;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    .btn-retry {
+      background: $primary;
+      color: $white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      @include transition;
+
+      &:hover {
+        background: $primary-hover;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  // En-tête
+  .header {
+    background: $white;
+    padding: 24px;
+    border-radius: 12px;
+    text-align: center;
+    margin-bottom: 24px;
+    @include card-shadow;
+    border: 1px solid $gray-200;
+
+    h1 {
+      color: $primary;
+      font-size: 24px;
+      font-weight: 700;
+      margin: 0 0 8px 0;
+    }
+
+    .address {
+      color: $gray-600;
+      font-size: 14px;
+      margin: 0;
+    }
+  }
+
+  // Sections technologies
+  .tech-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .tech-section {
+    background: $white;
+    border-radius: 12px;
+    overflow: hidden;
+    @include card-shadow;
+    border: 1px solid $gray-200;
+    animation: fadeIn 0.5s ease-out;
+    @include transition;
+
+    // En-tête technologie avec toggle
+    .tech-title {
+      padding: 16px 20px;
+      background: $primary;
+      color: $white;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      cursor: pointer;
+      @include transition;
+      position: relative;
+
+      &:hover {
+        background: $primary-hover;
+      }
+
+      .tech-icon {
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 16px;
+        font-weight: 600;
+        margin: 0;
+        flex: 1;
+      }
+
+      .operator-count {
+        font-size: 12px;
+        background: rgba(255, 255, 255, 0.2);
+        padding: 4px 8px;
+        border-radius: 8px;
+        margin-right: 8px;
+      }
+
+      .toggle-icon {
+        font-size: 14px;
+        @include transition;
+      }
+    }
+
+    // État collapsed
+    &.collapsed {
+      .toggle-icon {
+        transform: rotate(-90deg);
+      }
+
+      .tech-content {
+        max-height: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+    }
+
+    // Contenu collapsible
+    .tech-content {
+      @include transition;
+      overflow: hidden;
+    }
+  }
+
+  // Grille compacte des opérateurs
+  .operators-compact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    padding: 16px;
+  }
+
+  // Carte opérateur compacte
+  .operator-compact-card {
+    background: $gray-50;
+    border: 1px solid $gray-200;
+    border-radius: 8px;
+    padding: 14px;
+    @include transition;
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+
+    &:hover {
+      transform: translateY(-2px);
+      @include card-shadow-hover;
+    }
+
+    &.available {
+      border-left: 3px solid $success;
+      background: linear-gradient(135deg, $white 0%, #f0f9ff 100%);
+    }
+
+    &.unavailable {
+      border-left: 3px solid $gray-400;
+      opacity: 0.7;
+      background: $gray-100;
+    }
+
+    // En-tête opérateur
+    .operator-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 10px;
+
+      .logo {
+        width: 32px;
+        height: 24px;
+        object-fit: contain;
+        border-radius: 4px;
+      }
+
+      .operator-info {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        .name {
+          font-weight: 600;
+          color: $gray-800;
+          font-size: 13px;
+        }
+
+        .status {
+          font-size: 14px;
+
+          &.available {
+            color: $success;
+          }
+
+          &:not(.available) {
+            color: $danger;
+          }
+        }
+      }
+    }
+
+    // Données de performance
+    .performance-data {
+      margin-bottom: 12px;
+      flex-grow: 1;
+
+      .data-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 3px 0;
+        font-size: 11px;
+
+        .label {
+          display: flex;
+          align-items: center;
+          gap: 4px;
+          color: $gray-500;
+
+          i {
+            width: 10px;
+            font-size: 9px;
+
+            &.fa-arrow-down { color: $success; }
+            &.fa-arrow-up { color: $primary; }
+            &.fa-clock { color: $warning; }
+          }
+        }
+
+        .value {
+          font-weight: 600;
+          color: $gray-800;
+          font-size: 11px;
+        }
+      }
+    }
+
+    // Message non disponible
+    .unavailable-msg {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: $gray-500;
+      font-size: 11px;
+      margin-bottom: 10px;
+      font-style: italic;
+      flex-grow: 1;
+
+      i {
+        font-size: 14px;
+      }
+    }
+
+    // Actions compactes (3 boutons empilés)
+    .compact-actions {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-top: auto;
+
+      .btn-small {
+        padding: 8px 12px;
+        border: none;
+        border-radius: 6px;
+        font-size: 11px;
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        @include transition;
+        text-decoration: none;
+        min-height: 32px;
+        position: relative;
+
+        i {
+          font-size: 11px;
+        }
+
+        span {
+          font-size: 11px;
+          font-weight: 600;
+        }
+
+        &:disabled {
+          opacity: 0.5;
+          cursor: not-allowed;
+        }
+
+        // Bouton principal (Voir offres)
+        &.btn-primary {
+          background: $primary;
+          color: $white;
+          border: 1px solid $primary;
+
+          &:hover:not(:disabled) {
+            background: $primary-hover;
+            transform: translateY(-1px);
+          }
+        }
+
+        // Bouton secondaire (Simulateur)
+        &.btn-secondary {
+          background: $white;
+          color: $primary;
+          border: 1px solid $primary;
+
+          &:hover:not(:disabled) {
+            background: #eff6ff;
+            transform: translateY(-1px);
+          }
+        }
+
+        // Bouton tertiaire (Être rappelé)
+        &.btn-outline {
+          background: $gray-50;
+          color: $gray-500;
+          border: 1px solid $gray-300;
+
+          &:hover:not(:disabled) {
+            background: $gray-200;
+            color: $gray-600;
+            transform: translateY(-1px);
+          }
+        }
+      }
+    }
+  }
+
+  // Actions globales
+  .global-actions {
+    margin-top: 24px;
+    text-align: center;
+
+    .btn-action {
+      background: $primary;
+      color: $white;
+      border: none;
+      padding: 14px 24px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      @include transition;
+      text-decoration: none;
+
+      &:hover {
+        background: $primary-hover;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(30, 64, 175, 0.3);
+      }
+
+      i {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .simple-coverage-container {
+    padding: 16px;
+
+    .header {
+      padding: 20px;
+
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    .tech-section .tech-title {
+      padding: 12px 16px;
+
+      h2 {
+        font-size: 14px;
+      }
+
+      .tech-icon {
+        font-size: 16px;
+      }
+    }
+
+    .operators-compact-grid {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 10px;
+      padding: 12px;
+    }
+
+    .operator-compact-card {
+      padding: 12px;
+      min-height: 180px;
+
+      .compact-actions .btn-small {
+        font-size: 10px;
+        padding: 7px 10px;
+        min-height: 30px;
+
+        span {
+          font-size: 10px;
+        }
+
+        i {
+          font-size: 10px;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .simple-coverage-container {
+    padding: 12px;
+
+    .operators-compact-grid {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 8px;
+      padding: 10px;
+    }
+
+    .operator-compact-card {
+      padding: 10px;
+      min-height: 170px;
+
+      .operator-header {
+        margin-bottom: 8px;
+
+        .logo {
+          width: 28px;
+          height: 20px;
+        }
+
+        .operator-info .name {
+          font-size: 12px;
+        }
+      }
+
+      .performance-data .data-row {
+        font-size: 10px;
+
+        .label {
+          i {
+            font-size: 9px;
+          }
+        }
+
+        .value {
+          font-size: 10px;
+        }
+      }
+
+      .compact-actions {
+        gap: 4px;
+
+        .btn-small {
+          padding: 6px 8px;
+          font-size: 9px;
+          min-height: 28px;
+
+          span {
+            font-size: 9px;
+          }
+
+          i {
+            font-size: 9px;
+          }
+        }
+      }
+    }
+
+    .global-actions .btn-action {
+      padding: 12px 20px;
+      font-size: 13px;
+    }
+  }
+}
+
+// Très petits écrans (moins de 360px) - Une seule colonne
+@media (max-width: 360px) {
+  .simple-coverage-container {
+    .operators-compact-grid {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 8px;
+    }
+
+    .operator-compact-card {
+      padding: 12px;
+      min-height: 180px;
+
+      .operator-header {
+        .logo {
+          width: 32px;
+          height: 24px;
+        }
+
+        .operator-info .name {
+          font-size: 13px;
+        }
+      }
+
+      .performance-data .data-row {
+        font-size: 11px;
+      }
+
+      .compact-actions {
+        gap: 5px;
+
+        .btn-small {
+          padding: 8px 10px;
+          font-size: 10px;
+          min-height: 30px;
+
+          span {
+            font-size: 10px;
+          }
+
+          i {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+  }
+}

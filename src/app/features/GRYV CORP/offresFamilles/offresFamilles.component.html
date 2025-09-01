@@ -1,0 +1,137 @@
+<div class="main">
+  <!-- Hero Section --><molla-page-header
+  [title]="'Sécurisez les dépenses de votre foyer, même en cas de coup dur'"
+  subtitle="Couvrez vos factures essentielles et frais familiaux dès 9,99€/mois. Sans stress, sans engagement.">
+</molla-page-header>
+
+
+
+
+
+
+  <!-- Stats Section -->
+  <section class="stats-section">
+    <div class="container">
+      <div class="stats-number">{{ displayedCount | number }}</div>
+      <h3>Personnes déjà protégées par GRYV CORP</h3>
+      <p class="lead">Rejoignez les milliers de Français qui ont choisi la sécurité</p>
+    </div>
+  </section>
+
+  <!-- Offres Salariés -->
+
+  <!-- Offres Familles -->
+  <section id="offres-familles" class="py-5 bg-light">
+    <div class="container">
+      <h2 class="section-title">Nos offres pour les familles</h2>
+      <div class="row">
+        <div class="col-lg-6 mb-4" *ngFor="let offre of offresFamilles">
+          <div class="offer-card">
+            <div class="offer-badge" [class.green]="offre.color === 'green'"
+                 [class.yellow]="offre.color === 'yellow'"
+                 [class.blue]="offre.color === 'blue'"
+                 [class.pink]="offre.color === 'pink'"
+                 [class.purple]="offre.color === 'purple'"
+                 [class.red]="offre.color === 'red'">
+              {{ offre.badge }}
+            </div>
+            <h3 class="offer-title">{{ offre.titre }}</h3>
+            <div class="offer-price">{{ offre.prix }}</div>
+            <div class="offer-coverage">Couverture {{ offre.couverture }}</div>
+            <ul class="feature-list">
+              <li *ngFor="let feature of offre.features">
+                <i class="fas fa-check"></i> {{ feature }}
+              </li>
+            </ul>
+            <div class="mt-4">
+              <a href="tel:+33123456789" class="call-button">
+                <i class="fas fa-phone"></i> Appeler sur GRYV CORP 0980803537
+              </a>
+              <button class="btn btn-primary" (click)="onSubscribe(offre)">
+                Expert gratuit GRYV CORP
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Offres Indépendants -->
+
+  <!-- Protection Info -->
+  <section class="protection-info">
+    <div class="container">
+      <h2 class="mb-4">Pourquoi choisir GRYV CORP ?</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="trust-item">
+            <i class="fas fa-bolt trust-icon" style="color: white;"></i>
+            <h4>Activation immédiate</h4>
+            <p style="color: white;">Votre protection prend effet dès la souscription</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="trust-item">
+            <i class="fas fa-handshake trust-icon" style="color: white;"></i>
+            <h4>Sans engagement</h4>
+            <p style="color: white;">Résiliez quand vous voulez, sans frais</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="trust-item">
+            <i class="fas fa-headset trust-icon" style="color: white;"></i>
+            <h4>Support 24/7</h4>
+            <p style="color: white;">Une équipe dédiée à votre service</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Section -->
+  <section class="why-choose">
+    <div class="container">
+      <h2 class="section-title">Les avantages GRYV CORP</h2>
+      <div class="row">
+        <div class="col-md-4 mb-4">
+          <div class="advantage-card">
+            <i class="fas fa-shield-alt advantage-icon"></i>
+            <h4>Sécurité garantie</h4>
+            <p>Vos données sont protégées et vos versements sécurisés</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="advantage-card">
+            <i class="fas fa-euro-sign advantage-icon"></i>
+            <h4>Tarifs transparents</h4>
+            <p>Pas de frais cachés, des prix clairs et compétitifs</p>
+          </div>
+        </div>
+        <div class="col-md-4 mb-4">
+          <div class="advantage-card">
+            <i class="fas fa-clock advantage-icon"></i>
+            <h4>Traitement rapide</h4>
+            <p>Vos demandes traitées en moins de 48h</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer CTA -->
+  <section class="py-5 bg-primary text-white text-center">
+    <div class="container">
+      <h3>Prêt à protéger votre avenir ?</h3>
+      <p style="color: white;" class="lead">Contactez nos experts pour une étude personnalisée</p>
+      <div class="mt-4">
+        <a href="tel:+33123456789" class="btn btn-light btn-lg me-3">
+          <i class="fas fa-phone"></i> Appelez maintenant
+        </a>
+        <button class="btn btn-outline-light btn-lg" (click)="onShowModel()">
+          Demander un Expert gratuit GRYV CORP
+        </button>
+      </div>
+    </div>
+  </section>
+</div>
