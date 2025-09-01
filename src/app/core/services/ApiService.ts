@@ -173,5 +173,21 @@ export class ApiService {
   public getSingleNewsByWriter(id: string): Observable<any> {
     return this.http.get(`${environment.SERVER_URL_2}api/public/writers/all-news-of-writer/${id}`);
   }
+  public fetchBoxInternetData(req?: any): Observable<any> {
+    const options = this.createRequestOption(req);
+    return this.http.get(`${environment.SERVER_URL_2}api/public/box-internets`, { params: options, observe: 'response' });
+  }
 
+
+  public fetchBoxInternetDataWithOutPagination(): Observable<any> {
+    return this.http.get(`${environment.SERVER_URL_2}api/public/box-internets/without-pagination`);
+  }
+  public searchFrontOfficeBox(req?: any, item?: any): Observable<any> {
+    const options = this.createRequestOption(req);
+    return this.http.post(`${environment.SERVER_URL_2}api/public/box-internets/searchFrontOfficeWithoutPagniation`, item, { params: options, observe: 'response' });
+  }
+
+  public searchFrontOfficeBoxWithOutPagination(item?: any): Observable<any> {
+    return this.http.post(`${environment.SERVER_URL_2}api/public/box-internets/searchFrontOfficeWithoutPagniation`, item);
+  }
 }
