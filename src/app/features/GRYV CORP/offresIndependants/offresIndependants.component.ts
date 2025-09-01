@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
-import { ModalFreeService } from '../../FreePro/modalFree.service';
+import {DecimalPipe, NgForOf} from '@angular/common';
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-protection-independants',
+  selector: 'app-protection-independants',
   templateUrl: './offresIndependants.component.html',
+  imports: [
+    DecimalPipe,
+    NgForOf
+  ],
   styleUrls: ['./offresIndependants.component.scss']
 })
 export class OffresIndependantsComponent implements OnInit {
 
   showPdfModal: boolean = false;
-  pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/pdf/gryv-guide.pdf');
 
   endValue = 125000; // Nombre de personnes déjà protégées
   displayedCount = 0;
@@ -51,7 +55,7 @@ export class OffresIndependantsComponent implements OnInit {
     private sanitizer: DomSanitizer,
     private titleService: Title,
     private metaService: Meta,
-    public modalService: ModalFreeService
+    public modalService: ModalService
   ) {
     this.setSEOData();
   }
@@ -87,12 +91,12 @@ export class OffresIndependantsComponent implements OnInit {
   }
 
   onShowModel(): void {
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 
   onSubscribe(offre: any): void {
     console.log('Abonnement à l\'offre:', offre);
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 
 }

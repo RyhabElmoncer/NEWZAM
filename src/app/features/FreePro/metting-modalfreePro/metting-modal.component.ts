@@ -1,15 +1,21 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
- import {ApiService} from "../../../shared/services/api.service";
+import {ApiService} from '../../../core/services/ApiService';
+import {NgClass, NgIf} from '@angular/common';
 
 @Component({
   selector: 'molla-metting-modal',
   templateUrl: './metting-modal.component.html',
   styleUrls: ['./metting-modal.component.scss'],
+  imports: [
+    ReactiveFormsModule,
+    NgClass,
+    NgIf
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class MettingModalFreeComponent implements OnInit {
@@ -21,8 +27,9 @@ export class MettingModalFreeComponent implements OnInit {
   firstName = '';   // ← Ajouter ceci
   lastName = '';    // ← Et ceci
   email = '';
-  public editForm: FormGroup;
-  isAppointmentNow: boolean;
+  public editForm!: FormGroup;
+  isAppointmentNow!: boolean;
+
   date = null;
   public availableHours: { id: string, text: string }[] = [];
 
@@ -108,7 +115,7 @@ export class MettingModalFreeComponent implements OnInit {
 
   // Set the default available hours if there is an error or an unsuccessful response
   setDefaultAvailableHours() {
-    const defaultOptions = {
+    const defaultOptions: Record<string, string> = {
       "9": "entre 9h et 10h",
       "10": "entre 10h et 11h",
       "11": "entre 11h et 12h",
@@ -121,6 +128,7 @@ export class MettingModalFreeComponent implements OnInit {
       "18": "entre 18h et 19h"
     };
 
+
     this.availableHours = Object.keys(defaultOptions).map(key => ({
       id: key,
       text: defaultOptions[key]
@@ -129,8 +137,7 @@ export class MettingModalFreeComponent implements OnInit {
 
 
 
-  address;
-  address2;
+  address: string = '';
   direction: any;
   visible = "bg-success";
   phoneFix = null;

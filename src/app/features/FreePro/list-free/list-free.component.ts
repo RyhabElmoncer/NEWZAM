@@ -2,13 +2,14 @@
 
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { UtilsService } from '../../../shared/services/utils.service';
-import { ModalFreeService } from '../modalFree.service';
-import { ApiService } from '../../../shared/services/api.service';
+
 import {Meta, Title} from "@angular/platform-browser";
+import {UtilsService} from '../../../core/services/utils.service';
+import {ApiService} from '../../../core/services/ApiService';
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-list-free',
+  selector: 'app-list-free',
   templateUrl: './list-free.component.html',
   styleUrls: ['./list-free.component.scss']
 })
@@ -18,7 +19,7 @@ export class ListFreeComponent {
   constructor(
     public activeRoute: ActivatedRoute,
     public utilsService: UtilsService,
-    public modalService: ModalFreeService,
+    public modalService: ModalService,
     public apiService: ApiService,
     private titleService: Title,
     private metaService: Meta
@@ -27,7 +28,7 @@ export class ListFreeComponent {
   }
 // tslint:disable-next-line:typedef
   onShowModel() {
-    this.modalService.showMettingModal();
+    this.modalService.showFreeModal();
   }
   private setSEOData(): void {
     this.titleService.setTitle('Free Mobile Pro : téléphonie et internet haut Débit pour entreprises');

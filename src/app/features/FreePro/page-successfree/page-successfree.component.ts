@@ -7,11 +7,11 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./page-successfree.component.scss']
 })
 export class PageSuccessfreeComponent implements OnInit {
-  phone: string;
-  email: string;
-  firstName: string;
-  lastName: string;
-  successMessage: string;
+  phone!: string;
+  email!: string;
+  firstName!: string;
+  lastName!: string;
+  successMessage!: string;
 
   constructor(private route: ActivatedRoute) {}
 

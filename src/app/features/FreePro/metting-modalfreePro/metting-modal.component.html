@@ -29,10 +29,10 @@
                   />
 
                   <div *ngIf="editForm2.get('phone')?.invalid && (editForm2.get('phone')?.touched || editForm2.get('phone')?.dirty)">
-                    <small class="form-text text-danger" *ngIf="editForm2.get('phone')?.errors?.required">
+                    <small class="form-text text-danger" *ngIf="editForm2.get('phone')?.errors?.['required']">
                       Numéro de téléphone requis.
                     </small>
-                    <small class="form-text text-danger" *ngIf="editForm2.get('phone')?.errors?.pattern">
+                    <small class="form-text text-danger" *ngIf="editForm2.get('phone')?.errors?.['pattern']">
                       Numéro de téléphone invalide. Il doit contenir exactement 10 chiffres et commencer par 0.
                     </small>
                   </div>
@@ -84,7 +84,7 @@
                   />
 
                   <div *ngIf="editForm2.get('email')?.invalid && (editForm2.get('email')?.touched || editForm2.get('email')?.dirty)">
-                    <small class="form-text text-danger" *ngIf="editForm2.get('email')?.errors?.email">
+                    <small class="form-text text-danger" *ngIf="editForm2.get('email')?.errors?.['email']">
                       Format de l'email invalide.
                     </small>
                   </div>
@@ -100,10 +100,10 @@
                              formControlName="recallDate" (change)="onDateChange($event)">
                       <div
                         *ngIf="editForm2.get('recallDate')!.invalid && (editForm2.get('recallDate')!.dirty || editForm2.get('recallDate')!.touched)">
-                        <small class="form-text text-danger" *ngIf="editForm2.get('recallDate')?.errors?.required">
+                        <small class="form-text text-danger" *ngIf="editForm2.get('recallDate')?.errors?.['required']">
                           Date obligatoire.
                         </small>
-                        <small class="form-text text-danger" *ngIf="editForm2.get('recallDate')?.errors?.futureDate">
+                        <small class="form-text text-danger" *ngIf="editForm2.get('recallDate')?.errors?.['futureDate']">
                           La date doit être égale ou supérieure à la date actuelle.
                         </small>
                       </div>
@@ -119,7 +119,7 @@
                       </select>
                       <div
                         *ngIf="editForm2.get('recallHour')!.invalid && (editForm2.get('recallHour')!.dirty || editForm2.get('recallHour')!.touched)">
-                        <small class="form-text text-danger" *ngIf="editForm2.get('recallHour')?.errors?.required">
+                        <small class="form-text text-danger" *ngIf="editForm2.get('recallHour')?.errors?.['required']">
                           Heure obligatoire.
                         </small>
                       </div>

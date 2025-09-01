@@ -1,18 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import {ModalFreeService} from "../../FreePro/modalFree.service";
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-gaz',
+  selector: 'app-gaz',
   templateUrl: './gaz.component.html',
   styleUrls: ['./gaz.component.scss']
 })
 export class GazComponent implements OnInit {
   showPdfModal: boolean = false;
   displayedCount = 0;
-  pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/pdf/2.pdf');
 
-  constructor(  private sanitizer: DomSanitizer,   public modalService: ModalFreeService,private titleService: Title,
+  constructor(  private sanitizer: DomSanitizer,   public modalService: ModalService,private titleService: Title,
                   private metaService: Meta
   ) {
     this.setSEOData();
@@ -42,7 +41,7 @@ export class GazComponent implements OnInit {
     this.showPdfModal = false;
   }
   onShowModel() {
-    this.modalService.showMettingModalgaz();
+    this.modalService.showGazModal();
   }
   private setSEOData(): void {
     this.titleService.setTitle('Fournisseur gaz vert : offres gaz écologiques en France');

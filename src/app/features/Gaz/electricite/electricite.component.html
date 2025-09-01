@@ -1,16 +1,5 @@
 <div class="main shop">
-  <molla-page-header [title]="'Fournisseur d’Électricité Moins Cher : Découvrez l’Offre EXTRA ÉCO et Économisez !'" subtitle=""></molla-page-header>
 
-  <nav aria-label="breadcrumb" class="breadcrumb-nav mb-2">
-    <div class="container">
-      <ol class="breadcrumb">
-        <li class="breadcrumb-item">
-          <a routerLink="/">Accueil</a>
-        </li>
-        <li class="breadcrumb-item active">Électricité</li>
-      </ol>
-    </div>
-  </nav>
 
   <div class="blue-banner">
     Offre électricité EXTRA ÉCO : -12% sur le prix du kWh HT (2) par rapport au TRV en vigueur.
@@ -476,9 +465,7 @@
 <div class="pdf-modal" *ngIf="showPdfModal" (click)="closePdfModal()">
   <div class="modal-content" (click)="$event.stopPropagation()">
     <button class="close-button" (click)="closePdfModal()">&times;</button>
-    <div class="pdf-container">
-      <iframe [src]="pdfUrl" frameborder="0" class="pdf-iframe"></iframe>
-    </div>
+
   </div>
 </div>
 

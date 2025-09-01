@@ -47,7 +47,6 @@
     </div>
   </div>
 
-  <!-- HEADER MIDDLE - Logo, Recherche, Réseaux sociaux -->
 
 
   <!-- NAVIGATION PRINCIPALE -->
@@ -91,15 +90,40 @@
           <li class="nav-item">
             <a routerLink="/actualites">Actualités</a>
           </li>
-          <li class="nav-item">
-            <a routerLink="/freepro">FreePro</a>
+          <li class="nav-item has-dropdown">
+            <a routerLink="/freepro" routerLinkActive="active">
+              FreePro <i class="icon-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/freepro/mobile">Free Mobile</a></li>
+              <li><a routerLink="/freepro/box">Free Box</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a routerLink="/gaz-electricite">Gaz & Électricité</a>
+          <li class="nav-item has-dropdown">
+            <a routerLink="/gaz-electricite" routerLinkActive="active">
+              Gaz & Électricité <i class="icon-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a routerLink="/gaz-electricite/gaz">Gaz</a></li>
+              <li><a routerLink="/gaz-electricite/electricite">Électricité</a></li>
+            </ul>
           </li>
-          <li class="nav-item">
-            <a routerLink="/grvv-corp">GRVV CORP</a>
+
+
+
+
+          <li class="nav-item has-dropdown">
+            <a routerLink="/grvv-corp" routerLinkActive="active">
+              GRVV CORP <i class="icon-angle-down"></i>
+            </a>
+
+            <ul class="dropdown-menu">
+              <li><a routerLink="/grvv-corp/famille">Offres famille</a></li>
+              <li><a routerLink="/grvv-corp/salaries">Offres salariés</a></li>
+              <li><a routerLink="/grvv-corp/independant">Offres indépendants</a></li>
+            </ul>
           </li>
+
         </ul>
       </div>
 
@@ -179,16 +203,21 @@
             <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">Forfait bloqué</a></li>
           </ul>
         </li>
-
         <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
-          <a href="javascript:void(0)" (click)="toggleMobileDropdown('testDebit')">
-            Test Débit <i class="icon-angle-down"></i>
-          </a>
+          <a routerLink="/test-debit" (click)="closeMobileMenu()">Test Débit</a>
           <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
+            <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test éligibilité fibre</a></li>
             <li><a routerLink="/test-debit" (click)="closeMobileMenu()">Test de débit</a></li>
-            <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test d'éligibilité</a></li>
+            <li><a routerLink="/test-debit-internet" (click)="closeMobileMenu()">Test de débit internet</a></li>
+            <li><a routerLink="/test-debit-fibre" (click)="closeMobileMenu()">Test de débit internet fibre</a></li>
+            <li><a routerLink="/test-debit-4g" (click)="closeMobileMenu()">Test de débit internet 4G</a></li>
+            <li><a routerLink="/test-debit-5g" (click)="closeMobileMenu()">Test de débit internet 5G</a></li>
+            <li><a routerLink="/reseau" (click)="closeMobileMenu()">Réseau</a></li>
+            <li><a routerLink="/reseau-mobile" (click)="closeMobileMenu()">Réseau mobile</a></li>
+            <li><a routerLink="/reseau-fixe" (click)="closeMobileMenu()">Réseau fixe</a></li>
           </ul>
         </li>
+
 
         <li class="nav-item">
           <a routerLink="/Actualites" (click)="closeMobileMenu()">Actualités</a>

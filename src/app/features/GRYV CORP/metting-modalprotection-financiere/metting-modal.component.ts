@@ -1,18 +1,32 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import {FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors} from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  Validators,
+  AbstractControl,
+  ValidationErrors,
+  ReactiveFormsModule
+} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
-import { ApiService } from '../../../shared/services/api.service';
+import {ApiService} from '../../../core/services/ApiService';
+import {NgClass, NgForOf, NgIf} from '@angular/common';
 
 @Component({
   selector: 'molla-metting-modal',
   templateUrl: './metting-modal.component.html',
   styleUrls: ['./metting-modal.component.scss'],
+  imports: [
+    ReactiveFormsModule,
+    NgClass,
+    NgIf,
+    NgForOf
+  ],
   encapsulation: ViewEncapsulation.None
 })
 export class MettingModalgryvcorpComponent implements OnInit {
-  editForm2: FormGroup;
+  editForm2!: FormGroup;
   isAppointmentNow = false;
   isLoading = false;
   availableHours: { id: string, text: string }[] = [];
@@ -62,17 +76,17 @@ export class MettingModalgryvcorpComponent implements OnInit {
   }
 
   setDefaultAvailableHours() {
-    const defaultOptions = {
-      "9": "09h - 10h",
-      "10": "10h - 11h",
-      "11": "11h - 12h",
-      "12": "12h - 13h",
-      "13": "13h - 14h",
-      "14": "14h - 15h",
-      "15": "15h - 16h",
-      "16": "16h - 17h",
-      "17": "17h - 18h",
-      "18": "18h - 19h"
+    const defaultOptions: Record<string, string> = {
+      "9": "entre 9h et 10h",
+      "10": "entre 10h et 11h",
+      "11": "entre 11h et 12h",
+      "12": "entre 12h et 13h",
+      "13": "entre 13h et 14h",
+      "14": "entre 14h et 15h",
+      "15": "entre 15h et 16h",
+      "16": "entre 16h et 17h",
+      "17": "entre 17h et 18h",
+      "18": "entre 18h et 19h"
     };
     this.availableHours = Object.keys(defaultOptions).map(key => ({
       id: key,

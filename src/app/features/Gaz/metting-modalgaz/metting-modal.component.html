@@ -30,10 +30,10 @@
                          placeholder="Téléphone (ex: 0612345678)"
                          formControlName="phone"
                          [ngClass]="{'is-invalid': editForm2.get('phone')?.invalid && editForm2.get('phone')?.touched}">
-                  <div class="invalid-feedback" *ngIf="editForm2.get('phone')?.errors?.required">
+                  <div class="invalid-feedback" *ngIf="editForm2.get('phone')?.errors?.['required']">
                     Le numéro de téléphone est requis.
                   </div>
-                  <div class="invalid-feedback" *ngIf="editForm2.get('phone')?.errors?.pattern">
+                  <div class="invalid-feedback" *ngIf="editForm2.get('phone')?.errors?.['pattern']">
                     Format invalide. Le numéro doit comporter 10 chiffres et commencer par 0.
                   </div>
                 </div>
@@ -61,10 +61,10 @@
                          placeholder="Email"
                          formControlName="email"
                          [ngClass]="{'is-invalid': editForm2.get('email')?.invalid && editForm2.get('email')?.touched}">
-                  <div class="invalid-feedback" *ngIf="editForm2.get('email')?.errors?.required">
+                  <div class="invalid-feedback" *ngIf="editForm2.get('email')?.errors?.['required']">
                     L'adresse email est requise.
                   </div>
-                  <div class="invalid-feedback" *ngIf="editForm2.get('email')?.errors?.email">
+                  <div class="invalid-feedback" *ngIf="editForm2.get('email')?.errors?.['email']">
                     Format d'email invalide.
                   </div>
                 </div>
@@ -77,10 +77,10 @@
                            formControlName="recallDate"
                            (change)="onDateChange($event)"
                            [ngClass]="{'is-invalid': editForm2.get('recallDate')?.invalid && editForm2.get('recallDate')?.touched}">
-                    <div class="invalid-feedback" *ngIf="editForm2.get('recallDate')?.errors?.required">
+                    <div class="invalid-feedback" *ngIf="editForm2.get('recallDate')?.errors?.['required']">
                       La date de rappel est requise.
                     </div>
-                    <div class="invalid-feedback" *ngIf="editForm2.get('recallDate')?.errors?.futureDate">
+                    <div class="invalid-feedback" *ngIf="editForm2.get('recallDate')?.errors?.['futureDate']">
                       La date doit être aujourd'hui ou dans le futur.
                     </div>
                   </div>
@@ -92,7 +92,7 @@
                       <option value="">Sélectionnez une heure</option>
                       <option *ngFor="let hour of availableHours" [value]="hour.id">{{ hour.text }}</option>
                     </select>
-                    <div class="invalid-feedback" *ngIf="editForm2.get('recallHour')?.errors?.required">
+                    <div class="invalid-feedback" *ngIf="editForm2.get('recallHour')?.errors?.['required']">
                       L’heure de rappel est requise.
                     </div>
                   </div>
@@ -128,7 +128,7 @@
                   <label class="form-check-label" for="acceptation">
                     J’accepte d’être rappelé(e) par les équipes Ohm Energie
                   </label>
-                  <div class="invalid-feedback" *ngIf="editForm2.get('acceptation')?.errors?.required">
+                  <div class="invalid-feedback" *ngIf="editForm2.get('acceptation')?.errors?.['required']">
                     Vous devez accepter les conditions pour continuer.
                   </div>
                 </div>

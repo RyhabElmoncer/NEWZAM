@@ -1,15 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from "@angular/router";
-import {UtilsService} from "../../../shared/services/utils.service";
-import {ModalService} from "../../../shared/services/modal.service";
-import {ApiService} from "../../../shared/services/api.service";
-import {ModalFreeService} from "../modalFree.service";
-import {FreeBox} from "../OfferModel";
+
 import { Title, Meta } from '@angular/platform-browser';
+import {FreeBox} from '../../../core/models/OfferModel';
+import {UtilsService} from '../../../core/services/utils.service';
+import {ApiService} from '../../../core/services/ApiService';
+import {NgForOf} from '@angular/common';
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-free-box',
+  selector: 'app-free-box',
   templateUrl: './free-box.component.html',
+  imports: [
+    NgForOf
+  ],
   styleUrls: ['./free-box.component.scss']
 })
 export class FreeBoxComponent implements OnInit {
@@ -38,7 +42,7 @@ export class FreeBoxComponent implements OnInit {
   constructor(
     public activeRoute: ActivatedRoute,
     public utilsService: UtilsService,
-    public modalService: ModalFreeService,
+    public modalService: ModalService,
     public apiService: ApiService,
     private titleService: Title,
     private metaService: Meta
@@ -49,7 +53,7 @@ export class FreeBoxComponent implements OnInit {
   ngOnInit(): void {
   }
   onShowModel() {
-    this.modalService.showMettingModal();
+    this.modalService.showFreeModal();
   }
   private setSEOData(): void {
     this.titleService.setTitle('Offre Freebox Pro : internet freebox professionnel sans engangement');

@@ -62,7 +62,7 @@ export class HeaderComponent implements OnInit, OnDestroy {
   }
 
   onShowModel() {
-    this.modalService.showMettingModal();
+    this.modalService.showDynamicModal();
   }
 
   goToStepper() {

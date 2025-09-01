@@ -102,5 +102,22 @@ export class ApiService {
         shareReplay(1)
       );
   }
+  sendEmail(data: { subject: string; content: string; to?: string }): Observable<any> {
+    const params = new HttpParams()
+      .set('subject', data.subject)
+      .set('to', data.to || 'zoneadsl.mobile@gmail.com');
 
+    return this.http.post(
+      `${environment.SERVER_URL_2}public/api/email/send-email`,
+      data.content,
+      {
+        params,
+        headers: {
+          'Content-Type': 'text/html',
+          'Accept': 'application/json'
+        },
+        responseType: 'text' // Important pour éviter les erreurs de parsing
+      }
+    );
+  }
 }

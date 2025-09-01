@@ -1,24 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import {ModalFreeService} from "../../FreePro/modalFree.service";
-import {ActivatedRoute} from "@angular/router";
-import {UtilsService} from "../../../shared/services/utils.service";
-import {ApiService} from "../../../shared/services/api.service";
+
 import {DomSanitizer, Meta, Title} from "@angular/platform-browser";
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-electricitegaz',
+  selector: 'app-electricitegaz',
   templateUrl: './electricitegaz.component.html',
   styleUrls: ['./electricitegaz.component.scss']
 })
 export class ElectricitegazComponent implements  OnInit {
 
   showPdfModal: boolean = false;
-  pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/pdf/book.pdf');
 
   endValue = 274726;
   displayedCount = 0;
 
-  constructor(  private sanitizer: DomSanitizer,   public modalService: ModalFreeService,private titleService: Title,
+  constructor(  private sanitizer: DomSanitizer,   public modalService: ModalService,private titleService: Title,
                   private metaService: Meta
   ) {
     this.setSEOData();
@@ -56,7 +53,7 @@ export class ElectricitegazComponent implements  OnInit {
     });
   }
   onShowModel() {
-    this.modalService.showMettingModalgaz();
+    this.modalService.showGazModal();
   }
   openPdfModal() {
     window.open('assets/pdf/book.pdf', '_blank');

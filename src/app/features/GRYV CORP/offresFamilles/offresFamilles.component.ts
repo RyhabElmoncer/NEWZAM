@@ -1,10 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalFreeService } from "../../FreePro/modalFree.service";
 import { DomSanitizer, Meta, Title } from "@angular/platform-browser";
+import {DecimalPipe, NgForOf} from '@angular/common';
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-protection-famille',
+  selector: 'app-protection-famille',
   templateUrl: './offresFamilles.component.html',
+  imports: [
+    DecimalPipe,
+    NgForOf
+  ],
   styleUrls: ['./offresFamilles.component.scss']
 })
 export class OffresFamillesComponent implements OnInit {
@@ -44,7 +49,7 @@ export class OffresFamillesComponent implements OnInit {
   ];
 
   constructor(
-    public modalService: ModalFreeService,
+    public modalService: ModalService,
     private titleService: Title,
     private metaService: Meta
   ) {
@@ -82,11 +87,11 @@ export class OffresFamillesComponent implements OnInit {
   }
 
   onShowModel() {
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 
   onSubscribe(offre: any) {
     console.log('Souscription famille:', offre);
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 }

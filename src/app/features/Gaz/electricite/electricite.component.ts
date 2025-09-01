@@ -1,20 +1,23 @@
 import { Component, OnInit } from '@angular/core';
-import {ModalFreeService} from "../../FreePro/modalFree.service";
 import {DomSanitizer, Meta, SafeResourceUrl, Title} from "@angular/platform-browser";
+import {NgIf} from '@angular/common';
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-electricite',
+  selector: 'app-electricite',
   templateUrl: './electricite.component.html',
+  imports: [
+    NgIf
+  ],
   styleUrls: ['./electricite.component.scss']
 })
 export class ElectriciteComponent implements OnInit {
   endValue = 274726;
   showPdfModal: boolean = false;
   displayedCount = 0;
-  pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/pdf/2.pdf');
 
 
-  constructor( private sanitizer: DomSanitizer,   public modalService: ModalFreeService,private titleService: Title,
+  constructor( private sanitizer: DomSanitizer,   public modalService: ModalService,private titleService: Title,
                   private metaService: Meta
   ) {
     this.setSEOData();
@@ -28,7 +31,7 @@ export class ElectriciteComponent implements OnInit {
 
   }
   onShowModel() {
-    this.modalService.showMettingModalgaz();
+    this.modalService.showGazModal();
   }
   openPdf(event: MouseEvent) {
     const target = event.target as HTMLElement;

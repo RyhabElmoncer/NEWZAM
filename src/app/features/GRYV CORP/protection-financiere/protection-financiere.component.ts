@@ -1,19 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalFreeService } from "../../FreePro/modalFree.service";
-import { ActivatedRoute } from "@angular/router";
-import { UtilsService } from "../../../shared/services/utils.service";
-import { ApiService } from "../../../shared/services/api.service";
+
 import { DomSanitizer, Meta, Title } from "@angular/platform-browser";
+import {DecimalPipe, NgForOf} from '@angular/common';
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-protection-financiere',
+  selector: 'app-protection-financiere',
   templateUrl: './protection-financiere.component.html',
+  imports: [
+    DecimalPipe,
+    NgForOf
+  ],
   styleUrls: ['./protection-financiere.component.scss']
 })
 export class ProtectionFinanciereComponent implements OnInit {
 
   showPdfModal: boolean = false;
-  pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/pdf/gryv-guide.pdf');
 
   endValue = 125000; // Nombre de personnes déjà protégées
   displayedCount = 0;
@@ -116,7 +118,7 @@ export class ProtectionFinanciereComponent implements OnInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    public modalService: ModalFreeService,
+    public modalService: ModalService,
     private titleService: Title,
     private metaService: Meta
   ) {
@@ -154,7 +156,7 @@ export class ProtectionFinanciereComponent implements OnInit {
   }
 
   onShowModel() {
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 
   onSelectProfile(profile: string) {
@@ -169,7 +171,7 @@ export class ProtectionFinanciereComponent implements OnInit {
   onSubscribe(offre: any) {
     // Logique d'abonnement
     console.log('Abonnement à l\'offre:', offre);
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 
 

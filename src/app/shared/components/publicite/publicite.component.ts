@@ -455,7 +455,7 @@ export class PubliciteComponent implements OnInit, OnDestroy {
   // Affichage du modal
   onShowModel(): void {
     this.pauseAutoplay();
-    this.modalService.showMettingModal();
+    this.modalService.showDynamicModal();
 
     // Reprendre l'autoplay après fermeture du modal (simulation)
     setTimeout(() => {

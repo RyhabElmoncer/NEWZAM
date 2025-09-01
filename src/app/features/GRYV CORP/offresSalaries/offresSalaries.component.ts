@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalFreeService } from '../../FreePro/modalFree.service';
 import { DomSanitizer, Meta, Title } from '@angular/platform-browser';
+import {DecimalPipe, NgForOf} from '@angular/common';
+import {ModalService} from '../../../core/services/modal.service';
 
 @Component({
-  selector: 'molla-protection-financiere',
+  selector: 'app-protection-financiere',
   templateUrl: './offresSalaries.component.html',
+  imports: [
+    DecimalPipe,
+    NgForOf
+  ],
   styleUrls: ['./offresSalaries.component.scss']
 })
 export class OffresSalariesComponent implements OnInit {
 
   showPdfModal: boolean = false;
-  pdfUrl = this.sanitizer.bypassSecurityTrustResourceUrl('assets/pdf/gryv-guide.pdf');
 
   endValue = 125000; // Nombre de personnes déjà protégées
   displayedCount = 0;
@@ -51,7 +55,7 @@ export class OffresSalariesComponent implements OnInit {
 
   constructor(
     private sanitizer: DomSanitizer,
-    public modalService: ModalFreeService,
+    public modalService: ModalService,
     private titleService: Title,
     private metaService: Meta
   ) {
@@ -89,7 +93,7 @@ export class OffresSalariesComponent implements OnInit {
   }
 
   onShowModel() {
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 
   onSelectProfile(profile: string) {
@@ -102,6 +106,6 @@ export class OffresSalariesComponent implements OnInit {
 
   onSubscribe(offre: any) {
     console.log('Abonnement à l\'offre:', offre);
-    this.modalService.showMettingModagryvcorp();
+    this.modalService.showGrvvCorpModal();
   }
 }
