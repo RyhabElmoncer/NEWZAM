@@ -4,7 +4,7 @@
     <i class="fas fa-bars"></i>
   </button>
 
-  <!-- HEADER TOP - Barre d'informations -->
+  <!-- HEADER TOP - Barre d'informations
   <div class="header-top">
     <div [class]="containerClass">
       <div class="header-left">
@@ -21,31 +21,8 @@
           </li>
         </ul>
       </div>
-      <div class="header-right">
-        <div class="header-right">
-          <div class="social-icons">
-            <a href="https://wa.me/33756892743" class="social-icon" target="_blank">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://www.facebook.com/zoneadslmobile/" class="social-icon" target="_blank">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-icon" target="_blank">
-              <i class="fab fa-youtube"></i>
-            </a>
-            <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-icon" target="_blank">
-              <i class="fab fa-linkedin-in"></i>
-            </a>
-          </div>
-        </div>
-
-        <ul class="navbar_right">
-          <li class="me-3"><a routerLink="pages/contact">Contactez-nous</a></li>
-          <li><a routerLink="pages/votre-conseiller">Votre conseiller</a></li>
-        </ul>
-      </div>
     </div>
-  </div>
+  </div>-->
 
 
 
@@ -60,13 +37,17 @@
             </a>
           </li>
           <li class="nav-item">
+            <a routerLink="/actualites">Actualités</a>
+          </li>
+          <li class="nav-item">
             <a href="javascript:;">
               Box Internet <i class="icon-angle-down"></i>
             </a>
             <ul class="dropdown-menu">
               <li><a routerLink="/box-internet/adsl">ADSL</a></li>
               <li><a routerLink="/box-internet/fibre">Fibre</a></li>
-              <li><a routerLink="/box-internet/comparatif">Comparatif</a></li>
+              <li><a routerLink="/box-internet/comparatif">Box 4G</a></li>
+              <li><a routerLink="/box-internet/comparatif">Box 5G</a></li>
             </ul>
           </li>
           <li class="nav-item">
@@ -74,8 +55,10 @@
               Forfait Mobile <i class="icon-angle-down"></i>
             </a>
             <ul class="dropdown-menu">
-              <li><a routerLink="/mobile/forfait-sans-engagement">Sans engagement</a></li>
-              <li><a routerLink="/mobile/forfait-bloque">Forfait bloqué</a></li>
+              <li><a routerLink="/mobile/forfait-sans-engagement">Free</a></li>
+              <li><a routerLink="/mobile/forfait-bloque">Orange</a></li>
+              <li><a routerLink="/mobile/forfait-bloque">SFR</a></li>
+              <li><a routerLink="/mobile/forfait-bloque">Bouygues</a></li>
             </ul>
           </li>
           <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
@@ -83,16 +66,8 @@
             <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
               <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test éligibilité fibre</a></li>
               <li><a routerLink="/test-debit-internet" (click)="closeMobileMenu()">Test de débit internet</a></li>
-              <li><a routerLink="/test-debit-fibre" (click)="closeMobileMenu()">Test de débit internet fibre</a></li>
-              <li><a routerLink="/test-debit-4g" (click)="closeMobileMenu()">Test de débit internet 4G</a></li>
-              <li><a routerLink="/test-debit-5g" (click)="closeMobileMenu()">Test de débit internet 5G</a></li>
               <li><a routerLink="/reseau" (click)="closeMobileMenu()">Réseau</a></li>
-              <li><a routerLink="/reseau-mobile" (click)="closeMobileMenu()">Réseau mobile</a></li>
-              <li><a routerLink="/reseau-fixe" (click)="closeMobileMenu()">Réseau fixe</a></li>
             </ul>
-          </li>
-          <li class="nav-item">
-            <a routerLink="/actualites">Actualités</a>
           </li>
           <li class="nav-item has-dropdown">
             <a routerLink="/freepro" routerLinkActive="active">
@@ -120,12 +95,12 @@
             <a routerLink="/grvv-corp" routerLinkActive="active">
               GRVV CORP <i class="icon-angle-down"></i>
             </a>
+          </li>
 
-            <ul class="dropdown-menu">
-              <li><a routerLink="/grvv-corp/famille">Offres famille</a></li>
-              <li><a routerLink="/grvv-corp/salaries">Offres salariés</a></li>
-              <li><a routerLink="/grvv-corp/independant">Offres indépendants</a></li>
-            </ul>
+          <li class="nav-item has-dropdown">
+            <a routerLink="/assurance" routerLinkActive="active">
+              Assurance<i class="icon-angle-down"></i>
+            </a>
           </li>
 
         </ul>
@@ -140,9 +115,6 @@
                 <li>
                   <button (click)="onShowModel()" class="rappel">être rappelé</button>
                 </li>
-                <li>
-                  <button (click)="goToStepper()" class="rappel">Simulateur d'offres</button>
-                </li>
               </ul>
             </div>
           </div>
@@ -155,32 +127,17 @@
   <div class="mobile-nav" [class.active]="isMobileMenuOpen">
     <div class="mobile-nav-content" [class.active]="isMobileMenuOpen">
       <div class="mobile-nav-header">
-        <!-- Bouton fermeture à droite -->
-        <button class="close-btn" (click)="closeMobileMenu()">
-          <i class="fas fa-times"></i>
-        </button>
-
         <!-- Logo centré -->
         <a routerLink="/" class="logo" (click)="closeMobileMenu()">
           <img src="assets/images/zone_11.png" alt="zone adsl">
         </a>
       </div>
 
-      <!-- Icônes sociales ajoutées -->
-      <div class="mobile-social-icons">
-        <a href="https://wa.me/33756892743" class="social-icon" target="_blank">
-          <i class="fab fa-whatsapp"></i>
-        </a>
-        <a href="https://www.facebook.com/zoneadslmobile/" class="social-icon" target="_blank">
-          <i class="fab fa-facebook-f"></i>
-        </a>
-        <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-icon" target="_blank">
-          <i class="fab fa-youtube"></i>
-        </a>
-        <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-icon" target="_blank">
-          <i class="fab fa-linkedin-in"></i>
-        </a>
+      <!--Bottons-->
+      <div class="mobile-nav-actions">
+        <button (click)="onShowModel(); closeMobileMenu()" class="btn-action">être rappelé</button>
       </div>
+
 
       <ul class="mobile-nav-menu">
         <li class="nav-item">
@@ -212,12 +169,7 @@
           <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
             <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test éligibilité fibre</a></li>
             <li><a routerLink="/test-debit-internet" (click)="closeMobileMenu()">Test de débit internet</a></li>
-            <li><a routerLink="/test-debit-fibre" (click)="closeMobileMenu()">Test de débit internet fibre</a></li>
-            <li><a routerLink="/test-debit-4g" (click)="closeMobileMenu()">Test de débit internet 4G</a></li>
-            <li><a routerLink="/test-debit-5g" (click)="closeMobileMenu()">Test de débit internet 5G</a></li>
             <li><a routerLink="/reseau" (click)="closeMobileMenu()">Réseau</a></li>
-            <li><a routerLink="/reseau-mobile" (click)="closeMobileMenu()">Réseau mobile</a></li>
-            <li><a routerLink="/reseau-fixe" (click)="closeMobileMenu()">Réseau fixe</a></li>
           </ul>
         </li>
 
@@ -237,10 +189,22 @@
         </li>
       </ul>
 
-      <div class="mobile-nav-actions">
-        <button (click)="onShowModel(); closeMobileMenu()" class="btn-action">être rappelé</button>
-        <button (click)="goToStepper(); closeMobileMenu()" class="btn-action btn-secondary">Simulateur d'offres</button>
+      <!-- Icônes sociales ajoutées -->
+      <div class="mobile-social-icons">
+        <a href="https://wa.me/33756892743" class="social-icon" target="_blank">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+        <a href="https://www.facebook.com/zoneadslmobile/" class="social-icon" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-icon" target="_blank">
+          <i class="fab fa-youtube"></i>
+        </a>
+        <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-icon" target="_blank">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
       </div>
+
     </div>
   </div>
 </header>

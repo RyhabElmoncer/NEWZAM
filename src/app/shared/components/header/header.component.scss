@@ -6,6 +6,11 @@ $secondary-green: #10b981;
 $light-green: #34d399;
 $dark-green: #047857;
 $green-gradient: linear-gradient(135deg, #059669, #10b981);
+$primary-orange: #ffa600;
+$secondary-orange: #ff7300;
+$orange-gradient: linear-gradient(135deg, #ffa600, #ff7300);
+$light-orange: #ffaf46;
+$dark-orange: #d86b00;
 
 // Breakpoints
 $mobile: 480px;
@@ -741,6 +746,7 @@ $large: 1200px;
 
       @media (max-width: $mobile) {
         font-size: 16px;
+        background: $orange-gradient;
       }
     }
   }
@@ -751,7 +757,6 @@ $large: 1200px;
     position: fixed;
     top: 0;
     left: 0;
-    right: 0;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5);
     z-index: 1000;
@@ -765,7 +770,7 @@ $large: 1200px;
     .mobile-nav-content {
       position: absolute;
       top: 0;
-      right: 0;
+      left: 0;
       width: 280px;
       height: 100%;
       background: white;
@@ -789,7 +794,9 @@ $large: 1200px;
         align-items: center;
         padding-bottom: 20px;
         border-bottom: 1px solid #f3f4f6;
-        margin-bottom: 20px;
+        margin-top: 50px;
+        margin-bottom: 15px;
+
         flex-direction: row-reverse; // Inverser l'ordre pour avoir la croix à droite
 
         .logo {
@@ -815,9 +822,9 @@ $large: 1200px;
         display: flex;
         justify-content: center;
         gap: 15px;
-        margin-bottom: 20px;
-        padding-bottom: 15px;
-        border-bottom: 1px solid #f3f4f6;
+        margin-top: 20px;
+        padding-top: 15px;
+        border-top: 1px solid #f3f4f6;
 
         .social-icon {
           width: 40px;
@@ -948,13 +955,13 @@ $large: 1200px;
       }
 
       .mobile-nav-actions {
-        margin-top: 30px;
-        padding-top: 20px;
-        border-top: 1px solid #f3f4f6;
+        margin-bottom: 30px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #f3f4f6;
 
         .btn-action {
           width: 100%;
-          background: $green-gradient;
+          background: $orange-gradient;
           color: white;
           border: none;
           padding: 12px 20px;
@@ -967,17 +974,17 @@ $large: 1200px;
           transition: all 0.3s ease;
 
           &:hover {
-            background: linear-gradient(135deg, $dark-green, $primary-green);
+            background: linear-gradient(135deg, $dark-orange, $primary-orange);
             transform: translateY(-1px);
           }
 
           &.btn-secondary {
             background: white;
-            color: $primary-green;
-            border: 2px solid $primary-green;
+            color: $primary-orange;
+            border: 2px solid $primary-orange;
 
             &:hover {
-              background: $green-gradient;
+              background: $orange-gradient;
               color: white;
             }
           }
