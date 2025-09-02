@@ -61,16 +61,18 @@ $card-shadow: rgba(0, 0, 0, 0.1);
 
 /* ---------- Page content ---------- */
 .page-content {
-  background-color: $bg-color;
+  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 50%, #f0f9ff 100%);
   padding: 2rem 1rem;
   min-height: 100vh;
 }
 
 /* ---------- Container ---------- */
 .container {
-  max-width: 1200px;
+  max-width: 1400px;
+  width:100% ;
   margin: 0 auto;
-  background-color: $card-bg;
+  background: rgba(255, 255, 255, 0.31);
+  backdrop-filter: blur(100px);
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 20px $card-shadow;
