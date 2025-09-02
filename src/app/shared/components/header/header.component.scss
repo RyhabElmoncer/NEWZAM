@@ -45,8 +45,9 @@ $large: 1200px;
 
     .nav-left {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      gap: 30px;
+      gap: 100px;
 
       .logo {
         img {
@@ -268,7 +269,7 @@ $large: 1200px;
 
       .mobile-nav-header {
         display: flex;
-        justify-content: space-between;
+        justify-content: end;
         align-items: center;
         padding: 20px;
         background: white;
@@ -286,42 +287,6 @@ $large: 1200px;
 
             &:hover {
               transform: scale(1.05);
-            }
-          }
-        }
-
-        .close-btn {
-          background: #f3f4f6;
-          border: none;
-          width: 40px;
-          height: 40px;
-          border-radius: 8px;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-
-          @media (max-width: $mobile) {
-            width: 35px;
-            height: 35px;
-          }
-
-          i {
-            font-size: 16px;
-            color: #6b7280;
-            transition: color 0.3s ease;
-
-            @media (max-width: $mobile) {
-              font-size: 14px;
-            }
-          }
-
-          &:hover {
-            background: #fee2e2;
-
-            i {
-              color: #dc2626;
             }
           }
         }
@@ -387,7 +352,8 @@ $large: 1200px;
 
           > a, .dropdown-toggle {
             display: flex;
-            justify-content: space-between;
+            justify-content: start;
+            gap:0.8rem;
             align-items: center;
             padding: 16px 18px;
             color: #374151;
@@ -408,7 +374,7 @@ $large: 1200px;
 
               i {
                 width: 20px;
-                color: $primary-green;
+                color: gray;
                 font-size: 16px;
               }
             }
@@ -434,6 +400,10 @@ $large: 1200px;
                 transform: rotate(180deg);
                 color: $primary-green;
               }
+              i{
+                color:$primary-green;
+              }
+
             }
 
             .dropdown-menu {

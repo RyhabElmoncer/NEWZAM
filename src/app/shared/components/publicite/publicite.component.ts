@@ -75,7 +75,7 @@ export class PubliciteComponent implements OnInit, OnDestroy {
   private slideInterval?: ReturnType<typeof setInterval>;
   private progressInterval?: ReturnType<typeof setInterval>;
   slideProgress = 0;
-  private readonly SLIDE_DURATION = 3000; // 5 secondes
+  private readonly SLIDE_DURATION = 2500; // 5 secondes
   private readonly PROGRESS_INTERVAL = 100; // 100ms
   private isAutoplayPaused = false;
   private isUserInteracting = false;
