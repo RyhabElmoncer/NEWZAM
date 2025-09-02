@@ -10,7 +10,7 @@ import {
   inject
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
+import {Router, RouterModule} from '@angular/router';
 import { ApiService } from '../../../core/services/ApiService';
 import { ModalService } from '../../../core/services/modal.service';
 import {
@@ -96,7 +96,7 @@ export class PubliciteComponent implements OnInit, OnDestroy {
   // Préférences utilisateur
   private prefersReducedMotion = false;
 
-  constructor() {
+  constructor(private router: Router) {
     this.checkReducedMotionPreference();
   }
 
@@ -688,4 +688,30 @@ export class PubliciteComponent implements OnInit, OnDestroy {
     this.cacheProductImages();
     this.manageFocusState();
   }
+  navigateToADSL(): void {
+    this.router.navigate(['/adsl-offers']).catch(err => {
+      console.error('Erreur navigation ADSL:', err);
+    });
+  }
+
+  navigateToFibre(): void {
+    this.router.navigate(['/fibre-offers']).catch(err => {
+      console.error('Erreur navigation Fibre:', err);
+    });
+  }
+
+  navigateToBox4G(): void {
+    this.router.navigate(['/box-4g-offers']).catch(err => {
+      console.error('Erreur navigation Box 4G:', err);
+    });
+  }
+
+  navigateToMobile(): void {
+    this.router.navigate(['/mobile-offers']).catch(err => {
+      console.error('Erreur navigation Mobile:', err);
+    });
+  }
+
+
+
 }

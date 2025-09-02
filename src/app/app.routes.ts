@@ -20,7 +20,7 @@ import {RgpdComponent} from './shared/components/pages/rgpd/rgpd.component';
 import {MentionsLegalesComponent} from './shared/components/pages/mentions-legales/mentions-legales.component';
 import {ContactTwoPageComponent} from './shared/components/pages/contact-two/contact-two.component';
 import {ActualitesDetailComponent} from './features/actualites/actualites-detail/actualites-detail.component';
-import {ListBoxInternetComponent} from './features/boxinternet/list-box-internet/list-box-internet.component';
+//import {ListBoxInternetComponent} from './features/boxinternet/list-box-internet/list-box-internet.component';
 
 export const routes: Routes = [
   { path: '', component: AcceuilComponent, pathMatch: 'full' },

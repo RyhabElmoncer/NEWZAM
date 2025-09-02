@@ -1,38 +1,16 @@
 <header class="header header-intro-clearance header-4">
-  <!-- Bouton mobile à GAUCHE maintenant -->
+  <!-- Bouton mobile toggle avec icône dynamique -->
   <button class="mobile-menu-toggle d-lg-none" (click)="onMobileMenuClick($event)">
-    <i class="fas fa-bars"></i>
+    <i [class]="isMobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
   </button>
-
-  <!-- HEADER TOP - Barre d'informations
-  <div class="header-top">
-    <div [class]="containerClass">
-      <div class="header-left">
-        <a routerLink="/" class="logo">
-          <img src="assets/images/zone_11.png" alt="zone adsl">
-        </a>
-        <img src="assets/images/avis.png" alt="Avis">
-        <ul class="navbar_right">
-          <li class="callcenterIsOpen">
-            <a href="tel:+33980803537" class="phone_inbound">
-              <i class="icon-phone"></i> 09 80 80 35 37
-            </a>
-            <span class="freecall">Appel gratuit</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>-->
-
-
 
   <!-- NAVIGATION PRINCIPALE -->
   <div class="header-navigation">
     <div [class]="containerClass">
       <div class="nav-left">
-        <div class="logo" style="margin-right: 20px">
+        <div class="logo">
           <a routerLink="/">
-            <img src="assets/images/TELEVORA2.png" alt="Logo" class="logo-img" style="width: 150px; max-height: 50px">
+            <img src="assets/images/TELEVORA2.png" alt="Logo" class="logo-img">
           </a>
         </div>
         <ul class="main-nav">
@@ -42,181 +20,206 @@
             </a>
           </li>
           <li class="nav-item">
-            <a routerLink="/actualites">Actualités</a>
-          </li>
-          <li class="nav-item">
-
-            <a routerLink="/BoxInternet" routerLinkActive="active">
-              Box Internet <i class="icon-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/box-internet/adsl">ADSL</a></li>
-              <li><a routerLink="/box-internet/fibre">Fibre</a></li>
-              <li><a routerLink="/box-internet/comparatif">Box 4G</a></li>
-              <li><a routerLink="/box-internet/comparatif">Box 5G</a></li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="javascript:;">
-              Forfait Mobile <i class="icon-angle-down"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a routerLink="/mobile/forfait-sans-engagement">Free</a></li>
-              <li><a routerLink="/mobile/forfait-bloque">Orange</a></li>
-              <li><a routerLink="/mobile/forfait-bloque">SFR</a></li>
-              <li><a routerLink="/mobile/forfait-bloque">Bouygues</a></li>
-            </ul>
+            <a routerLink="/actualites" routerLinkActive="active">Actualités</a>
           </li>
           <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
-            <a routerLink="/test-debit" (click)="closeMobileMenu()">Test Débit <i class="icon-angle-down"></i></a>
-            <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
-              <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test éligibilité fibre</a></li>
-              <li><a routerLink="/test-debit-internet" (click)="closeMobileMenu()">Test de débit internet</a></li>
-              <li><a routerLink="/reseau" (click)="closeMobileMenu()">Réseau</a></li>
+            <a routerLink="/test-debit" (mouseenter)="openDropdown('testDebit')" (mouseleave)="closeDropdown('testDebit')">
+              Test Débit <i class="icon-angle-down"></i>
+            </a>
+            <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')"
+                (mouseenter)="openDropdown('testDebit')" (mouseleave)="closeDropdown('testDebit')">
+              <li><a routerLink="/test-eligibilite">Test éligibilité fibre</a></li>
+              <li><a routerLink="/test-debit-internet">Test de débit internet</a></li>
+              <li><a routerLink="/reseau">Réseau</a></li>
             </ul>
           </li>
-          <li class="nav-item has-dropdown">
-            <a routerLink="/freepro" routerLinkActive="active">
+          <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('freepro')">
+            <a routerLink="/freepro" routerLinkActive="active"
+               (mouseenter)="openDropdown('freepro')" (mouseleave)="closeDropdown('freepro')">
               FreePro <i class="icon-angle-down"></i>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" [class.open]="isDropdownOpen('freepro')"
+                (mouseenter)="openDropdown('freepro')" (mouseleave)="closeDropdown('freepro')">
               <li><a routerLink="/freepro/mobile">Free Mobile</a></li>
               <li><a routerLink="/freepro/box">Free Box</a></li>
             </ul>
           </li>
-          <li class="nav-item has-dropdown">
-            <a routerLink="/gaz-electricite" routerLinkActive="active">
+          <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('gazElec')">
+            <a routerLink="/gaz-electricite" routerLinkActive="active"
+               (mouseenter)="openDropdown('gazElec')" (mouseleave)="closeDropdown('gazElec')">
               Gaz & Électricité <i class="icon-angle-down"></i>
             </a>
-            <ul class="dropdown-menu">
+            <ul class="dropdown-menu" [class.open]="isDropdownOpen('gazElec')"
+                (mouseenter)="openDropdown('gazElec')" (mouseleave)="closeDropdown('gazElec')">
               <li><a routerLink="/gaz-electricite/gaz">Gaz</a></li>
               <li><a routerLink="/gaz-electricite/electricite">Électricité</a></li>
             </ul>
           </li>
-
-
-
-
-          <li class="nav-item has-dropdown">
-            <a routerLink="/grvv-corp" routerLinkActive="active">
+          <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('grvv')">
+            <a routerLink="/grvv-corp" routerLinkActive="active"
+               (mouseenter)="openDropdown('grvv')" (mouseleave)="closeDropdown('grvv')">
               GRVV CORP <i class="icon-angle-down"></i>
             </a>
+            <ul class="dropdown-menu" [class.open]="isDropdownOpen('grvv')"
+                (mouseenter)="openDropdown('grvv')" (mouseleave)="closeDropdown('grvv')">
+              <li><a routerLink="/grvv-corp/services">Nos Services</a></li>
+              <li><a routerLink="/grvv-corp/contact">Contact</a></li>
+            </ul>
           </li>
-
-          <li class="nav-item has-dropdown">
-            <a routerLink="/assurance" routerLinkActive="active">
-              Assurance<i class="icon-angle-down"></i>
+          <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('assurance')">
+            <a routerLink="/assurance" routerLinkActive="active"
+               (mouseenter)="openDropdown('assurance')" (mouseleave)="closeDropdown('assurance')">
+              Assurance <i class="icon-angle-down"></i>
             </a>
+            <ul class="dropdown-menu" [class.open]="isDropdownOpen('assurance')"
+                (mouseenter)="openDropdown('assurance')" (mouseleave)="closeDropdown('assurance')">
+              <li><a routerLink="/assurance/auto">Assurance Auto</a></li>
+              <li><a routerLink="/assurance/habitation">Assurance Habitation</a></li>
+            </ul>
           </li>
-
         </ul>
       </div>
 
-      <div class="sticky-wrapper" [style.height]="utilsService.isSticky ? utilsService.stickyHeight + 'px' : ''">
-        <div class="header-bottom sticky-header" [class.fixed]="utilsService.isSticky">
-          <div class="w-100 px-4 d-flex justify-content-between align-items-center" style="max-width: 1400px; margin: 0 auto;">
-            <div style="justify-content: center"></div>
-            <div class="header-right">
-              <ul class="navbar_right">
-                <li>
-                  <button (click)="onShowModel()" class="rappel">être rappelé</button>
-                </li>
-              </ul>
-            </div>
-          </div>
+      <!-- Bouton être rappelé en vert -->
+      <div class="nav-right">
+        <div class="action-buttons">
+          <button (click)="onShowModel()" class="btn-rappel">être rappelé</button>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- MENU MOBILE - MODIFIÉ avec icônes sociales -->
+  <!-- Sticky header -->
+
+  <!-- MENU MOBILE AMÉLIORÉ -->
+  <div class="mobile-nav-overlay" [class.active]="isMobileMenuOpen" (click)="closeMobileMenu()"></div>
   <div class="mobile-nav" [class.active]="isMobileMenuOpen">
     <div class="mobile-nav-content" [class.active]="isMobileMenuOpen">
+
+      <!-- Header mobile avec logo et bouton fermer -->
       <div class="mobile-nav-header">
-        <!-- Logo centré -->
-        <a routerLink="/">
-          <img src="assets/images/TELEVORA2.png" alt="Logo" class="logo-img" style="width: 150px; max-height: 50px">
+        <a routerLink="/" (click)="closeMobileMenu()">
+          <img src="assets/images/TELEVORA2.png" alt="Logo" class="logo-img">
         </a>
+        <button class="close-btn" (click)="closeMobileMenu()">
+          <i class="fas fa-times"></i>
+        </button>
       </div>
 
-      <!--Bottons-->
+      <!-- Bouton action principal -->
       <div class="mobile-nav-actions">
-        <button (click)="onShowModel(); closeMobileMenu()" class="btn-action">être rappelé</button>
+        <button (click)="onShowModel(); closeMobileMenu()" class="btn-rappel-mobile">
+          <i class="fas fa-phone"></i>
+          être rappelé
+        </button>
       </div>
 
-
+      <!-- Menu de navigation -->
       <ul class="mobile-nav-menu">
         <li class="nav-item">
-          <a routerLink="/" (click)="closeMobileMenu()">Accueil</a>
+          <a routerLink="/" (click)="closeMobileMenu()" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+            <i class="fas fa-home"></i>
+            Accueil
+          </a>
         </li>
         <li class="nav-item">
-          <a routerLink="/Actualites" (click)="closeMobileMenu()">Actualités</a>
-        </li>
-        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('boxInternet')">
-          <a href="javascript:void(0)" (click)="toggleMobileDropdown('boxInternet')">
-            Box Internet <i class="icon-angle-down"></i>
+          <a routerLink="/actualites" (click)="closeMobileMenu()" routerLinkActive="active">
+            <i class="fas fa-newspaper"></i>
+            Actualités
           </a>
-          <ul class="dropdown-menu" [class.open]="isDropdownOpen('boxInternet')">
-            <li><a routerLink="/box-internet/adsl" (click)="closeMobileMenu()">ADSL</a></li>
-            <li><a routerLink="/box-internet/fibre" (click)="closeMobileMenu()">Fibre</a></li>
-            <li><a routerLink="/box-internet/comparatif" (click)="closeMobileMenu()">Box 4G</a></li>
-            <li><a routerLink="/box-internet/comparatif" (click)="closeMobileMenu()">Box 5G</a></li>
-          </ul>
         </li>
-
-        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('forfaitMobile')">
-          <a href="javascript:void(0)" (click)="toggleMobileDropdown('forfaitMobile')">
-            Forfait Mobile <i class="icon-angle-down"></i>
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebitMobile')">
+          <a (click)="toggleDropdown('testDebitMobile')" class="dropdown-toggle">
+            <span>
+              <i class="fas fa-tachometer-alt"></i>
+              Test Débit
+            </span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
           </a>
-          <ul class="dropdown-menu" [class.open]="isDropdownOpen('forfaitMobile')">
-            <li><a routerLink="/mobile/forfait-sans-engagement" (click)="closeMobileMenu()">Free</a></li>
-            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">Orange</a></li>
-            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">SFR</a></li>
-            <li><a routerLink="/mobile/forfait-bloque" (click)="closeMobileMenu()">Bouygues</a></li>
-          </ul>
-        </li>
-        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('testDebit')">
-          <a routerLink="/test-debit" (click)="closeMobileMenu()">Test Débit <i class="icon-angle-down"></i></a>
-          <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebit')">
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('testDebitMobile')">
             <li><a routerLink="/test-eligibilite" (click)="closeMobileMenu()">Test éligibilité fibre</a></li>
             <li><a routerLink="/test-debit-internet" (click)="closeMobileMenu()">Test de débit internet</a></li>
             <li><a routerLink="/reseau" (click)="closeMobileMenu()">Réseau</a></li>
           </ul>
         </li>
-
-
-
-
-        <li class="nav-item">
-          <a routerLink="/freepro" (click)="closeMobileMenu()">FreePro</a>
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('freeproMobile')">
+          <a (click)="toggleDropdown('freeproMobile')" class="dropdown-toggle">
+            <span>
+              <i class="fas fa-wifi"></i>
+              FreePro
+            </span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('freeproMobile')">
+            <li><a routerLink="/freepro/mobile" (click)="closeMobileMenu()">Free Mobile</a></li>
+            <li><a routerLink="/freepro/box" (click)="closeMobileMenu()">Free Box</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a routerLink="/gaz-electricite" (click)="closeMobileMenu()">Gaz & Électricité</a>
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('gazElecMobile')">
+          <a (click)="toggleDropdown('gazElecMobile')" class="dropdown-toggle">
+            <span>
+              <i class="fas fa-bolt"></i>
+              Gaz & Électricité
+            </span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('gazElecMobile')">
+            <li><a routerLink="/gaz-electricite/gaz" (click)="closeMobileMenu()">Gaz</a></li>
+            <li><a routerLink="/gaz-electricite/electricite" (click)="closeMobileMenu()">Électricité</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a routerLink="/grvv-corp" (click)="closeMobileMenu()">GRVV CORP</a>
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('grvvMobile')">
+          <a (click)="toggleDropdown('grvvMobile')" class="dropdown-toggle">
+            <span>
+              <i class="fas fa-building"></i>
+              GRVV CORP
+            </span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('grvvMobile')">
+            <li><a routerLink="/grvv-corp/services" (click)="closeMobileMenu()">Nos Services</a></li>
+            <li><a routerLink="/grvv-corp/contact" (click)="closeMobileMenu()">Contact</a></li>
+          </ul>
         </li>
-        <li class="nav-item">
-          <a routerLink="/grvv-corp" (click)="closeMobileMenu()">Assurance</a>
+        <li class="nav-item has-dropdown" [class.open]="isDropdownOpen('assuranceMobile')">
+          <a (click)="toggleDropdown('assuranceMobile')" class="dropdown-toggle">
+            <span>
+              <i class="fas fa-shield-alt"></i>
+              Assurance
+            </span>
+            <i class="fas fa-chevron-down dropdown-arrow"></i>
+          </a>
+          <ul class="dropdown-menu" [class.open]="isDropdownOpen('assuranceMobile')">
+            <li><a routerLink="/assurance/auto" (click)="closeMobileMenu()">Assurance Auto</a></li>
+            <li><a routerLink="/assurance/habitation" (click)="closeMobileMenu()">Assurance Habitation</a></li>
+          </ul>
         </li>
       </ul>
 
-      <!-- Icônes sociales ajoutées -->
+      <!-- Icônes sociales -->
       <div class="mobile-social-icons">
-        <a href="https://wa.me/33756892743" class="social-icon" target="_blank">
+        <a href="https://wa.me/33756892743" class="social-icon whatsapp" target="_blank" rel="noopener">
           <i class="fab fa-whatsapp"></i>
         </a>
-        <a href="https://www.facebook.com/zoneadslmobile/" class="social-icon" target="_blank">
+        <a href="https://www.facebook.com/zoneadslmobile/" class="social-icon facebook" target="_blank" rel="noopener">
           <i class="fab fa-facebook-f"></i>
         </a>
-        <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-icon" target="_blank">
+        <a href="https://www.youtube.com/channel/UCvqCW_p1nmjJPdJ_bRDOfDA" class="social-icon youtube" target="_blank" rel="noopener">
           <i class="fab fa-youtube"></i>
         </a>
-        <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-icon" target="_blank">
+        <a href="https://www.linkedin.com/company/zoneadslmobile" class="social-icon linkedin" target="_blank" rel="noopener">
           <i class="fab fa-linkedin-in"></i>
         </a>
       </div>
 
+      <!-- Footer mobile -->
+      <div class="mobile-nav-footer">
+        <p class="contact-info">
+          <i class="fas fa-phone"></i>
+          <a href="tel:+33980803537">09 80 80 35 37</a>
+        </p>
+        <p class="copyright">© 2025 Televora. Tous droits réservés.</p>
+      </div>
     </div>
   </div>
 </header>
