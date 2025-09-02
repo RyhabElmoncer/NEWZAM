@@ -5,4 +5,8 @@
   padding-bottom:45%;
   position:relative;
 
+  @media (max-width: 768px) {
+    margin: 65px auto 20px;
+    padding-bottom:100%;
+  }
 }
